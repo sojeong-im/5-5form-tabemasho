@@ -25,10 +25,10 @@
 
       <!-- Quick Action Buttons -->
       <div class="flex items-center gap-2">
-        <button type="button" id="navGalleryBtn" class="text-xs font-bold px-3 py-1.5 rounded-full text-slate-600 hover:text-slate-900 hover:bg-slate-100 transition-colors">
-          📷 사진보기 (10)
+        <button type="button" id="navGalleryBtn" class="text-xs font-bold px-3 py-1.5 rounded-full text-slate-600 hover:text-slate-900 hover:bg-slate-100 transition-colors cursor-pointer">
+          📷 사진보기 (15)
         </button>
-        <button type="button" id="navApplyBtn" class="text-xs font-bold px-3.5 py-1.5 rounded-full bg-slate-900 text-white hover:bg-slate-800 transition-colors shadow-sm">
+        <button type="button" id="navApplyBtn" class="text-xs font-bold px-3.5 py-1.5 rounded-full bg-slate-900 text-white hover:bg-slate-800 transition-colors shadow-sm cursor-pointer">
           🍙 지원하기
         </button>
       </div>
@@ -54,8 +54,8 @@
 
     <!-- Description -->
     <p class="text-xs sm:text-sm text-slate-500 leading-relaxed max-w-lg mx-auto mb-8">
-      일본의 맛있는 음식 탐방부터 애니메이션 극장판 단체 관람,<br class="hidden sm:inline">
-      굿즈 팝업스토어 나들이까지 함께할 3기 멤버를 찾고 있어요!
+      오마카세·스시·장어덮밥 맛집부터 애니메이션 영화 관람,<br class="hidden sm:inline">
+      치이카와 팝업스토어 나들이까지 함께할 3기 멤버를 찾고 있어요!
     </p>
 
     <!-- ==================== THE TWO CORE BUTTONS ==================== -->
@@ -77,19 +77,19 @@
         class="secondary-btn w-full sm:w-1/2 py-4 px-6 rounded-2xl font-black text-sm sm:text-base flex items-center justify-center gap-2 cursor-pointer"
       >
         <span>📷</span>
-        <span>활동 사진 보기</span>
+        <span>활동 사진 보기 (15)</span>
       </button>
     </div>
 
     <!-- Meta Info Pills -->
     <div class="flex flex-wrap items-center justify-center gap-2 mt-8 text-[11px] font-semibold text-slate-400">
       <span class="px-2.5 py-1 bg-white rounded-full border border-slate-200">🗓️ 2026.09 — 2027.02</span>
-      <span class="px-2.5 py-1 bg-white rounded-full border border-slate-200">☕ 월 1~2회 정기 모임</span>
-      <span class="px-2.5 py-1 bg-white rounded-full border border-slate-200">✨ 취향 존중 모임</span>
+      <span class="px-2.5 py-1 bg-white rounded-full border border-slate-200">🍣 정기 미식 & 문화 모임</span>
+      <span class="px-2.5 py-1 bg-white rounded-full border border-slate-200">✨ 취향 존중 동아리</span>
     </div>
   </header>
 
-  <!-- ==================== SECTION: 활동 사진 갤러리 (10 Photos Bento) ==================== -->
+  <!-- ==================== SECTION: 활동 사진 갤러리 (15 Photos Bento) ==================== -->
   <section id="gallerySection" class="max-w-4xl mx-auto px-4 sm:px-6 mb-16 scroll-mt-20">
     <div class="bento-card p-6 sm:p-8 bg-white border border-slate-200/90">
       
@@ -101,62 +101,109 @@
             <span>MEMORIES & ACTIVITIES</span>
           </div>
           <h2 class="text-xl sm:text-2xl font-black text-slate-900 tracking-tight">
-            우리가 함께한 시간들 (10)
+            우리가 함께한 시간들 (15)
           </h2>
         </div>
 
         <!-- Filter Tags -->
         <div class="flex flex-wrap items-center gap-1.5">
           <button type="button" class="gallery-filter-btn px-3 py-1 rounded-full text-xs font-bold bg-slate-900 text-white transition-all cursor-pointer" data-filter="all">
-            전체 (10)
+            전체 (15)
           </button>
           <button type="button" class="gallery-filter-btn px-3 py-1 rounded-full text-xs font-bold bg-slate-100 text-slate-600 hover:bg-slate-200 transition-all cursor-pointer" data-filter="food">
-            🍜 맛집&카페
+            🍣 스시&맛집 (7)
+          </button>
+          <button type="button" class="gallery-filter-btn px-3 py-1 rounded-full text-xs font-bold bg-slate-100 text-slate-600 hover:bg-slate-200 transition-all cursor-pointer" data-filter="cafe">
+            ☕ 테마카페 (2)
           </button>
           <button type="button" class="gallery-filter-btn px-3 py-1 rounded-full text-xs font-bold bg-slate-100 text-slate-600 hover:bg-slate-200 transition-all cursor-pointer" data-filter="media">
-            🎬 영화&콘서트
+            🎬 영화&콘서트 (3)
           </button>
           <button type="button" class="gallery-filter-btn px-3 py-1 rounded-full text-xs font-bold bg-slate-100 text-slate-600 hover:bg-slate-200 transition-all cursor-pointer" data-filter="goods">
-            🛍️ 굿즈&팝업
+            🛍️ 굿즈&팝업 (3)
           </button>
         </div>
       </div>
 
-      <!-- Bento Photo Grid (10 Photos) -->
+      <!-- Bento Photo Grid (15 Photos) -->
       <div id="galleryGrid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3.5">
         
-        <!-- Photo 6: 치이카와 랜드 신주쿠 (굿즈/팝업) - Wide Featured -->
-        <div class="gallery-item h-64 gallery-trigger" data-category="goods" data-fullsrc="assets/gallery/activity_6.jpg" data-caption="💖 CHIIKAWA LAND SHINJUKU 포토존 (치이카와·하치와레·우사기)">
-          <img src="assets/gallery/activity_6.jpg" alt="치이카와 랜드 신주쿠" class="w-full h-full object-cover">
+        <!-- Photo 11: 장어덮밥 (스시/맛집) - Featured Wide -->
+        <div class="sm:col-span-2 gallery-item h-64 gallery-trigger" data-category="food" data-fullsrc="assets/gallery/activity_11.jpg" data-caption="🍱 숯불 향 가득한 일본 정통 장어덮밥 (우나기동/히츠마부시)">
+          <img src="assets/gallery/activity_11.jpg" alt="정통 장어덮밥" class="w-full h-full object-cover">
           <div class="overlay absolute inset-0 flex flex-col justify-end p-4 text-white">
-            <span class="text-[10px] font-bold uppercase tracking-wider text-pink-300">POP-UP & PHOTO</span>
-            <p class="text-sm font-bold">치이카와 랜드 신주쿠 포토존 💖</p>
-            <p class="text-xs text-slate-300 mt-0.5">귀여운 치이카와 삼총사와 함께한 힐링 나들이</p>
+            <span class="text-[10px] font-bold uppercase tracking-wider text-amber-300">FEATURED GOURMET</span>
+            <p class="text-sm font-bold">숯불 정통 장어덮밥 (히츠마부시) 🍱</p>
+            <p class="text-xs text-slate-300 mt-0.5">윤기 흐르는 특제 타레소스와 부드러운 장어의 풍미</p>
           </div>
         </div>
 
-        <!-- Photo 7: 마제소바 맛집 (음식) -->
-        <div class="gallery-item h-64 gallery-trigger" data-category="food" data-fullsrc="assets/gallery/activity_7.jpg" data-caption="🍜 노른자 톡 터뜨려 비벼먹는 정통 일식 마제소바 맛집">
+        <!-- Photo 12: 연어&참치 스시 (스시/맛집) -->
+        <div class="gallery-item h-64 gallery-trigger" data-category="food" data-fullsrc="assets/gallery/activity_12.jpg" data-caption="🍣 입안 가득 퍼지는 신선한 참치와 연어 스시 플레이트">
+          <img src="assets/gallery/activity_12.jpg" alt="연어 참치 초밥" class="w-full h-full object-cover">
+          <div class="overlay absolute inset-0 flex flex-col justify-end p-4 text-white">
+            <span class="text-[10px] font-bold uppercase tracking-wider text-rose-300">FRESH SUSHI</span>
+            <p class="text-sm font-bold">참치 & 연어 초밥 🍣</p>
+            <p class="text-xs text-slate-300 mt-0.5">두툼하고 신선한 제철 네타의 깊은 감칠맛</p>
+          </div>
+        </div>
+
+        <!-- Photo 15: 대방어 & 참치 초밥 (스시/맛집) -->
+        <div class="gallery-item h-60 gallery-trigger" data-category="food" data-fullsrc="assets/gallery/activity_15.jpg" data-caption="🍣 기름기 오른 대방어와 부드러운 참치 스시">
+          <img src="assets/gallery/activity_15.jpg" alt="대방어 참치 초밥" class="w-full h-full object-cover">
+          <div class="overlay absolute inset-0 flex flex-col justify-end p-4 text-white">
+            <span class="text-[10px] font-bold uppercase tracking-wider text-rose-300">SEASONAL SPECIAL</span>
+            <p class="text-xs sm:text-sm font-bold">제철 대방어 & 참치 스시 🍣</p>
+          </div>
+        </div>
+
+        <!-- Photo 13: 고등어/전어 초밥 (스시/맛집) -->
+        <div class="gallery-item h-60 gallery-trigger" data-category="food" data-fullsrc="assets/gallery/activity_13.jpg" data-caption="🐟 은빛 껍질의 예술, 정통 시메사바/히카리모노 초밥">
+          <img src="assets/gallery/activity_13.jpg" alt="시메사바 초밥" class="w-full h-full object-cover">
+          <div class="overlay absolute inset-0 flex flex-col justify-end p-4 text-white">
+            <span class="text-[10px] font-bold uppercase tracking-wider text-sky-300">HIKARIMONO</span>
+            <p class="text-xs sm:text-sm font-bold">정통 시메사바(초절임 고등어) 🐟</p>
+          </div>
+        </div>
+
+        <!-- Photo 14: 타레소스 장어초밥 (스시/맛집) -->
+        <div class="gallery-item h-60 gallery-trigger" data-category="food" data-fullsrc="assets/gallery/activity_14.jpg" data-caption="🥢 입에서 사르르 녹는 특제 타레소스 장어(우나기) 초밥">
+          <img src="assets/gallery/activity_14.jpg" alt="장어 초밥" class="w-full h-full object-cover">
+          <div class="overlay absolute inset-0 flex flex-col justify-end p-4 text-white">
+            <span class="text-[10px] font-bold uppercase tracking-wider text-amber-300">UNAGI SUSHI</span>
+            <p class="text-xs sm:text-sm font-bold">달콤짭조름 장어 초밥 🥢</p>
+          </div>
+        </div>
+
+        <!-- Photo 7: 마제소바 (스시/맛집) -->
+        <div class="gallery-item h-56 gallery-trigger" data-category="food" data-fullsrc="assets/gallery/activity_7.jpg" data-caption="🍜 노른자 톡 터뜨려 비벼먹는 정통 일식 마제소바 맛집">
           <img src="assets/gallery/activity_7.jpg" alt="일식 마제소바" class="w-full h-full object-cover">
           <div class="overlay absolute inset-0 flex flex-col justify-end p-4 text-white">
-            <span class="text-[10px] font-bold uppercase tracking-wider text-amber-300">GOURMET TRIP</span>
-            <p class="text-sm font-bold">일식 마제소바 맛집 탐방 🍜</p>
-            <p class="text-xs text-slate-300 mt-0.5">부추와 다진 고기, 계란 노른자의 환상적인 조화</p>
+            <span class="text-[10px] font-bold uppercase tracking-wider text-amber-300">RAMEN & NOODLES</span>
+            <p class="text-xs sm:text-sm font-bold">일식 마제소바 맛집 🍜</p>
           </div>
         </div>
 
-        <!-- Photo 10: 튀김 우동 한상 (음식) -->
-        <div class="gallery-item h-64 gallery-trigger" data-category="food" data-fullsrc="assets/gallery/activity_10.jpg" data-caption="🍤 바삭한 왕새우튀김과 따끈한 일본식 우동 정식">
+        <!-- Photo 10: 튀김 우동 한상 (스시/맛집) -->
+        <div class="gallery-item h-56 gallery-trigger" data-category="food" data-fullsrc="assets/gallery/activity_10.jpg" data-caption="🍤 바삭한 왕새우튀김과 따끈한 일본식 우동 정식">
           <img src="assets/gallery/activity_10.jpg" alt="튀김 우동 한상" class="w-full h-full object-cover">
           <div class="overlay absolute inset-0 flex flex-col justify-end p-4 text-white">
-            <span class="text-[10px] font-bold uppercase tracking-wider text-orange-300">JAPANESE DINING</span>
-            <p class="text-sm font-bold">일본식 튀김 우동 정식 🍤</p>
-            <p class="text-xs text-slate-300 mt-0.5">바삭한 에비텐과 깊은 육수의 만남</p>
+            <span class="text-[10px] font-bold uppercase tracking-wider text-orange-300">UDON SET</span>
+            <p class="text-xs sm:text-sm font-bold">바삭한 튀김 우동 정식 🍤</p>
+          </div>
+        </div>
+
+        <!-- Photo 6: 치이카와 랜드 신주쿠 (굿즈/팝업) -->
+        <div class="gallery-item h-56 gallery-trigger" data-category="goods" data-fullsrc="assets/gallery/activity_6.jpg" data-caption="💖 CHIIKAWA LAND SHINJUKU 포토존 (치이카와·하치와레·우사기)">
+          <img src="assets/gallery/activity_6.jpg" alt="치이카와 랜드 신주쿠" class="w-full h-full object-cover">
+          <div class="overlay absolute inset-0 flex flex-col justify-end p-4 text-white">
+            <span class="text-[10px] font-bold uppercase tracking-wider text-pink-300">CHIIKAWA LAND</span>
+            <p class="text-xs sm:text-sm font-bold">치이카와 랜드 신주쿠 💖</p>
           </div>
         </div>
 
         <!-- Photo 1: 극장판 영화관 엔딩 (영화) - 2-col on desktop -->
-        <div class="sm:col-span-2 gallery-item h-64 gallery-trigger" data-category="media" data-fullsrc="assets/gallery/activity_1.jpg" data-caption="🎬 극장판 일본 애니메이션 영화 단체 관람의 추억">
+        <div class="sm:col-span-2 gallery-item h-60 gallery-trigger" data-category="media" data-fullsrc="assets/gallery/activity_1.jpg" data-caption="🎬 극장판 일본 애니메이션 영화 단체 관람의 추억">
           <img src="assets/gallery/activity_1.jpg" alt="영화관 단체 관람" class="w-full h-full object-cover">
           <div class="overlay absolute inset-0 flex flex-col justify-end p-4 text-white">
             <span class="text-[10px] font-bold uppercase tracking-wider text-rose-300">CINEMA MEETUP</span>
@@ -165,18 +212,17 @@
           </div>
         </div>
 
-        <!-- Photo 9: 너의 이름은. 필름 콘서트 (영화/미디어) -->
-        <div class="gallery-item h-64 gallery-trigger" data-category="media" data-fullsrc="assets/gallery/activity_9.jpg" data-caption="🎼 <너의 이름은.> 오리지널 필름 콘서트 대형 포스터">
+        <!-- Photo 9: 너의 이름은. 필름 콘서트 (영화) -->
+        <div class="gallery-item h-60 gallery-trigger" data-category="media" data-fullsrc="assets/gallery/activity_9.jpg" data-caption="🎼 <너의 이름은.> 오리지널 필름 콘서트 대형 포스터">
           <img src="assets/gallery/activity_9.jpg" alt="너의 이름은 필름 콘서트" class="w-full h-full object-cover">
           <div class="overlay absolute inset-0 flex flex-col justify-end p-4 text-white">
             <span class="text-[10px] font-bold uppercase tracking-wider text-sky-300">FILM CONCERT</span>
-            <p class="text-sm font-bold">너의 이름은. 필름 콘서트 🎼</p>
-            <p class="text-xs text-slate-300 mt-0.5">신카이 마코토 명작의 감동을 오케스트라로!</p>
+            <p class="text-xs sm:text-sm font-bold">너의 이름은. 필름 콘서트 🎼</p>
           </div>
         </div>
 
-        <!-- Photo 8: 치이카와 콜라보 카페 (카페/맛집) -->
-        <div class="gallery-item h-56 gallery-trigger" data-category="food" data-fullsrc="assets/gallery/activity_8.jpg" data-caption="☕ 영화 치이카와 콜라보레이션 카페 쇼윈도">
+        <!-- Photo 8: 치이카와 콜라보 카페 (카페) -->
+        <div class="gallery-item h-56 gallery-trigger" data-category="cafe" data-fullsrc="assets/gallery/activity_8.jpg" data-caption="☕ 영화 치이카와 콜라보레이션 카페 쇼윈도">
           <img src="assets/gallery/activity_8.jpg" alt="치이카와 콜라보 카페" class="w-full h-full object-cover">
           <div class="overlay absolute inset-0 flex flex-col justify-end p-4 text-white">
             <span class="text-[10px] font-bold uppercase tracking-wider text-teal-300">COLLAB CAFE</span>
@@ -185,7 +231,7 @@
         </div>
 
         <!-- Photo 3: 테마 카페 & 코스터 (카페) -->
-        <div class="gallery-item h-56 gallery-trigger" data-category="food" data-fullsrc="assets/gallery/activity_3.jpg" data-caption="🥤 SPY x FAMILY 극장판 테마 음료 & 아냐 코스터">
+        <div class="gallery-item h-56 gallery-trigger" data-category="cafe" data-fullsrc="assets/gallery/activity_3.jpg" data-caption="🥤 SPY x FAMILY 극장판 테마 음료 & 아냐 코스터">
           <img src="assets/gallery/activity_3.jpg" alt="테마 카페 음료" class="w-full h-full object-cover">
           <div class="overlay absolute inset-0 flex flex-col justify-end p-4 text-white">
             <span class="text-[10px] font-bold uppercase tracking-wider text-amber-300">CAFE & DRINK</span>
@@ -223,9 +269,9 @@
       </div>
 
       <!-- Gallery to Form CTA Bar -->
-      <div class="mt-6 pt-5 border-t border-slate-100 flex flex-col sm:flex-row items-center justify-between gap-3 bg-slate-50/70 p-4 rounded-2xl">
+      <div class="mt-8 pt-5 border-t border-slate-100 flex flex-col sm:flex-row items-center justify-between gap-3 bg-slate-50/80 p-5 rounded-2xl">
         <div>
-          <p class="text-xs sm:text-sm font-bold text-slate-800">이런 다채로운 활동에 함께하고 싶으신가요? 🍙</p>
+          <p class="text-xs sm:text-sm font-bold text-slate-800">이런 맛있는 미식과 다채로운 활동에 함께하고 싶으신가요? 🍙</p>
           <p class="text-[11px] text-slate-500">부담 없이 편하게 3기 지원서를 작성해보세요!</p>
         </div>
         <button type="button" id="galleryToFormBtn" class="w-full sm:w-auto px-5 py-2.5 rounded-xl bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs shadow transition-all cursor-pointer">
@@ -420,7 +466,7 @@
             <input 
               type="text" 
               id="interestInput" 
-              placeholder="예: 요아소비 음악, 교토 여행, 치이카와, 마제소바 등"
+              placeholder="예: 스시 오마카세, 장어덮밥, 치이카와, 요아소비, 교토 여행 등"
               required
               class="modern-input"
             >
