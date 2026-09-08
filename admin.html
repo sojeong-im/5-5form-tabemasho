@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>타베마쇼 3기 | 관리자 대시보드</title>
+  
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="assets/style.css">
+  <style>
+    .font-jp { font-family: "Hiragino Kaku Gothic ProN", "Yu Gothic", "Meiryo", sans-serif; }
+    .font-display { font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
+  </style>
+</head>
+<body class="min-h-screen bg-slate-50 text-slate-800 antialiased selection:bg-slate-900 selection:text-white pb-20">
+
+  <!-- Header -->
+  <header class="bg-white border-b border-slate-200/80 sticky top-0 z-30 shadow-xs">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <a href="index.html" class="flex items-center gap-2 group">
+          <span class="text-2xl group-hover:rotate-12 transition-transform">🍙</span>
+          <span class="font-black text-slate-900 tracking-tight text-base sm:text-lg">TABEMASHO</span>
+        </a>
+        <span class="text-xs font-bold text-rose-600 bg-rose-50 border border-rose-100 px-2 py-0.5 rounded-full">
+          3기 관리자
+        </span>
+      </div>
+
+      <div class="flex items-center gap-2">
+        <a href="index.html" class="text-xs font-bold px-3 py-1.5 rounded-full bg-slate-100 text-slate-600 hover:bg-slate-200 transition-colors">
+          ← 폼 페이지로
+        </a>
+        <button id="logoutBtn" class="hidden text-xs font-bold px-3 py-1.5 rounded-full bg-rose-50 text-rose-600 hover:bg-rose-100 transition-colors cursor-pointer">
+          로그아웃
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="max-w-6xl mx-auto px-4 sm:px-6 pt-8 sm:pt-10">
+
+    <!-- ==================== Login Section ==================== -->
+    <section id="loginSection" class="max-w-md mx-auto my-12 bg-white rounded-3xl p-6 sm:p-8 border border-slate-200 shadow-sm text-center">
+      <div class="w-14 h-14 mx-auto mb-4 rounded-2xl bg-rose-50 border border-rose-100 flex items-center justify-center text-2xl text-rose-600">
+        🔐
+      </div>
+      <h2 class="text-xl font-black text-slate-900 tracking-tight mb-1">관리자 인증</h2>
+      <p class="text-xs text-slate-500 mb-6">타베마쇼 3기 지원자 명단을 확인하려면 비밀번호를 입력해주세요.</p>
+
+      <form id="loginForm" class="space-y-4">
+        <div>
+          <input 
+            type="password" 
+            id="adminPw" 
+            placeholder="비밀번호 5자리 입력" 
+            maxlength="10"
+            class="w-full px-4 py-3 text-center tracking-widest text-lg font-bold rounded-2xl border border-slate-200 focus:outline-hidden focus:border-slate-900 focus:ring-1 focus:ring-slate-900 bg-slate-50/50"
+            autofocus
+          >
+          <p id="loginError" class="hidden text-xs font-bold text-rose-600 mt-2">비밀번호가 일치하지 않습니다.</p>
+        </div>
+
+        <button 
+          type="submit" 
+          id="loginBtn"
+          class="w-full py-3.5 rounded-2xl bg-slate-900 text-white font-bold text-sm hover:bg-slate-800 transition-colors shadow-sm cursor-pointer"
+        >
+          접속하기
+        </button>
+      </form>
+    </section>
+
+    <!-- ==================== Dashboard Section ==================== -->
+    <section id="dashboardSection" class="hidden space-y-6">
+
+      <!-- Summary Stat Cards -->
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4">
+        <div class="bg-white p-4 sm:p-5 rounded-2xl border border-slate-200/80 shadow-xs">
+          <span class="text-[11px] font-bold text-slate-400 block uppercase tracking-wider">총 지원자</span>
+          <div class="flex items-baseline gap-1 mt-1">
+            <span id="statTotal" class="text-2xl sm:text-3xl font-black text-slate-900">0</span>
+            <span class="text-xs font-bold text-slate-500">명</span>
+          </div>
+        </div>
+
+        <div class="bg-white p-4 sm:p-5 rounded-2xl border border-slate-200/80 shadow-xs">
+          <span class="text-[11px] font-bold text-slate-400 block uppercase tracking-wider">성별 비율</span>
+          <div class="flex items-baseline gap-2 mt-1">
+            <span class="text-sm font-bold text-sky-600">남 <span id="statMale">0</span></span>
+            <span class="text-slate-300">/</span>
+            <span class="text-sm font-bold text-rose-600">여 <span id="statFemale">0</span></span>
+          </div>
+        </div>
+
+        <div class="bg-white p-4 sm:p-5 rounded-2xl border border-slate-200/80 shadow-xs">
+          <span class="text-[11px] font-bold text-slate-400 block uppercase tracking-wider">사진 첨부자</span>
+          <div class="flex items-baseline gap-1 mt-1">
+            <span id="statPhoto" class="text-2xl sm:text-3xl font-black text-emerald-600">0</span>
+            <span class="text-xs font-bold text-slate-500">명</span>
+          </div>
+        </div>
+
+        <div class="bg-white p-4 sm:p-5 rounded-2xl border border-slate-200/80 shadow-xs">
+          <span class="text-[11px] font-bold text-slate-400 block uppercase tracking-wider">데이터 상태</span>
+          <div class="flex items-center gap-1.5 mt-2">
+            <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+            <span class="text-xs font-bold text-slate-700">Firestore 연동됨</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Controls: Search, Filter, Refresh & Export -->
+      <div class="bg-white p-4 rounded-2xl border border-slate-200/80 shadow-xs flex flex-col sm:flex-row gap-3 items-stretch sm:items-center justify-between">
+        <div class="flex-1 flex gap-2">
+          <input 
+            type="text" 
+            id="searchInput" 
+            placeholder="이름, 학교, 학과, 지하철역, 연락처 검색..." 
+            class="w-full px-3.5 py-2 text-xs sm:text-sm rounded-xl border border-slate-200 focus:outline-hidden focus:border-slate-900 bg-slate-50/50"
+          >
+          <select id="genderFilter" class="px-3 py-2 text-xs rounded-xl border border-slate-200 bg-slate-50/50 text-slate-700">
+            <option value="all">성별 전체</option>
+            <option value="남성">남성</option>
+            <option value="여성">여성</option>
+          </select>
+        </div>
+
+        <div class="flex items-center gap-2">
+          <button 
+            type="button" 
+            id="refreshBtn" 
+            class="px-3 py-2 text-xs font-bold rounded-xl border border-slate-200 hover:bg-slate-50 text-slate-700 transition-colors flex items-center gap-1.5 cursor-pointer"
+          >
+            <span>🔄</span> 새로고침
+          </button>
+          <button 
+            type="button" 
+            id="exportCsvBtn" 
+            class="px-3 py-2 text-xs font-bold rounded-xl bg-slate-900 text-white hover:bg-slate-800 transition-colors flex items-center gap-1.5 cursor-pointer"
+          >
+            <span>📥</span> CSV 내보내기
+          </button>
+        </div>
+      </div>
+
+      <!-- Applicants Table -->
+      <div class="bg-white rounded-2xl border border-slate-200/80 shadow-xs overflow-hidden">
+        <div class="overflow-x-auto">
+          <table class="w-full text-left border-collapse text-xs">
+            <thead>
+              <tr class="bg-slate-50/80 border-b border-slate-200 text-slate-500 font-bold uppercase tracking-wider">
+                <th class="py-3 px-4">제출일시</th>
+                <th class="py-3 px-4">사진</th>
+                <th class="py-3 px-4">이름 / 성별 (나이)</th>
+                <th class="py-3 px-4">연락처</th>
+                <th class="py-3 px-4">소속 / 상태</th>
+                <th class="py-3 px-4">가까운 역</th>
+                <th class="py-3 px-4">희망 활동</th>
+                <th class="py-3 px-4 text-center">상세보기</th>
+              </tr>
+            </thead>
+            <tbody id="tableBody" class="divide-y divide-slate-100 font-medium text-slate-700">
+              <tr>
+                <td colspan="8" class="text-center py-12 text-slate-400">
+                  데이터를 불러오는 중입니다...
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+    </section>
+
+  </main>
+
+  <!-- ==================== Applicant Detail Modal ==================== -->
+  <div id="detailModal" class="hidden fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 bg-slate-900/60 backdrop-blur-sm">
+    <div class="bg-white max-w-2xl w-full rounded-3xl p-5 sm:p-7 max-h-[90vh] overflow-y-auto border border-slate-200 shadow-2xl relative">
+      
+      <!-- Close Button -->
+      <button type="button" id="detailModalClose" class="absolute top-4 right-4 w-8 h-8 rounded-full bg-slate-100 hover:bg-slate-200 flex items-center justify-center text-slate-600 transition-colors cursor-pointer">
+        ✕
+      </button>
+
+      <!-- Modal Header -->
+      <div class="flex items-start gap-4 mb-6 pb-4 border-b border-slate-100">
+        <div id="detailPhotoContainer" class="w-16 h-16 rounded-2xl bg-slate-100 border border-slate-200 overflow-hidden shrink-0 flex items-center justify-center text-2xl">
+          <img id="detailPhoto" src="" alt="지원자 사진" class="w-full h-full object-cover hidden">
+          <span id="detailPhotoPlaceholder">👤</span>
+        </div>
+        <div>
+          <div class="flex items-center gap-2">
+            <h3 id="detailName" class="text-xl font-black text-slate-900 tracking-tight">-</h3>
+            <span id="detailGenderAge" class="text-xs font-bold px-2 py-0.5 rounded-full bg-slate-100 text-slate-600">-</span>
+          </div>
+          <p id="detailSub" class="text-xs text-slate-500 mt-0.5">-</p>
+          <p id="detailPhone" class="text-xs font-mono font-bold text-slate-700 mt-1">-</p>
+        </div>
+      </div>
+
+      <!-- Detailed Fields -->
+      <div class="space-y-4 text-xs">
+        <div>
+          <span class="font-bold text-slate-400 block mb-1">⛩️ 타베마쇼 지원 이유</span>
+          <div id="detailReasons" class="p-3 bg-slate-50 rounded-xl border border-slate-100 leading-relaxed text-slate-800">
+            -
+          </div>
+        </div>
+
+        <div>
+          <span class="font-bold text-slate-400 block mb-1">🌸 일본 관련 관심사 / 계기</span>
+          <div id="detailInterest" class="p-3 bg-slate-50 rounded-xl border border-slate-100 leading-relaxed text-slate-800 whitespace-pre-wrap">
+            -
+          </div>
+        </div>
+
+        <div>
+          <span class="font-bold text-slate-400 block mb-1">🍡 하고 싶은 활동 & 아이디어</span>
+          <div id="detailActivities" class="p-3 bg-slate-50 rounded-xl border border-slate-100 leading-relaxed text-slate-800">
+            -
+          </div>
+        </div>
+
+        <div>
+          <span class="font-bold text-slate-400 block mb-1">📅 참여 가능한 요일 및 시간대</span>
+          <div id="detailTimeSlots" class="p-3 bg-slate-50 rounded-xl border border-slate-100 flex flex-wrap gap-1.5">
+            -
+          </div>
+        </div>
+
+        <div>
+          <span class="font-bold text-slate-400 block mb-1">💌 3기 부원들과 함께 나누고 싶은 기대</span>
+          <div id="detailExpectations" class="p-3 bg-slate-50 rounded-xl border border-slate-100 leading-relaxed text-slate-800 whitespace-pre-wrap">
+            -
+          </div>
+        </div>
+
+        <div class="pt-2 flex justify-between items-center text-[11px] text-slate-400 border-t border-slate-100">
+          <span>제출 시각: <strong id="detailSubmittedAt" class="font-mono text-slate-600">-</strong></span>
+          <button type="button" onclick="window.print()" class="text-slate-600 hover:text-slate-900 font-bold underline cursor-pointer">
+            인쇄하기
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Admin Script -->
+  <script type="module" src="assets/admin.js"></script>
+</body>
+</html>

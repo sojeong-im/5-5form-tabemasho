@@ -1,4 +1,20 @@
 // Tabemasho 3rd Gen Application Form - Portal View & Gallery Logic
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.13.0/firebase-app.js";
+import { getFirestore, collection, addDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.13.0/firebase-firestore.js";
+
+// Firebase Configuration (tabemasho-form)
+const firebaseConfig = {
+  apiKey: "AIzaSyCEQLT23zRDt5t5-44nI4lGqLy55eNN2JY",
+  authDomain: "tabemasho-form.firebaseapp.com",
+  projectId: "tabemasho-form",
+  storageBucket: "tabemasho-form.firebasestorage.app",
+  messagingSenderId: "876938488409",
+  appId: "1:876938488409:web:d45c3c7f78c0667ae39f48"
+};
+
+// Initialize Firebase App and Cloud Firestore
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
 
 document.addEventListener('DOMContentLoaded', () => {
   // State
@@ -860,7 +876,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (!form) return;
 
-    form.addEventListener('submit', (e) => {
+    form.addEventListener('submit', async (e) => {
       e.preventDefault();
 
       const errors = [];
@@ -884,26 +900,71 @@ document.addEventListener('DOMContentLoaded', () => {
         return;
       }
 
-      triggerConfetti();
+      const submitBtn = document.getElementById('submitFormBtn');
+      const originalBtnContent = submitBtn ? submitBtn.innerHTML : '';
 
-      // Populate Success Modal
-      const summaryName = document.getElementById('modalSummaryName');
-      const summaryDept = document.getElementById('modalSummaryDept');
-      const summaryPhoto = document.getElementById('modalSummaryPhoto');
+      try {
+        if (submitBtn) {
+          submitBtn.disabled = true;
+          submitBtn.innerHTML = `
+            <span class="inline-block animate-spin mr-1">⏳</span>
+            <span>파이어베이스 저장 중...</span>
+          `;
+        }
 
-      if (summaryName) summaryName.innerText = formData.name;
-      if (summaryDept) summaryDept.innerText = `${formData.schoolDept} (${formData.birthYear}년생)`;
-      if (summaryPhoto && formData.photoDataUrl) {
-        summaryPhoto.src = formData.photoDataUrl;
-        summaryPhoto.parentElement.classList.remove('hidden');
+        const applicantData = {
+          name: formData.name.trim(),
+          birthYear: formData.birthYear,
+          gender: formData.gender,
+          schoolDept: formData.schoolDept.trim(),
+          status: formData.status === '기타' && formData.statusOther ? `기타 (${formData.statusOther})` : formData.status,
+          subway: formData.subway.trim(),
+          phone: formData.phone.trim(),
+          reasons: formData.reasons,
+          reasonOther: formData.reasonOther || '',
+          interest: formData.interest.trim(),
+          activities: formData.activities,
+          activityOther: formData.activityOther || '',
+          timeSlots: formData.timeSlots,
+          expectations: formData.expectations.trim(),
+          photoDataUrl: formData.photoDataUrl || '',
+          agreements: formData.agreements,
+          createdAt: new Date().toISOString(),
+          timestamp: Date.now()
+        };
+
+        // Firestore 컬렉션 'tabemasho_applicants'에 문서 저장
+        await addDoc(collection(db, "tabemasho_applicants"), applicantData);
+
+        triggerConfetti();
+
+        // Populate Success Modal
+        const summaryName = document.getElementById('modalSummaryName');
+        const summaryDept = document.getElementById('modalSummaryDept');
+        const summaryPhoto = document.getElementById('modalSummaryPhoto');
+
+        if (summaryName) summaryName.innerText = formData.name;
+        if (summaryDept) summaryDept.innerText = `${formData.schoolDept} (${formData.birthYear}년생)`;
+        if (summaryPhoto && formData.photoDataUrl) {
+          summaryPhoto.src = formData.photoDataUrl;
+          summaryPhoto.parentElement.classList.remove('hidden');
+        }
+
+        if (modal) {
+          modal.classList.remove('hidden');
+          document.body.style.overflow = 'hidden';
+        }
+
+        localStorage.removeItem('tabemasho_form_draft');
+      } catch (err) {
+        console.error("Firestore 저장 오류:", err);
+        showToast('지원서 저장 중 오류가 발생했습니다. 다시 시도해주세요.', 'error');
+      } finally {
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.innerHTML = originalBtnContent;
+        }
       }
-
-      if (modal) {
-        modal.classList.remove('hidden');
-        document.body.style.overflow = 'hidden';
-      }
-
-      localStorage.removeItem('tabemasho_form_draft');
     });
 
     if (modalCloseBtn && modal) {
