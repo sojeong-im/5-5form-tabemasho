@@ -17,80 +17,150 @@
   <!-- ==================== Sticky Navigation Bar ==================== -->
   <nav class="sticky top-0 z-40 bg-white/85 backdrop-blur-md border-b border-slate-200/80 transition-all">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 h-14 flex items-center justify-between">
-      <a href="#" class="flex items-center gap-2">
-        <span class="text-xl">🍙</span>
+      <a href="#" id="navLogo" class="flex items-center gap-2 cursor-pointer group">
+        <span class="text-xl group-hover:rotate-12 transition-transform">🍙</span>
         <span class="font-black text-slate-900 tracking-tight text-sm sm:text-base font-display">TABEMASHO</span>
-        <span class="text-[10px] font-bold text-rose-600 bg-rose-50 px-1.5 py-0.5 rounded font-mono">03</span>
+        <span class="text-[10px] font-bold text-rose-600 bg-rose-50 border border-rose-100 px-1.5 py-0.5 rounded font-mono">03</span>
       </a>
 
       <!-- Quick Action Buttons -->
       <div class="flex items-center gap-2">
-        <button type="button" id="navGalleryBtn" class="text-xs font-bold px-3 py-1.5 rounded-full text-slate-600 hover:text-slate-900 hover:bg-slate-100 transition-colors cursor-pointer">
+        <button type="button" id="navGalleryBtn" class="btn-go-gallery text-xs font-bold px-3 py-1.5 rounded-full text-slate-600 hover:text-slate-900 hover:bg-slate-100 transition-colors cursor-pointer">
           📷 사진보기 (25)
         </button>
-        <button type="button" id="navApplyBtn" class="text-xs font-bold px-3.5 py-1.5 rounded-full bg-slate-900 text-white hover:bg-slate-800 transition-colors shadow-sm cursor-pointer">
+        <button type="button" id="navApplyBtn" class="btn-go-form text-xs font-bold px-3.5 py-1.5 rounded-full bg-slate-900 text-white hover:bg-slate-800 transition-colors shadow-sm cursor-pointer">
           🍙 지원하기
         </button>
       </div>
     </div>
   </nav>
 
-  <!-- ==================== Hero Entrance Gateway ==================== -->
-  <header class="max-w-3xl mx-auto px-4 sm:px-6 pt-10 sm:pt-16 pb-12 text-center">
-    <!-- Club Subtitle Badge -->
-    <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-100 border border-slate-200 text-slate-700 text-xs font-bold tracking-wider uppercase mb-5 font-display shadow-sm">
-      <span>🇯🇵 JAPANESE CULTURE CLUB</span>
-      <span class="w-1.5 h-1.5 rounded-full bg-rose-500"></span>
-      <span class="text-rose-600">3기 부원 모집</span>
+  <!-- ==================== VIEW 1: JAPANESE AESTHETIC PORTAL (홈 화면) ==================== -->
+  <section id="homeView" class="view-container max-w-3xl mx-auto px-4 sm:px-6 pt-10 sm:pt-16 pb-16 text-center">
+    
+    <!-- Top Japanese Seal & Badge -->
+    <div class="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-white border border-slate-200/90 shadow-xs mb-6">
+      <span class="text-rose-600 text-sm">⛩️</span>
+      <span class="text-xs font-bold text-slate-700 tracking-wider">日本文化交流サークル</span>
+      <span class="w-1 h-1 rounded-full bg-rose-400"></span>
+      <span class="text-xs font-bold text-rose-600">3기 부원 모집</span>
+      <span class="hanko-seal text-[10px] ml-1">歓迎</span>
     </div>
 
-    <!-- Main Catchy Title -->
-    <h1 class="text-3xl sm:text-5xl font-black text-slate-900 tracking-tight leading-tight mb-3 font-display">
-      타베마쇼 <span class="text-rose-600 font-jp">食べましょう</span>
-    </h1>
-    <p class="text-base sm:text-lg font-bold text-slate-700 mb-4">
-      함께 맛보고, 여행하고, 나누는 일본 문화 소모임
+    <!-- Main Japanese Title & Logo Header -->
+    <div class="relative py-2 mb-4">
+      <!-- Watermark kanji -->
+      <div class="absolute inset-0 flex items-center justify-center opacity-5 select-none pointer-events-none -z-10">
+        <span class="text-8xl sm:text-9xl font-serif text-slate-900 font-black">和</span>
+      </div>
+
+      <h1 class="font-black tracking-tight leading-none">
+        <ruby class="text-4xl sm:text-6xl text-rose-600 font-jp font-black tracking-wide block mb-1">
+          食べましょう<rt class="text-[11px] sm:text-xs text-rose-400 font-sans tracking-widest uppercase">Tabemasho</rt>
+        </ruby>
+        <span class="text-2xl sm:text-3xl text-slate-900 font-extrabold tracking-tight font-display">
+          타베마쇼 3기 모집
+        </span>
+      </h1>
+    </div>
+
+    <!-- Japanese Tagline -->
+    <p class="font-jp text-slate-500 text-xs sm:text-sm font-semibold tracking-wide mb-2">
+      「おいしい瞬間、一緒につくる日本の旅。」
     </p>
 
-    <!-- Description -->
-    <p class="text-xs sm:text-sm text-slate-500 leading-relaxed max-w-lg mx-auto mb-8">
+    <!-- Subtitle Description -->
+    <p class="text-xs sm:text-sm text-slate-600 font-normal leading-relaxed max-w-md mx-auto mb-10">
       도쿄 스카이트리 & 교토 산책, 스시·규카츠 맛집 탐방부터<br class="hidden sm:inline">
-      애니메이션 극장판 관람까지 함께할 3기 멤버를 찾고 있어요!
+      극장판 애니메이션 관람까지 함께할 3기 멤버를 찾고 있어요!
     </p>
 
-    <!-- ==================== THE TWO CORE BUTTONS ==================== -->
-    <div class="flex flex-col sm:flex-row items-center justify-center gap-3.5 max-w-md mx-auto">
-      <!-- Button 1: Apply Now -->
+    <!-- ==================== THE TWO CORE BUTTONS (FOCAL POINT) ==================== -->
+    <div class="flex flex-col sm:flex-row items-stretch justify-center gap-3.5 max-w-md mx-auto mb-12">
+      
+      <!-- Button 1: Apply Now (3기 지원하기) -->
       <button 
         type="button" 
         id="heroApplyBtn" 
-        class="cta-button w-full sm:w-1/2 py-4 px-6 rounded-2xl text-white font-black text-sm sm:text-base flex items-center justify-center gap-2 shadow-lg cursor-pointer"
+        class="portal-btn-apply group py-4 px-6 rounded-2xl flex items-center justify-between sm:justify-center gap-3 cursor-pointer text-left sm:text-center flex-1"
       >
-        <span>🍙</span>
-        <span>3기 지원하기</span>
+        <div class="flex items-center gap-3">
+          <span class="text-2xl group-hover:scale-110 transition-transform">🍙</span>
+          <div>
+            <span class="block text-[10px] font-bold text-rose-400 tracking-wider font-mono">STEP 01</span>
+            <span class="text-base sm:text-lg font-black tracking-tight text-white">3기 지원하기</span>
+          </div>
+        </div>
+        <span class="text-slate-400 group-hover:translate-x-1 transition-transform text-lg">→</span>
       </button>
 
-      <!-- Button 2: View Photos -->
+      <!-- Button 2: View Photos (활동 사진 보기) -->
       <button 
         type="button" 
         id="heroGalleryBtn" 
-        class="secondary-btn w-full sm:w-1/2 py-4 px-6 rounded-2xl font-black text-sm sm:text-base flex items-center justify-center gap-2 cursor-pointer"
+        class="portal-btn-gallery group py-4 px-6 rounded-2xl flex items-center justify-between sm:justify-center gap-3 cursor-pointer text-left sm:text-center flex-1"
       >
-        <span>📷</span>
-        <span>활동 사진 보기 (25)</span>
+        <div class="flex items-center gap-3">
+          <span class="text-2xl group-hover:scale-110 transition-transform">📷</span>
+          <div>
+            <span class="block text-[10px] font-bold text-slate-400 tracking-wider font-mono">ARCHIVE (25)</span>
+            <span class="text-base sm:text-lg font-black tracking-tight text-slate-900">활동 사진 보기</span>
+          </div>
+        </div>
+        <span class="text-slate-400 group-hover:translate-x-1 transition-transform text-lg">→</span>
+      </button>
+
+    </div>
+
+    <!-- Japanese Aesthetic Highlights (3 Pillars Bento) -->
+    <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 max-w-lg mx-auto text-left mb-8">
+      <div class="bento-card p-4 bg-white/90">
+        <div class="text-xl mb-1.5">🍣</div>
+        <h4 class="text-xs font-bold text-slate-900 mb-0.5">정기 미식 탐방</h4>
+        <p class="text-[11px] text-slate-500 leading-snug">스시, 규카츠, 라멘, 일본식 디저트 맛집 도장깨기</p>
+      </div>
+
+      <div class="bento-card p-4 bg-white/90">
+        <div class="text-xl mb-1.5">⛩️</div>
+        <h4 class="text-xs font-bold text-slate-900 mb-0.5">여행 & 문화 감성</h4>
+        <p class="text-[11px] text-slate-500 leading-snug">도쿄·교토 랜선&실전 여행 꿀팁과 일본 문화 교류</p>
+      </div>
+
+      <div class="bento-card p-4 bg-white/90">
+        <div class="text-xl mb-1.5">🎬</div>
+        <h4 class="text-xs font-bold text-slate-900 mb-0.5">영화 & 팝업스토어</h4>
+        <p class="text-[11px] text-slate-500 leading-snug">애니 극장판 단체 관람, 치이카와·지브리 굿즈 탐방</p>
+      </div>
+    </div>
+
+    <!-- Meta Info Strip -->
+    <div class="inline-flex flex-wrap items-center justify-center gap-2 text-[11px] font-medium text-slate-500 bg-white/70 px-4 py-2 rounded-full border border-slate-200 shadow-xs">
+      <span>🗓️ 2026.09 — 2027.02</span>
+      <span class="text-slate-300">•</span>
+      <span>📍 서울 & 수도권 모임</span>
+      <span class="text-slate-300">•</span>
+      <span>✨ 일본어 실력 무관 누구나 환영</span>
+    </div>
+
+  </section>
+
+
+  <!-- ==================== VIEW 2: 활동 사진 갤러리 (25 Photos View) ==================== -->
+  <section id="galleryView" class="view-container view-hidden max-w-4xl mx-auto px-4 sm:px-6 mb-16 scroll-mt-20">
+    
+    <!-- Top Back / Action Bar -->
+    <div class="flex items-center justify-between gap-3 mb-6">
+      <button type="button" class="btn-back-home inline-flex items-center gap-2 text-xs font-bold text-slate-700 hover:text-slate-950 px-4 py-2 rounded-full bg-white border border-slate-200/90 shadow-xs hover:border-slate-400 transition-all cursor-pointer">
+        <span class="text-sm">←</span>
+        <span>메인으로 돌아가기</span>
+      </button>
+
+      <button type="button" class="btn-go-form inline-flex items-center gap-2 text-xs font-bold text-white bg-slate-900 hover:bg-slate-800 px-4 py-2 rounded-full shadow-xs hover:shadow-md transition-all cursor-pointer">
+        <span>🍙</span>
+        <span>3기 지원서 작성하기</span>
       </button>
     </div>
 
-    <!-- Meta Info Pills -->
-    <div class="flex flex-wrap items-center justify-center gap-2 mt-8 text-[11px] font-semibold text-slate-400">
-      <span class="px-2.5 py-1 bg-white rounded-full border border-slate-200">🗓️ 2026.09 — 2027.02</span>
-      <span class="px-2.5 py-1 bg-white rounded-full border border-slate-200">🍣 정기 미식 & 여행·문화</span>
-      <span class="px-2.5 py-1 bg-white rounded-full border border-slate-200">✨ 취향 존중 동아리</span>
-    </div>
-  </header>
-
-  <!-- ==================== SECTION: 활동 사진 갤러리 (25 Photos Bento) ==================== -->
-  <section id="gallerySection" class="max-w-4xl mx-auto px-4 sm:px-6 mb-16 scroll-mt-20">
     <div class="bento-card p-6 sm:p-8 bg-white border border-slate-200/90">
       
       <!-- Section Header & Filter Pills -->
@@ -371,18 +441,31 @@
           <p class="text-xs sm:text-sm font-bold text-slate-800">이런 미식과 일본 여행, 다채로운 활동에 함께하고 싶으신가요? 🍙</p>
           <p class="text-[11px] text-slate-500">부담 없이 편하게 3기 지원서를 작성해보세요!</p>
         </div>
-        <button type="button" id="galleryToFormBtn" class="w-full sm:w-auto px-5 py-2.5 rounded-xl bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs shadow transition-all cursor-pointer">
+        <button type="button" id="galleryToFormBtn" class="btn-go-form w-full sm:w-auto px-5 py-2.5 rounded-xl bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs shadow transition-all cursor-pointer">
           지금 3기 지원하기 →
         </button>
       </div>
     </div>
   </section>
 
-  <!-- ==================== SECTION: 지원서 작성 ==================== -->
-  <section id="formSection" class="max-w-2xl mx-auto px-4 sm:px-6 space-y-6 scroll-mt-20">
+  <!-- ==================== VIEW 3: 지원서 작성 (Application Form View) ==================== -->
+  <section id="formView" class="view-container view-hidden max-w-2xl mx-auto px-4 sm:px-6 space-y-6 scroll-mt-20">
+
+    <!-- Top Back / Action Bar -->
+    <div class="flex items-center justify-between gap-3 pt-2">
+      <button type="button" class="btn-back-home inline-flex items-center gap-2 text-xs font-bold text-slate-700 hover:text-slate-950 px-4 py-2 rounded-full bg-white border border-slate-200/90 shadow-xs hover:border-slate-400 transition-all cursor-pointer">
+        <span class="text-sm">←</span>
+        <span>메인으로 돌아가기</span>
+      </button>
+
+      <button type="button" class="btn-go-gallery inline-flex items-center gap-2 text-xs font-bold text-slate-700 hover:text-slate-950 px-4 py-2 rounded-full bg-white border border-slate-200/90 shadow-xs hover:border-slate-400 transition-all cursor-pointer">
+        <span>📷</span>
+        <span>활동 사진 보기 (25)</span>
+      </button>
+    </div>
 
     <!-- Form Section Title -->
-    <div class="text-center pt-4 pb-2">
+    <div class="text-center pt-2 pb-1">
       <span class="text-xs font-bold text-rose-600 uppercase tracking-widest font-display">APPLICATION FORM</span>
       <h2 class="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight mt-1">
         타베마쇼 3기 지원서

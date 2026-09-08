@@ -1,4 +1,4 @@
-// Tabemasho 3rd Gen Application Form & 10-Photo Gallery Logic
+// Tabemasho 3rd Gen Application Form - Portal View & Gallery Logic
 
 document.addEventListener('DOMContentLoaded', () => {
   // State
@@ -31,8 +31,10 @@ document.addEventListener('DOMContentLoaded', () => {
   // Restore Draft
   loadDraft();
 
+  // Initialize View Routing (Home / Form / Gallery)
+  initViewRouting();
+
   // Initialize UI Bindings
-  initHeroNav();
   initGalleryFilterAndLightbox();
   initBirthYearChips();
   initGenderButtons();
@@ -51,38 +53,70 @@ document.addEventListener('DOMContentLoaded', () => {
   updateProgress();
 
   /* ========================================================
-     0. Hero Action Buttons Navigation
+     0. View Routing (Portal Home / Form / Gallery)
      ======================================================== */
-  function initHeroNav() {
-    const heroApplyBtn = document.getElementById('heroApplyBtn');
-    const heroGalleryBtn = document.getElementById('heroGalleryBtn');
-    const navApplyBtn = document.getElementById('navApplyBtn');
-    const navGalleryBtn = document.getElementById('navGalleryBtn');
-    const gallerySection = document.getElementById('gallerySection');
-    const formSection = document.getElementById('formSection');
+  function initViewRouting() {
+    const homeView = document.getElementById('homeView');
+    const formView = document.getElementById('formView');
+    const galleryView = document.getElementById('galleryView');
 
-    function scrollToSection(targetEl) {
-      if (!targetEl) return;
-      const offset = 75;
-      const bodyRect = document.body.getBoundingClientRect().top;
-      const elementRect = targetEl.getBoundingClientRect().top;
-      const elementPosition = elementRect - bodyRect;
-      const offsetPosition = elementPosition - offset;
+    function switchView(viewName) {
+      if (homeView) homeView.classList.add('view-hidden');
+      if (formView) formView.classList.add('view-hidden');
+      if (galleryView) galleryView.classList.add('view-hidden');
 
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: 'smooth'
-      });
+      if (viewName === 'form' && formView) {
+        formView.classList.remove('view-hidden');
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      } else if (viewName === 'gallery' && galleryView) {
+        galleryView.classList.remove('view-hidden');
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      } else if (homeView) {
+        homeView.classList.remove('view-hidden');
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
     }
 
-    if (heroApplyBtn) heroApplyBtn.addEventListener('click', () => scrollToSection(formSection));
-    if (heroGalleryBtn) heroGalleryBtn.addEventListener('click', () => scrollToSection(gallerySection));
-    if (navApplyBtn) navApplyBtn.addEventListener('click', () => scrollToSection(formSection));
-    if (navGalleryBtn) navGalleryBtn.addEventListener('click', () => scrollToSection(gallerySection));
+    // Trigger buttons from Home
+    const heroApplyBtn = document.getElementById('heroApplyBtn');
+    const heroGalleryBtn = document.getElementById('heroGalleryBtn');
 
-    // Gallery bottom CTA to form
-    const galleryToFormBtn = document.getElementById('galleryToFormBtn');
-    if (galleryToFormBtn) galleryToFormBtn.addEventListener('click', () => scrollToSection(formSection));
+    if (heroApplyBtn) heroApplyBtn.addEventListener('click', () => switchView('form'));
+    if (heroGalleryBtn) heroGalleryBtn.addEventListener('click', () => switchView('gallery'));
+
+    // Navigation Bar Links
+    const navApplyBtn = document.getElementById('navApplyBtn');
+    const navGalleryBtn = document.getElementById('navGalleryBtn');
+    const navLogo = document.getElementById('navLogo');
+
+    if (navApplyBtn) navApplyBtn.addEventListener('click', () => switchView('form'));
+    if (navGalleryBtn) navGalleryBtn.addEventListener('click', () => switchView('gallery'));
+    if (navLogo) navLogo.addEventListener('click', (e) => {
+      e.preventDefault();
+      switchView('home');
+    });
+
+    // Back to Home buttons
+    document.querySelectorAll('.btn-back-home').forEach(btn => {
+      btn.addEventListener('click', () => switchView('home'));
+    });
+
+    // Cross-link buttons
+    document.querySelectorAll('.btn-go-form').forEach(btn => {
+      btn.addEventListener('click', () => switchView('form'));
+    });
+    document.querySelectorAll('.btn-go-gallery').forEach(btn => {
+      btn.addEventListener('click', () => switchView('gallery'));
+    });
+
+    // Check URL hash if exists
+    if (window.location.hash === '#apply') {
+      switchView('form');
+    } else if (window.location.hash === '#gallery') {
+      switchView('gallery');
+    } else {
+      switchView('home');
+    }
   }
 
   /* ========================================================
@@ -110,7 +144,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }));
     }
 
-    // Filter Buttons
     filterBtns.forEach(btn => {
       btn.addEventListener('click', () => {
         filterBtns.forEach(b => {
@@ -134,7 +167,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     buildCurrentList();
 
-    // Lightbox open
     galleryItems.forEach(item => {
       item.addEventListener('click', () => {
         buildCurrentList();
@@ -192,7 +224,6 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     }
 
-    // Keyboard support for Lightbox
     window.addEventListener('keydown', (e) => {
       if (!lightboxModal || lightboxModal.classList.contains('hidden')) return;
       if (e.key === 'Escape') {
@@ -877,6 +908,13 @@ document.addEventListener('DOMContentLoaded', () => {
       modalCloseBtn.addEventListener('click', () => {
         modal.classList.add('hidden');
         document.body.style.overflow = 'auto';
+        const homeView = document.getElementById('homeView');
+        const formView = document.getElementById('formView');
+        const galleryView = document.getElementById('galleryView');
+        if (homeView) homeView.classList.remove('view-hidden');
+        if (formView) formView.classList.add('view-hidden');
+        if (galleryView) galleryView.classList.add('view-hidden');
+        window.scrollTo({ top: 0, behavior: 'smooth' });
       });
     }
   }
