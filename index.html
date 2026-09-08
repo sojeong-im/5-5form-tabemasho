@@ -26,7 +26,7 @@
       <!-- Quick Action Buttons -->
       <div class="flex items-center gap-2">
         <button type="button" id="navGalleryBtn" class="text-xs font-bold px-3 py-1.5 rounded-full text-slate-600 hover:text-slate-900 hover:bg-slate-100 transition-colors cursor-pointer">
-          📷 사진보기 (20)
+          📷 사진보기 (25)
         </button>
         <button type="button" id="navApplyBtn" class="text-xs font-bold px-3.5 py-1.5 rounded-full bg-slate-900 text-white hover:bg-slate-800 transition-colors shadow-sm cursor-pointer">
           🍙 지원하기
@@ -49,13 +49,13 @@
       타베마쇼 <span class="text-rose-600 font-jp">食べましょう</span>
     </h1>
     <p class="text-base sm:text-lg font-bold text-slate-700 mb-4">
-      함께 맛보고, 보고, 나누는 일본 문화 소모임
+      함께 맛보고, 여행하고, 나누는 일본 문화 소모임
     </p>
 
     <!-- Description -->
     <p class="text-xs sm:text-sm text-slate-500 leading-relaxed max-w-lg mx-auto mb-8">
-      규카츠·타코야키·스시·장어덮밥 맛집부터 애니 극장판 관람,<br class="hidden sm:inline">
-      레트로 다가시야와 굿즈 팝업까지 함께할 3기 멤버를 찾고 있어요!
+      도쿄 스카이트리 & 교토 산책, 스시·규카츠 맛집 탐방부터<br class="hidden sm:inline">
+      애니메이션 극장판 관람까지 함께할 3기 멤버를 찾고 있어요!
     </p>
 
     <!-- ==================== THE TWO CORE BUTTONS ==================== -->
@@ -77,19 +77,19 @@
         class="secondary-btn w-full sm:w-1/2 py-4 px-6 rounded-2xl font-black text-sm sm:text-base flex items-center justify-center gap-2 cursor-pointer"
       >
         <span>📷</span>
-        <span>활동 사진 보기 (20)</span>
+        <span>활동 사진 보기 (25)</span>
       </button>
     </div>
 
     <!-- Meta Info Pills -->
     <div class="flex flex-wrap items-center justify-center gap-2 mt-8 text-[11px] font-semibold text-slate-400">
       <span class="px-2.5 py-1 bg-white rounded-full border border-slate-200">🗓️ 2026.09 — 2027.02</span>
-      <span class="px-2.5 py-1 bg-white rounded-full border border-slate-200">🍣 정기 미식 & 문화 모임</span>
+      <span class="px-2.5 py-1 bg-white rounded-full border border-slate-200">🍣 정기 미식 & 여행·문화</span>
       <span class="px-2.5 py-1 bg-white rounded-full border border-slate-200">✨ 취향 존중 동아리</span>
     </div>
   </header>
 
-  <!-- ==================== SECTION: 활동 사진 갤러리 (20 Photos Bento) ==================== -->
+  <!-- ==================== SECTION: 활동 사진 갤러리 (25 Photos Bento) ==================== -->
   <section id="gallerySection" class="max-w-4xl mx-auto px-4 sm:px-6 mb-16 scroll-mt-20">
     <div class="bento-card p-6 sm:p-8 bg-white border border-slate-200/90">
       
@@ -101,20 +101,23 @@
             <span>MEMORIES & ACTIVITIES</span>
           </div>
           <h2 class="text-xl sm:text-2xl font-black text-slate-900 tracking-tight">
-            우리가 함께한 시간들 (20)
+            우리가 함께한 시간들 (25)
           </h2>
         </div>
 
         <!-- Filter Tags -->
         <div class="flex flex-wrap items-center gap-1.5">
           <button type="button" class="gallery-filter-btn px-3 py-1 rounded-full text-xs font-bold bg-slate-900 text-white transition-all cursor-pointer" data-filter="all">
-            전체 (20)
+            전체 (25)
           </button>
           <button type="button" class="gallery-filter-btn px-3 py-1 rounded-full text-xs font-bold bg-slate-100 text-slate-600 hover:bg-slate-200 transition-all cursor-pointer" data-filter="food">
             🍱 일식미식 (11)
           </button>
+          <button type="button" class="gallery-filter-btn px-3 py-1 rounded-full text-xs font-bold bg-slate-100 text-slate-600 hover:bg-slate-200 transition-all cursor-pointer" data-filter="travel">
+            ⛩️ 일본여행&풍경 (4)
+          </button>
           <button type="button" class="gallery-filter-btn px-3 py-1 rounded-full text-xs font-bold bg-slate-100 text-slate-600 hover:bg-slate-200 transition-all cursor-pointer" data-filter="cafe">
-            ☕ 테마카페 (2)
+            🍡 디저트&카페 (3)
           </button>
           <button type="button" class="gallery-filter-btn px-3 py-1 rounded-full text-xs font-bold bg-slate-100 text-slate-600 hover:bg-slate-200 transition-all cursor-pointer" data-filter="media">
             🎬 영화&콘서트 (3)
@@ -125,10 +128,57 @@
         </div>
       </div>
 
-      <!-- Bento Photo Grid (20 Photos) -->
+      <!-- Bento Photo Grid (25 Photos) -->
       <div id="galleryGrid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3.5">
         
-        <!-- Photo 16: 규카츠 (미식) - Featured Wide -->
+        <!-- Photo 25: 도쿄 스카이트리 레인보우 야경 (여행) - Featured Wide -->
+        <div class="sm:col-span-2 gallery-item h-64 gallery-trigger" data-category="travel" data-fullsrc="assets/gallery/activity_25.jpg" data-caption="🗼 무지개빛으로 빛나는 밤의 도쿄 스카이트리 (Tokyo Skytree)">
+          <img src="assets/gallery/activity_25.jpg" alt="도쿄 스카이트리 야경" class="w-full h-full object-cover">
+          <div class="overlay absolute inset-0 flex flex-col justify-end p-4 text-white">
+            <span class="text-[10px] font-bold uppercase tracking-wider text-sky-300">TOKYO NIGHT</span>
+            <p class="text-sm font-bold">무지개빛 도쿄 스카이트리 야경 🗼</p>
+            <p class="text-xs text-slate-300 mt-0.5">포스터에 담겼던 그 사진! 도쿄 밤거리 산책의 낭만</p>
+          </div>
+        </div>
+
+        <!-- Photo 24: 미타라시 당고 (디저트/카페) -->
+        <div class="gallery-item h-64 gallery-trigger" data-category="cafe" data-fullsrc="assets/gallery/activity_24.jpg" data-caption="🍡 윤기 좔좔 흐르는 달콤짭조름한 일본 정통 미타라시 당고">
+          <img src="assets/gallery/activity_24.jpg" alt="미타라시 당고" class="w-full h-full object-cover">
+          <div class="overlay absolute inset-0 flex flex-col justify-end p-4 text-white">
+            <span class="text-[10px] font-bold uppercase tracking-wider text-amber-300">TRADITIONAL SWEETS</span>
+            <p class="text-sm font-bold">달콤짭조름 미타라시 당고 🍡</p>
+            <p class="text-xs text-slate-300 mt-0.5">쫀득쫀득 갓 구워낸 일본 대표 길거리 디저트</p>
+          </div>
+        </div>
+
+        <!-- Photo 21: 교토 산넨자카 거리 (여행) -->
+        <div class="gallery-item h-60 gallery-trigger" data-category="travel" data-fullsrc="assets/gallery/activity_21.jpg" data-caption="⛩️ 맑은 하늘 아래 고즈넉한 교토 청수사 산넨자카 전통 상점가 거리">
+          <img src="assets/gallery/activity_21.jpg" alt="교토 산넨자카" class="w-full h-full object-cover">
+          <div class="overlay absolute inset-0 flex flex-col justify-end p-4 text-white">
+            <span class="text-[10px] font-bold uppercase tracking-wider text-teal-300">KYOTO WALK</span>
+            <p class="text-xs sm:text-sm font-bold">교토 산넨자카 전통 거리 ⛩️</p>
+          </div>
+        </div>
+
+        <!-- Photo 22: 교토 후시미 이나리 센본 토리이 (여행) -->
+        <div class="gallery-item h-60 gallery-trigger" data-category="travel" data-fullsrc="assets/gallery/activity_22.jpg" data-caption="🦊 교토 후시미 이나리 신사의 상징 여우상과 붉은 센본 토리이">
+          <img src="assets/gallery/activity_22.jpg" alt="후시미 이나리 토리이" class="w-full h-full object-cover">
+          <div class="overlay absolute inset-0 flex flex-col justify-end p-4 text-white">
+            <span class="text-[10px] font-bold uppercase tracking-wider text-rose-300">FUSHIMI INARI</span>
+            <p class="text-xs sm:text-sm font-bold">이나리 신사 붉은 토리이 🦊</p>
+          </div>
+        </div>
+
+        <!-- Photo 23: 지장보살 돌상 (여행) -->
+        <div class="gallery-item h-60 gallery-trigger" data-category="travel" data-fullsrc="assets/gallery/activity_23.jpg" data-caption="🌿 돌담 위에 옹기종기 미소 짓는 오지조상(지장보살 돌조각상)">
+          <img src="assets/gallery/activity_23.jpg" alt="지장보살 돌상" class="w-full h-full object-cover">
+          <div class="overlay absolute inset-0 flex flex-col justify-end p-4 text-white">
+            <span class="text-[10px] font-bold uppercase tracking-wider text-emerald-300">HEALING JIZO</span>
+            <p class="text-xs sm:text-sm font-bold">미소 짓는 오지조상 🌿</p>
+          </div>
+        </div>
+
+        <!-- Photo 16: 규카츠 (미식) - Wide -->
         <div class="sm:col-span-2 gallery-item h-64 gallery-trigger" data-category="food" data-fullsrc="assets/gallery/activity_16.jpg" data-caption="🥩 겉은 바삭하고 속은 부드러운 선홍빛 레어 정통 규카츠 정식">
           <img src="assets/gallery/activity_16.jpg" alt="정통 규카츠 정식" class="w-full h-full object-cover">
           <div class="overlay absolute inset-0 flex flex-col justify-end p-4 text-white">
@@ -149,7 +199,7 @@
         </div>
 
         <!-- Photo 17: 타코야키 (미식) -->
-        <div class="gallery-item h-60 gallery-trigger" data-category="food" data-fullsrc="assets/gallery/activity_17.jpg" data-caption="🐙 지글지글 철판에서 노릇하게 구워지는 타코야키">
+        <div class="gallery-item h-56 gallery-trigger" data-category="food" data-fullsrc="assets/gallery/activity_17.jpg" data-caption="🐙 지글지글 철판에서 노릇하게 구워지는 타코야키">
           <img src="assets/gallery/activity_17.jpg" alt="타코야키 철판" class="w-full h-full object-cover">
           <div class="overlay absolute inset-0 flex flex-col justify-end p-4 text-white">
             <span class="text-[10px] font-bold uppercase tracking-wider text-orange-300">STREET FOOD</span>
@@ -158,7 +208,7 @@
         </div>
 
         <!-- Photo 19: 진한 라멘 (미식) -->
-        <div class="gallery-item h-60 gallery-trigger" data-category="food" data-fullsrc="assets/gallery/activity_19.jpg" data-caption="🍜 두툼한 깍둑 차슈와 숙주, 마늘 듬뿍 진한 일식 라멘">
+        <div class="gallery-item h-56 gallery-trigger" data-category="food" data-fullsrc="assets/gallery/activity_19.jpg" data-caption="🍜 두툼한 깍둑 차슈와 숙주, 마늘 듬뿍 진한 일식 라멘">
           <img src="assets/gallery/activity_19.jpg" alt="진한 일식 라멘" class="w-full h-full object-cover">
           <div class="overlay absolute inset-0 flex flex-col justify-end p-4 text-white">
             <span class="text-[10px] font-bold uppercase tracking-wider text-amber-300">HEAVY RAMEN</span>
@@ -166,8 +216,8 @@
           </div>
         </div>
 
-        <!-- Photo 20: 레트로 막과자 가게 다가시야 (레트로) -->
-        <div class="gallery-item h-60 gallery-trigger" data-category="goods" data-fullsrc="assets/gallery/activity_20.jpg" data-caption="🏮 일본 골목 감성 그대로, 레트로 막과자 가게 (다가시야 駄菓子屋)">
+        <!-- Photo 20: 레트로 다가시야 (레트로) -->
+        <div class="gallery-item h-56 gallery-trigger" data-category="goods" data-fullsrc="assets/gallery/activity_20.jpg" data-caption="🏮 일본 골목 감성 그대로, 레트로 막과자 가게 (다가시야 駄菓子屋)">
           <img src="assets/gallery/activity_20.jpg" alt="레트로 막과자 가게" class="w-full h-full object-cover">
           <div class="overlay absolute inset-0 flex flex-col justify-end p-4 text-white">
             <span class="text-[10px] font-bold uppercase tracking-wider text-emerald-300">RETRO JAPAN</span>
@@ -318,7 +368,7 @@
       <!-- Gallery to Form CTA Bar -->
       <div class="mt-8 pt-5 border-t border-slate-100 flex flex-col sm:flex-row items-center justify-between gap-3 bg-slate-50/80 p-5 rounded-2xl">
         <div>
-          <p class="text-xs sm:text-sm font-bold text-slate-800">이런 맛있는 미식과 다채로운 활동에 함께하고 싶으신가요? 🍙</p>
+          <p class="text-xs sm:text-sm font-bold text-slate-800">이런 미식과 일본 여행, 다채로운 활동에 함께하고 싶으신가요? 🍙</p>
           <p class="text-[11px] text-slate-500">부담 없이 편하게 3기 지원서를 작성해보세요!</p>
         </div>
         <button type="button" id="galleryToFormBtn" class="w-full sm:w-auto px-5 py-2.5 rounded-xl bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs shadow transition-all cursor-pointer">
@@ -513,7 +563,7 @@
             <input 
               type="text" 
               id="interestInput" 
-              placeholder="예: 규카츠·스시 맛집, 타코야키, 치이카와, 요아소비, 교토 여행 등"
+              placeholder="예: 규카츠·스시 맛집, 도쿄·교토 여행, 치이카와, 요아소비 등"
               required
               class="modern-input"
             >
