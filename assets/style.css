@@ -1,0 +1,257 @@
+@import url('https://fonts.googleapis.com/css2?family=Gaegu:wght@400;700&family=Noto+Sans+KR:wght@400;500;700;800&family=Yomogi&display=swap');
+
+:root {
+  --paper-bg: #FAF7F0;
+  --pen-blue: #1D3557;
+  --pen-blue-dark: #122238;
+  --pen-blue-light: #EBF2FA;
+  --stamp-red: #D90429;
+  --stamp-red-light: #FFE5E8;
+  --tape-yellow: rgba(244, 226, 133, 0.85);
+  --tape-blue: rgba(162, 210, 255, 0.8);
+  --tape-red: rgba(255, 175, 204, 0.8);
+  --grid-color: rgba(29, 53, 87, 0.07);
+}
+
+body {
+  background-color: var(--paper-bg);
+  background-image: 
+    linear-gradient(var(--grid-color) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-color) 1px, transparent 1px);
+  background-size: 20px 20px;
+  color: #2B2D42;
+  font-family: 'Noto Sans KR', sans-serif;
+  overflow-x: hidden;
+}
+
+.font-doodle {
+  font-family: 'Gaegu', 'Yomogi', cursive;
+}
+
+.font-jp {
+  font-family: 'Yomogi', 'Gaegu', sans-serif;
+}
+
+/* Washi Tape styles */
+.washi-tape {
+  position: absolute;
+  height: 24px;
+  background-color: var(--tape-yellow);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  transform: rotate(-2.5deg);
+  z-index: 10;
+}
+
+.washi-tape-blue {
+  background-color: var(--tape-blue);
+  transform: rotate(2deg);
+}
+
+.washi-tape-pink {
+  background-color: var(--tape-red);
+  transform: rotate(-1deg);
+}
+
+/* Scrapbook Card */
+.scrapbook-card {
+  background: #FFFFFF;
+  border: 2.5px solid var(--pen-blue);
+  box-shadow: 5px 5px 0px rgba(29, 53, 87, 0.9);
+  border-radius: 14px;
+  transition: all 0.2s ease;
+  position: relative;
+}
+
+.scrapbook-card:hover {
+  box-shadow: 6px 6px 0px rgba(29, 53, 87, 1);
+}
+
+/* Pen hatch border */
+.pen-border {
+  border: 2px solid var(--pen-blue);
+}
+
+.pen-border-dashed {
+  border: 2px dashed var(--pen-blue);
+}
+
+/* Ballpen crosshatch texture */
+.pen-hatch-bg {
+  background: repeating-linear-gradient(
+    -45deg,
+    transparent,
+    transparent 4px,
+    rgba(29, 53, 87, 0.08) 4px,
+    rgba(29, 53, 87, 0.08) 6px
+  );
+}
+
+.pen-hatch-active {
+  background: repeating-linear-gradient(
+    -45deg,
+    #1D3557,
+    #1D3557 5px,
+    #25446e 5px,
+    #25446e 8px
+  );
+  color: #FFFFFF !important;
+}
+
+/* Japanese Ichimatsu (Checkered) Pattern */
+.ichimatsu-pattern {
+  background-color: #ffffff;
+  background-image: 
+    linear-gradient(45deg, #1D3557 25%, transparent 25%), 
+    linear-gradient(-45deg, #1D3557 25%, transparent 25%), 
+    linear-gradient(45deg, transparent 75%, #1D3557 75%), 
+    linear-gradient(-45deg, transparent 75%, #1D3557 75%);
+  background-size: 20px 20px;
+  background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
+}
+
+/* Polaroid Card Effect */
+.polaroid-frame {
+  background: #FFFFFF;
+  padding: 12px 12px 28px 12px;
+  border: 2px solid #2B2D42;
+  box-shadow: 4px 6px 14px rgba(0,0,0,0.12);
+  transform: rotate(-1.5deg);
+  transition: transform 0.3s ease;
+}
+
+.polaroid-frame:hover {
+  transform: rotate(0deg) scale(1.02);
+}
+
+/* Interactive Chips */
+.custom-chip {
+  cursor: pointer;
+  border: 2px solid #CBD5E1;
+  background: #FFFFFF;
+  color: #334155;
+  border-radius: 9999px;
+  padding: 8px 16px;
+  font-weight: 600;
+  transition: all 0.18s cubic-bezier(0.4, 0, 0.2, 1);
+  user-select: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.custom-chip:hover {
+  border-color: var(--pen-blue);
+  background: #F8FAFC;
+  transform: translateY(-1px);
+}
+
+.custom-chip.active {
+  border-color: var(--pen-blue);
+  background-color: var(--pen-blue);
+  color: #FFFFFF;
+  box-shadow: 2px 2px 0px rgba(0,0,0,0.25);
+}
+
+/* Schedule Matrix Cell */
+.time-slot-btn {
+  border: 1.5px solid #CBD5E1;
+  background: #FFFFFF;
+  border-radius: 8px;
+  font-size: 0.82rem;
+  padding: 8px 4px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  user-select: none;
+}
+
+.time-slot-btn:hover {
+  border-color: var(--pen-blue);
+  background: #F1F5F9;
+}
+
+.time-slot-btn.active {
+  border-color: var(--pen-blue);
+  background-color: var(--pen-blue);
+  color: #FFFFFF;
+  font-weight: 700;
+  box-shadow: inset 0 2px 4px rgba(0,0,0,0.15);
+}
+
+/* Hanko Stamp Animation */
+@keyframes stampIn {
+  0% {
+    opacity: 0;
+    transform: scale(3) rotate(-20deg);
+  }
+  60% {
+    opacity: 0.9;
+    transform: scale(0.9) rotate(5deg);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) rotate(-8deg);
+  }
+}
+
+.stamp-badge {
+  border: 2.5px solid var(--stamp-red);
+  color: var(--stamp-red);
+  border-radius: 50%;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  font-size: 0.72rem;
+  line-height: 1;
+  text-transform: uppercase;
+  animation: stampIn 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+  box-shadow: 0 0 0 1.5px var(--stamp-red-light);
+}
+
+/* Custom Checkbox Checkmark */
+.custom-check-box {
+  border: 2.5px solid var(--pen-blue);
+  border-radius: 6px;
+  width: 22px;
+  height: 22px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: all 0.15s ease;
+  background: #FFFFFF;
+}
+
+.custom-check-box.checked {
+  background-color: var(--pen-blue);
+  color: #FFFFFF;
+}
+
+/* Floating onigiri progress bar */
+.progress-container {
+  backdrop-filter: blur(8px);
+  background: rgba(255, 255, 255, 0.94);
+  border: 2px solid var(--pen-blue);
+  box-shadow: 0 4px 14px rgba(29, 53, 87, 0.16);
+}
+
+/* Cute hand-drawn underline */
+.hand-underline {
+  position: relative;
+  display: inline-block;
+}
+
+.hand-underline::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 100%;
+  height: 4px;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 10' preserveAspectRatio='none'%3E%3Cpath d='M0,5 Q25,0 50,5 T100,5' fill='none' stroke='%23D90429' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-size: 100% 100%;
+}
