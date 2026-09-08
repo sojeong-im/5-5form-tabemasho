@@ -1,4 +1,4 @@
-// Tabemasho 3rd Gen Application Form Logic
+// Tabemasho 3rd Gen Application Form - Modern Trendy Logic
 
 document.addEventListener('DOMContentLoaded', () => {
   // State
@@ -28,7 +28,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   };
 
-  // Restore Draft from LocalStorage if exists
+  // Restore Draft
   loadDraft();
 
   // Initialize UI Bindings
@@ -49,11 +49,11 @@ document.addEventListener('DOMContentLoaded', () => {
   updateProgress();
 
   /* ========================================================
-     1. Form Progress & Onigiri State
+     1. Form Progress & Minimalist HUD
      ======================================================== */
   function updateProgress() {
     let completedSteps = 0;
-    const totalSteps = 12; // Key required milestones
+    const totalSteps = 12;
 
     if (formData.name.trim()) completedSteps++;
     if (formData.birthYear) completedSteps++;
@@ -67,7 +67,6 @@ document.addEventListener('DOMContentLoaded', () => {
     if (formData.activities.length > 0) completedSteps++;
     if (formData.timeSlots.length > 0) completedSteps++;
     
-    // Check all agreements
     const allAgreed = Object.values(formData.agreements).every(v => v === true);
     if (allAgreed) completedSteps++;
 
@@ -75,31 +74,11 @@ document.addEventListener('DOMContentLoaded', () => {
     
     const progressBar = document.getElementById('progressBar');
     const progressPercentText = document.getElementById('progressPercent');
-    const onigiriMascot = document.getElementById('onigiriMascot');
-    const onigiriStatusText = document.getElementById('onigiriStatusText');
+    const progressStepCount = document.getElementById('progressStepCount');
 
     if (progressBar) progressBar.style.width = `${percent}%`;
     if (progressPercentText) progressPercentText.innerText = `${percent}%`;
-
-    // Dynamic Onigiri mascot mood
-    if (onigiriMascot && onigiriStatusText) {
-      if (percent === 0) {
-        onigiriMascot.innerText = '🍙';
-        onigiriStatusText.innerText = '지원서를 시작해보세요!';
-      } else if (percent < 40) {
-        onigiriMascot.innerText = '🍙';
-        onigiriStatusText.innerText = '밥을 뭉치고 있어요~';
-      } else if (percent < 80) {
-        onigiriMascot.innerText = '🍱';
-        onigiriStatusText.innerText = '맛있는 김을 두르는 중!';
-      } else if (percent < 100) {
-        onigiriMascot.innerText = '✨🍙';
-        onigiriStatusText.innerText = '우메보시(매실) 올리는 중! 거의 다 왔어요';
-      } else {
-        onigiriMascot.innerText = '🎉🍙';
-        onigiriStatusText.innerText = '타베마쇼 삼각김밥 완성! 제출 가능해요';
-      }
-    }
+    if (progressStepCount) progressStepCount.innerText = `${completedSteps}/${totalSteps}`;
 
     saveDraft();
   }
@@ -116,7 +95,7 @@ document.addEventListener('DOMContentLoaded', () => {
     years.forEach(yr => {
       const btn = document.createElement('button');
       btn.type = 'button';
-      btn.className = `custom-chip text-sm px-4 py-2 ${formData.birthYear === yr ? 'active' : ''}`;
+      btn.className = `pill-chip text-xs sm:text-sm ${formData.birthYear === yr ? 'active' : ''}`;
       btn.innerHTML = `<span>${yr}년생</span>`;
       btn.addEventListener('click', () => {
         container.querySelectorAll('button').forEach(b => b.classList.remove('active'));
@@ -169,7 +148,7 @@ document.addEventListener('DOMContentLoaded', () => {
     options.forEach(opt => {
       const btn = document.createElement('button');
       btn.type = 'button';
-      btn.className = `custom-chip text-sm px-4 py-2 ${formData.status === opt ? 'active' : ''}`;
+      btn.className = `pill-chip text-xs sm:text-sm ${formData.status === opt ? 'active' : ''}`;
       btn.innerText = opt;
       btn.addEventListener('click', () => {
         container.querySelectorAll('button').forEach(b => b.classList.remove('active'));
@@ -248,7 +227,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const btn = document.createElement('button');
       btn.type = 'button';
       const isSelected = formData.reasons.includes(item.label) || (item.id === 'other' && formData.reasons.includes('기타'));
-      btn.className = `custom-chip text-sm px-3.5 py-2 ${isSelected ? 'active' : ''}`;
+      btn.className = `pill-chip text-xs sm:text-sm ${isSelected ? 'active' : ''}`;
       btn.innerText = item.label;
 
       btn.addEventListener('click', () => {
@@ -308,13 +287,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function updateCounter() {
       if (badge) {
-        badge.innerText = `선택: ${formData.activities.length} / 최대 3개`;
+        badge.innerText = `${formData.activities.length} / 3 선택`;
         if (formData.activities.length === 3) {
-          badge.className = 'text-xs font-bold px-2.5 py-1 rounded-full bg-amber-100 text-amber-800 border border-amber-300';
+          badge.className = 'text-xs font-bold px-2.5 py-0.5 rounded-full bg-rose-50 text-rose-600 border border-rose-200';
         } else if (formData.activities.length > 0) {
-          badge.className = 'text-xs font-bold px-2.5 py-1 rounded-full bg-blue-100 text-blue-800 border border-blue-300';
+          badge.className = 'text-xs font-bold px-2.5 py-0.5 rounded-full bg-slate-900 text-white';
         } else {
-          badge.className = 'text-xs font-medium px-2.5 py-1 rounded-full bg-slate-100 text-slate-600 border border-slate-200';
+          badge.className = 'text-xs font-medium px-2.5 py-0.5 rounded-full bg-slate-100 text-slate-500';
         }
       }
     }
@@ -325,7 +304,7 @@ document.addEventListener('DOMContentLoaded', () => {
       btn.type = 'button';
       const val = item.id === 'other' ? '기타' : item.label;
       const isSelected = formData.activities.includes(val);
-      btn.className = `custom-chip text-sm px-3.5 py-2 ${isSelected ? 'active' : ''}`;
+      btn.className = `pill-chip text-xs sm:text-sm ${isSelected ? 'active' : ''}`;
       btn.innerText = item.label;
 
       btn.addEventListener('click', () => {
@@ -338,10 +317,7 @@ document.addEventListener('DOMContentLoaded', () => {
           }
         } else {
           if (formData.activities.length >= 3) {
-            // Shake effect & warning
-            showToast('활동은 최대 3개까지만 선택할 수 있어요! 🍙', 'warning');
-            btn.classList.add('animate-bounce');
-            setTimeout(() => btn.classList.remove('animate-bounce'), 400);
+            showToast('활동은 최대 3개까지만 선택할 수 있습니다', 'warning');
             return;
           }
           formData.activities.push(val);
@@ -372,7 +348,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   /* ========================================================
-     8. Time Slot Matrix (평일 & 주말 타임테이블)
+     8. Time Slot Matrix
      ======================================================== */
   function initTimeSlotMatrix() {
     const weekdayGrid = document.getElementById('weekdayMatrix');
@@ -385,12 +361,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const weekendDays = ['토', '일'];
     const weekendTimes = ['오전', '12~15시', '15~18시', '18시 이후'];
 
-    // Render Weekday Matrix
     renderMatrix(weekdayGrid, weekdayDays, weekdayTimes, '평일');
-    // Render Weekend Matrix
     renderMatrix(weekendGrid, weekendDays, weekendTimes, '주말');
 
-    // Quick Select Buttons
     const selectAllWeekdaysBtn = document.getElementById('selectWeekdayEvenings');
     const selectAllWeekendsBtn = document.getElementById('selectWeekendAfternoons');
     const clearScheduleBtn = document.getElementById('clearSchedule');
@@ -405,7 +378,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
         refreshMatrixUI();
         updateProgress();
-        showToast('평일 저녁 시간대가 모두 선택되었어요! 🌙');
+        showToast('평일 저녁 시간대가 선택되었습니다');
       });
     }
 
@@ -419,7 +392,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
         refreshMatrixUI();
         updateProgress();
-        showToast('주말 오후 시간대가 모두 선택되었어요! ☀️');
+        showToast('주말 오후 시간대가 선택되었습니다');
       });
     }
 
@@ -437,8 +410,8 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // Header row
     const headerRow = document.createElement('div');
-    headerRow.className = `grid grid-cols-${days.length + 1} gap-1.5 mb-1.5 text-center font-bold text-xs text-slate-500`;
-    headerRow.innerHTML = `<div>시간</div>` + days.map(d => `<div class="bg-slate-100 rounded py-1 text-slate-700">${d}</div>`).join('');
+    headerRow.className = `grid grid-cols-${days.length + 1} gap-1.5 mb-1.5 text-center font-semibold text-xs text-slate-400`;
+    headerRow.innerHTML = `<div></div>` + days.map(d => `<div class="bg-slate-100/80 rounded-md py-1 text-slate-700 font-bold">${d}</div>`).join('');
     container.appendChild(headerRow);
 
     // Time rows
@@ -447,7 +420,7 @@ document.addEventListener('DOMContentLoaded', () => {
       row.className = `grid grid-cols-${days.length + 1} gap-1.5 mb-1.5 items-center`;
       
       const timeLabel = document.createElement('div');
-      timeLabel.className = 'text-[11px] font-semibold text-slate-600 bg-amber-50/60 rounded px-1 py-1.5 text-center border border-amber-100';
+      timeLabel.className = 'text-[11px] font-medium text-slate-500 text-center py-1';
       timeLabel.innerText = t;
       row.appendChild(timeLabel);
 
@@ -483,24 +456,24 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   /* ========================================================
-     9. Photo Upload & Polaroid Preview
+     9. Modern Photo Upload & Preview
      ======================================================== */
   function initPhotoUpload() {
     const fileInput = document.getElementById('photoInput');
     const dropZone = document.getElementById('photoDropZone');
-    const previewContainer = document.getElementById('polaroidPreviewContainer');
-    const previewImage = document.getElementById('polaroidImage');
+    const previewContainer = document.getElementById('photoPreviewContainer');
+    const previewImage = document.getElementById('photoImagePreview');
     const removeBtn = document.getElementById('removePhotoBtn');
 
     if (!fileInput || !dropZone) return;
 
     function handleFile(file) {
       if (!file || !file.type.startsWith('image/')) {
-        showToast('이미지 파일(jpg, png 등)을 업로드해주세요!', 'warning');
+        showToast('이미지 파일(jpg, png 등)을 선택해주세요', 'warning');
         return;
       }
       if (file.size > 10 * 1024 * 1024) {
-        showToast('사진 용량은 10MB 이하로 올려주세요!', 'warning');
+        showToast('사진 용량은 10MB 이하로 업로드해주세요', 'warning');
         return;
       }
 
@@ -509,7 +482,6 @@ document.addEventListener('DOMContentLoaded', () => {
         formData.photoDataUrl = e.target.result;
         showPhotoPreview(formData.photoDataUrl);
         updateProgress();
-        showToast('폴라로이드 사진이 준비되었어요! 📸');
       };
       reader.readAsDataURL(file);
     }
@@ -537,17 +509,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
     dropZone.addEventListener('dragover', (e) => {
       e.preventDefault();
-      dropZone.classList.add('border-blue-500', 'bg-blue-50/50');
+      dropZone.classList.add('border-slate-800', 'bg-slate-50');
     });
 
     dropZone.addEventListener('dragleave', (e) => {
       e.preventDefault();
-      dropZone.classList.remove('border-blue-500', 'bg-blue-50/50');
+      dropZone.classList.remove('border-slate-800', 'bg-slate-50');
     });
 
     dropZone.addEventListener('drop', (e) => {
       e.preventDefault();
-      dropZone.classList.remove('border-blue-500', 'bg-blue-50/50');
+      dropZone.classList.remove('border-slate-800', 'bg-slate-50');
       if (e.dataTransfer.files && e.dataTransfer.files[0]) {
         handleFile(e.dataTransfer.files[0]);
       }
@@ -563,7 +535,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   /* ========================================================
-     10. Agreements & Stamp Interaction
+     10. Modern Agreements
      ======================================================== */
   function initAgreements() {
     const agreementKeys = ['period', 'frequency', 'fee', 'purpose', 'rules'];
@@ -571,24 +543,24 @@ document.addEventListener('DOMContentLoaded', () => {
 
     agreementKeys.forEach(key => {
       const checkbox = document.getElementById(`agree_${key}`);
-      const row = document.getElementById(`agreeRow_${key}`);
+      const card = document.getElementById(`agreeCard_${key}`);
       if (!checkbox) return;
 
       checkbox.checked = !!formData.agreements[key];
-      updateAgreeRowUI(key, checkbox.checked);
+      updateAgreeCardUI(key, checkbox.checked);
 
       checkbox.addEventListener('change', (e) => {
         formData.agreements[key] = e.target.checked;
-        updateAgreeRowUI(key, e.target.checked);
+        updateAgreeCardUI(key, e.target.checked);
         updateProgress();
       });
 
-      if (row) {
-        row.addEventListener('click', (e) => {
+      if (card) {
+        card.addEventListener('click', (e) => {
           if (e.target.tagName !== 'INPUT') {
             checkbox.checked = !checkbox.checked;
             formData.agreements[key] = checkbox.checked;
-            updateAgreeRowUI(key, checkbox.checked);
+            updateAgreeCardUI(key, checkbox.checked);
             updateProgress();
           }
         });
@@ -604,28 +576,28 @@ document.addEventListener('DOMContentLoaded', () => {
           formData.agreements[key] = targetState;
           const cb = document.getElementById(`agree_${key}`);
           if (cb) cb.checked = targetState;
-          updateAgreeRowUI(key, targetState);
+          updateAgreeCardUI(key, targetState);
         });
 
-        agreeAllBtn.innerText = targetState ? '✓ 전체 확인 해제' : '✓ 전체 확인 및 동의하기';
+        agreeAllBtn.innerText = targetState ? '전체 해제' : '전체 동의하기';
         updateProgress();
-
-        if (targetState) {
-          showToast('모든 유의사항을 확인하셨습니다! 💮');
-        }
       });
     }
   }
 
-  function updateAgreeRowUI(key, isChecked) {
-    const row = document.getElementById(`agreeRow_${key}`);
-    const stamp = document.getElementById(`stamp_${key}`);
-    if (row) {
-      row.classList.toggle('bg-blue-50/70', isChecked);
-      row.classList.toggle('border-blue-300', isChecked);
+  function updateAgreeCardUI(key, isChecked) {
+    const card = document.getElementById(`agreeCard_${key}`);
+    const checkBadge = document.getElementById(`checkBadge_${key}`);
+    if (card) {
+      card.classList.toggle('checked', isChecked);
     }
-    if (stamp) {
-      stamp.classList.toggle('hidden', !isChecked);
+    if (checkBadge) {
+      checkBadge.classList.toggle('bg-slate-900', isChecked);
+      checkBadge.classList.toggle('text-white', isChecked);
+      checkBadge.classList.toggle('border-slate-900', isChecked);
+      checkBadge.classList.toggle('bg-slate-100', !isChecked);
+      checkBadge.classList.toggle('text-transparent', !isChecked);
+      checkBadge.classList.toggle('border-slate-300', !isChecked);
     }
   }
 
@@ -660,13 +632,11 @@ document.addEventListener('DOMContentLoaded', () => {
       localStorage.setItem('tabemasho_form_draft', JSON.stringify(formData));
       const draftBadge = document.getElementById('draftStatus');
       if (draftBadge) {
-        draftBadge.innerText = '자동 저장됨 ✓';
+        draftBadge.innerText = '저장됨';
         draftBadge.classList.remove('opacity-0');
         setTimeout(() => draftBadge.classList.add('opacity-0'), 1500);
       }
-    } catch (e) {
-      // quota or private mode
-    }
+    } catch (e) {}
   }
 
   function loadDraft() {
@@ -683,7 +653,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const resetBtn = document.getElementById('resetFormBtn');
     if (resetBtn) {
       resetBtn.addEventListener('click', () => {
-        if (confirm('작성 중인 내용을 모두 초기화할까요?')) {
+        if (confirm('작성 중인 내용을 모두 초기화하시겠습니까?')) {
           localStorage.removeItem('tabemasho_form_draft');
           location.reload();
         }
@@ -704,30 +674,27 @@ document.addEventListener('DOMContentLoaded', () => {
     form.addEventListener('submit', (e) => {
       e.preventDefault();
 
-      // Validation
       const errors = [];
-      if (!formData.name.trim()) errors.push('1번: 이름을 입력해주세요.');
-      if (!formData.birthYear) errors.push('2번: 출생연도를 선택해주세요.');
-      if (!formData.gender) errors.push('3번: 성별을 선택해주세요.');
-      if (!formData.schoolDept.trim()) errors.push('4번: 학교명과 학과를 입력해주세요.');
-      if (!formData.status) errors.push('5번: 현재 상태를 선택해주세요.');
-      if (!formData.subway.trim()) errors.push('6번: 거주지 인근 지하철역을 입력해주세요.');
-      if (!formData.phone.trim() || formData.phone.replace(/[^0-9]/g, '').length < 10) errors.push('7번: 올바른 전화번호를 입력해주세요.');
-      if (formData.reasons.length === 0) errors.push('8번: 타베마쇼 지원 이유를 1개 이상 선택해주세요.');
-      if (!formData.interest.trim()) errors.push('9번: 일본 관련 관심사를 입력해주세요.');
-      if (formData.activities.length === 0) errors.push('10번: 희망 활동을 1~3개 선택해주세요.');
-      if (formData.timeSlots.length === 0) errors.push('11번: 활동 가능한 요일/시간대를 1개 이상 선택해주세요.');
+      if (!formData.name.trim()) errors.push('이름을 입력해주세요.');
+      if (!formData.birthYear) errors.push('출생연도를 선택해주세요.');
+      if (!formData.gender) errors.push('성별을 선택해주세요.');
+      if (!formData.schoolDept.trim()) errors.push('학교명과 학과를 입력해주세요.');
+      if (!formData.status) errors.push('현재 상태를 선택해주세요.');
+      if (!formData.subway.trim()) errors.push('가장 가까운 지하철역을 입력해주세요.');
+      if (!formData.phone.trim() || formData.phone.replace(/[^0-9]/g, '').length < 10) errors.push('올바른 연락처를 입력해주세요.');
+      if (formData.reasons.length === 0) errors.push('타베마쇼 지원 이유를 1개 이상 선택해주세요.');
+      if (!formData.interest.trim()) errors.push('일본 관련 관심사를 입력해주세요.');
+      if (formData.activities.length === 0) errors.push('희망 활동을 1~3개 선택해주세요.');
+      if (formData.timeSlots.length === 0) errors.push('활동 가능한 요일/시간대를 선택해주세요.');
       
       const allAgreed = Object.values(formData.agreements).every(v => v === true);
-      if (!allAgreed) errors.push('마지막: 지원 전 확인사항 5가지를 모두 체크해주세요.');
+      if (!allAgreed) errors.push('지원 전 확인사항 5가지를 모두 체크해주세요.');
 
       if (errors.length > 0) {
         showToast(errors[0], 'error');
-        // Scroll to first invalid field
         return;
       }
 
-      // Success celebration!
       triggerConfetti();
 
       // Populate Success Modal
@@ -747,7 +714,6 @@ document.addEventListener('DOMContentLoaded', () => {
         document.body.style.overflow = 'hidden';
       }
 
-      // Clear draft after successful submission
       localStorage.removeItem('tabemasho_form_draft');
     });
 
@@ -759,47 +725,31 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  /* Confetti burst */
   function triggerConfetti() {
     if (typeof confetti === 'function') {
       confetti({
         particleCount: 80,
-        spread: 70,
+        spread: 80,
         origin: { y: 0.6 }
       });
-      setTimeout(() => {
-        confetti({
-          particleCount: 50,
-          angle: 60,
-          spread: 55,
-          origin: { x: 0 }
-        });
-        confetti({
-          particleCount: 50,
-          angle: 120,
-          spread: 55,
-          origin: { x: 1 }
-        });
-      }, 250);
     }
   }
 
-  /* Simple Toast Notification */
   function showToast(msg, type = 'info') {
     let toast = document.getElementById('globalToast');
     if (!toast) {
       toast = document.createElement('div');
       toast.id = 'globalToast';
-      toast.className = 'fixed bottom-6 left-1/2 -translate-x-1/2 px-5 py-3 rounded-full text-sm font-bold shadow-xl z-50 transition-all duration-300 pointer-events-none flex items-center gap-2';
+      toast.className = 'fixed bottom-8 left-1/2 -translate-x-1/2 px-5 py-2.5 rounded-full text-xs font-bold shadow-2xl z-50 transition-all duration-300 pointer-events-none flex items-center gap-2';
       document.body.appendChild(toast);
     }
 
     if (type === 'error') {
-      toast.className = 'fixed bottom-6 left-1/2 -translate-x-1/2 px-5 py-3 rounded-full text-sm font-bold shadow-xl z-50 transition-all duration-300 pointer-events-none flex items-center gap-2 bg-red-600 text-white';
+      toast.className = 'fixed bottom-8 left-1/2 -translate-x-1/2 px-5 py-2.5 rounded-full text-xs font-bold shadow-2xl z-50 transition-all duration-300 pointer-events-none flex items-center gap-2 bg-rose-600 text-white';
     } else if (type === 'warning') {
-      toast.className = 'fixed bottom-6 left-1/2 -translate-x-1/2 px-5 py-3 rounded-full text-sm font-bold shadow-xl z-50 transition-all duration-300 pointer-events-none flex items-center gap-2 bg-amber-500 text-white';
+      toast.className = 'fixed bottom-8 left-1/2 -translate-x-1/2 px-5 py-2.5 rounded-full text-xs font-bold shadow-2xl z-50 transition-all duration-300 pointer-events-none flex items-center gap-2 bg-amber-500 text-white';
     } else {
-      toast.className = 'fixed bottom-6 left-1/2 -translate-x-1/2 px-5 py-3 rounded-full text-sm font-bold shadow-xl z-50 transition-all duration-300 pointer-events-none flex items-center gap-2 bg-[#1D3557] text-white';
+      toast.className = 'fixed bottom-8 left-1/2 -translate-x-1/2 px-5 py-2.5 rounded-full text-xs font-bold shadow-2xl z-50 transition-all duration-300 pointer-events-none flex items-center gap-2 bg-slate-900 text-white';
     }
 
     toast.innerText = msg;
@@ -809,7 +759,7 @@ document.addEventListener('DOMContentLoaded', () => {
     clearTimeout(window.__toastTimeout);
     window.__toastTimeout = setTimeout(() => {
       toast.style.opacity = '0';
-      toast.style.transform = 'translate(-50%, 20px)';
+      toast.style.transform = 'translate(-50%, 15px)';
     }, 2800);
   }
 });
