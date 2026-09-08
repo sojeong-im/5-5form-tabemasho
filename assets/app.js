@@ -1,4 +1,4 @@
-// Tabemasho 3rd Gen Application Form - Modern Trendy Logic
+// Tabemasho 3rd Gen Application Form & Gallery Logic
 
 document.addEventListener('DOMContentLoaded', () => {
   // State
@@ -32,6 +32,8 @@ document.addEventListener('DOMContentLoaded', () => {
   loadDraft();
 
   // Initialize UI Bindings
+  initHeroNav();
+  initGalleryLightbox();
   initBirthYearChips();
   initGenderButtons();
   initStatusRadios();
@@ -47,6 +49,82 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Initial Progress Update
   updateProgress();
+
+  /* ========================================================
+     0. Hero Action Buttons Navigation
+     ======================================================== */
+  function initHeroNav() {
+    const heroApplyBtn = document.getElementById('heroApplyBtn');
+    const heroGalleryBtn = document.getElementById('heroGalleryBtn');
+    const navApplyBtn = document.getElementById('navApplyBtn');
+    const navGalleryBtn = document.getElementById('navGalleryBtn');
+    const gallerySection = document.getElementById('gallerySection');
+    const formSection = document.getElementById('formSection');
+
+    function scrollToSection(targetEl) {
+      if (!targetEl) return;
+      const offset = 80;
+      const bodyRect = document.body.getBoundingClientRect().top;
+      const elementRect = targetEl.getBoundingClientRect().top;
+      const elementPosition = elementRect - bodyRect;
+      const offsetPosition = elementPosition - offset;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+      });
+    }
+
+    if (heroApplyBtn) heroApplyBtn.addEventListener('click', () => scrollToSection(formSection));
+    if (heroGalleryBtn) heroGalleryBtn.addEventListener('click', () => scrollToSection(gallerySection));
+    if (navApplyBtn) navApplyBtn.addEventListener('click', () => scrollToSection(formSection));
+    if (navGalleryBtn) navGalleryBtn.addEventListener('click', () => scrollToSection(gallerySection));
+
+    // Gallery bottom CTA to form
+    const galleryToFormBtn = document.getElementById('galleryToFormBtn');
+    if (galleryToFormBtn) galleryToFormBtn.addEventListener('click', () => scrollToSection(formSection));
+  }
+
+  /* ========================================================
+     0-1. Photo Gallery Lightbox
+     ======================================================== */
+  function initGalleryLightbox() {
+    const lightboxModal = document.getElementById('lightboxModal');
+    const lightboxImg = document.getElementById('lightboxImg');
+    const lightboxCaption = document.getElementById('lightboxCaption');
+    const lightboxClose = document.getElementById('lightboxClose');
+    const galleryItems = document.querySelectorAll('.gallery-trigger');
+
+    galleryItems.forEach(item => {
+      item.addEventListener('click', () => {
+        const src = item.dataset.fullsrc || item.querySelector('img').src;
+        const caption = item.dataset.caption || '';
+        
+        if (lightboxImg) lightboxImg.src = src;
+        if (lightboxCaption) lightboxCaption.innerText = caption;
+        if (lightboxModal) {
+          lightboxModal.classList.remove('hidden');
+          document.body.style.overflow = 'hidden';
+        }
+      });
+    });
+
+    if (lightboxClose && lightboxModal) {
+      lightboxClose.addEventListener('click', () => {
+        lightboxModal.classList.add('hidden');
+        document.body.style.overflow = 'auto';
+      });
+    }
+
+    if (lightboxModal) {
+      lightboxModal.addEventListener('click', (e) => {
+        if (e.target === lightboxModal) {
+          lightboxModal.classList.add('hidden');
+          document.body.style.overflow = 'auto';
+        }
+      });
+    }
+  }
 
   /* ========================================================
      1. Form Progress & Minimalist HUD

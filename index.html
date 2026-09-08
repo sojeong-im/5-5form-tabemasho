@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>타베마쇼 3기 지원 | 食べましょう</title>
+  <title>타베마쇼 3기 | 食べましょう</title>
   
   <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -12,77 +12,211 @@
   <!-- Custom Styles -->
   <link rel="stylesheet" href="assets/style.css">
 </head>
-<body class="min-h-screen py-8 px-4 sm:px-6 antialiased selection:bg-slate-900 selection:text-white">
+<body class="min-h-screen antialiased selection:bg-slate-900 selection:text-white pb-24">
 
-  <!-- ==================== Floating Glass Progress HUD ==================== -->
-  <header class="sticky top-4 z-40 max-w-2xl mx-auto mb-8">
-    <div class="glass-hud rounded-full px-5 py-3 flex items-center justify-between gap-4">
-      <div class="flex items-center gap-2.5">
-        <span class="text-base">🍙</span>
-        <span class="text-xs font-bold tracking-tight text-slate-900 font-display">TABEMASHO 03</span>
-        <span class="text-[10px] text-slate-400 font-medium hidden sm:inline font-jp">食べましょう</span>
+  <!-- ==================== Sticky Navigation Bar ==================== -->
+  <nav class="sticky top-0 z-40 bg-white/85 backdrop-blur-md border-b border-slate-200/80 transition-all">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 h-14 flex items-center justify-between">
+      <a href="#" class="flex items-center gap-2">
+        <span class="text-xl">🍙</span>
+        <span class="font-black text-slate-900 tracking-tight text-sm sm:text-base font-display">TABEMASHO</span>
+        <span class="text-[10px] font-bold text-rose-600 bg-rose-50 px-1.5 py-0.5 rounded font-mono">03</span>
+      </a>
+
+      <!-- Quick Action Buttons -->
+      <div class="flex items-center gap-2">
+        <button type="button" id="navGalleryBtn" class="text-xs font-bold px-3 py-1.5 rounded-full text-slate-600 hover:text-slate-900 hover:bg-slate-100 transition-colors">
+          📷 사진보기
+        </button>
+        <button type="button" id="navApplyBtn" class="text-xs font-bold px-3.5 py-1.5 rounded-full bg-slate-900 text-white hover:bg-slate-800 transition-colors shadow-sm">
+          🍙 지원하기
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ==================== Hero Entrance Gateway ==================== -->
+  <header class="max-w-3xl mx-auto px-4 sm:px-6 pt-10 sm:pt-16 pb-12 text-center">
+    <!-- Club Subtitle Badge -->
+    <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-100 border border-slate-200 text-slate-700 text-xs font-bold tracking-wider uppercase mb-5 font-display shadow-sm">
+      <span>🇯🇵 JAPANESE CULTURE CLUB</span>
+      <span class="w-1.5 h-1.5 rounded-full bg-rose-500"></span>
+      <span class="text-rose-600">3기 부원 모집</span>
+    </div>
+
+    <!-- Main Catchy Title -->
+    <h1 class="text-3xl sm:text-5xl font-black text-slate-900 tracking-tight leading-tight mb-3 font-display">
+      타베마쇼 <span class="text-rose-600 font-jp">食べましょう</span>
+    </h1>
+    <p class="text-base sm:text-lg font-bold text-slate-700 mb-4">
+      함께 맛보고, 보고, 나누는 일본 문화 소모임
+    </p>
+
+    <!-- Description -->
+    <p class="text-xs sm:text-sm text-slate-500 leading-relaxed max-w-lg mx-auto mb-8">
+      일본의 맛있는 음식 탐방부터 애니메이션 극장판 단체 관람,<br class="hidden sm:inline">
+      굿즈 팝업스토어 나들이까지 함께할 3기 멤버를 찾고 있어요!
+    </p>
+
+    <!-- ==================== THE TWO CORE BUTTONS ==================== -->
+    <div class="flex flex-col sm:flex-row items-center justify-center gap-3.5 max-w-md mx-auto">
+      <!-- Button 1: Apply Now -->
+      <button 
+        type="button" 
+        id="heroApplyBtn" 
+        class="cta-button w-full sm:w-1/2 py-4 px-6 rounded-2xl text-white font-black text-sm sm:text-base flex items-center justify-center gap-2 shadow-lg cursor-pointer"
+      >
+        <span>🍙</span>
+        <span>3기 지원하기</span>
+      </button>
+
+      <!-- Button 2: View Photos -->
+      <button 
+        type="button" 
+        id="heroGalleryBtn" 
+        class="secondary-btn w-full sm:w-1/2 py-4 px-6 rounded-2xl font-black text-sm sm:text-base flex items-center justify-center gap-2 cursor-pointer"
+      >
+        <span>📷</span>
+        <span>활동 사진 보기</span>
+      </button>
+    </div>
+
+    <!-- Meta Info Pills -->
+    <div class="flex flex-wrap items-center justify-center gap-2 mt-8 text-[11px] font-semibold text-slate-400">
+      <span class="px-2.5 py-1 bg-white rounded-full border border-slate-200">🗓️ 2026.09 — 2027.02</span>
+      <span class="px-2.5 py-1 bg-white rounded-full border border-slate-200">☕ 월 1~2회 정기 모임</span>
+      <span class="px-2.5 py-1 bg-white rounded-full border border-slate-200">✨ 취향 존중 모임</span>
+    </div>
+  </header>
+
+  <!-- ==================== SECTION: 활동 사진 갤러리 ==================== -->
+  <section id="gallerySection" class="max-w-3xl mx-auto px-4 sm:px-6 mb-16 scroll-mt-20">
+    <div class="bento-card p-6 sm:p-8 bg-white border border-slate-200/90">
+      <!-- Section Header -->
+      <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-2 mb-6 pb-4 border-b border-slate-100">
+        <div>
+          <div class="inline-flex items-center gap-1.5 text-xs font-bold text-rose-600 mb-1">
+            <span>📷</span>
+            <span>MEMORIES & ACTIVITIES</span>
+          </div>
+          <h2 class="text-xl sm:text-2xl font-black text-slate-900 tracking-tight">
+            우리가 함께한 시간들
+          </h2>
+        </div>
+        <p class="text-xs text-slate-400">사진을 클릭하면 크게 보실 수 있어요</p>
+      </div>
+
+      <!-- Bento Photo Grid (5 Photos) -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3.5">
+        
+        <!-- Photo 1: 극장판 영화관 엔딩 (Featured Wide) -->
+        <div class="sm:col-span-2 gallery-item h-64 gallery-trigger" data-fullsrc="assets/gallery/activity_1.jpg" data-caption="🎬 극장판 일본 애니메이션 영화 단체 관람의 추억">
+          <img src="assets/gallery/activity_1.jpg" alt="영화관 단체 관람" class="w-full h-full object-cover">
+          <div class="overlay absolute inset-0 flex flex-col justify-end p-4 text-white">
+            <span class="text-[10px] font-bold uppercase tracking-wider text-rose-300">MOVIE DAY</span>
+            <p class="text-sm font-bold">극장판 애니메이션 영화 단체 관람 🎬</p>
+            <p class="text-xs text-slate-300 mt-0.5">엔딩 크레딧과 여운을 함께 나눴던 소중한 순간</p>
+          </div>
+        </div>
+
+        <!-- Photo 3: 테마 카페 & 코스터 -->
+        <div class="gallery-item h-64 gallery-trigger" data-fullsrc="assets/gallery/activity_3.jpg" data-caption="☕ SPY x FAMILY 극장판 콜라보 음료 & 아냐 코스터">
+          <img src="assets/gallery/activity_3.jpg" alt="테마 카페 음료" class="w-full h-full object-cover">
+          <div class="overlay absolute inset-0 flex flex-col justify-end p-4 text-white">
+            <span class="text-[10px] font-bold uppercase tracking-wider text-amber-300">CAFE & DRINK</span>
+            <p class="text-sm font-bold">감성 테마 카페 & 음료 ☕</p>
+            <p class="text-xs text-slate-300 mt-0.5">귀여운 아냐 굿즈와 함께한 디저트 타임</p>
+          </div>
+        </div>
+
+        <!-- Photo 5: 극장판 아치 게이트 -->
+        <div class="gallery-item h-56 gallery-trigger" data-fullsrc="assets/gallery/activity_5.jpg" data-caption="🍿 극장판 SPY x FAMILY CODE: White 상영관 입장">
+          <img src="assets/gallery/activity_5.jpg" alt="상영관 입구" class="w-full h-full object-cover">
+          <div class="overlay absolute inset-0 flex flex-col justify-end p-4 text-white">
+            <span class="text-[10px] font-bold uppercase tracking-wider text-sky-300">CINEMA TRIP</span>
+            <p class="text-xs sm:text-sm font-bold">CODE: White 상영관 입구 🍿</p>
+          </div>
+        </div>
+
+        <!-- Photo 2: 굿즈 진열대 -->
+        <div class="gallery-item h-56 gallery-trigger" data-fullsrc="assets/gallery/activity_2.jpg" data-caption="🛍️ 아냐 포저 아크릴 스탠드 & 코스터 굿즈 구경">
+          <img src="assets/gallery/activity_2.jpg" alt="굿즈 진열대" class="w-full h-full object-cover">
+          <div class="overlay absolute inset-0 flex flex-col justify-end p-4 text-white">
+            <span class="text-[10px] font-bold uppercase tracking-wider text-pink-300">GOODS SHOPPING</span>
+            <p class="text-xs sm:text-sm font-bold">아냐 굿즈 & 코스터 구경 🛍️</p>
+          </div>
+        </div>
+
+        <!-- Photo 4: 팝업스토어 전경 -->
+        <div class="gallery-item h-56 gallery-trigger" data-fullsrc="assets/gallery/activity_4.jpg" data-caption="🏮 일본 애니메이션 팝업스토어 굿즈 매대 탐방">
+          <img src="assets/gallery/activity_4.jpg" alt="팝업스토어 매대" class="w-full h-full object-cover">
+          <div class="overlay absolute inset-0 flex flex-col justify-end p-4 text-white">
+            <span class="text-[10px] font-bold uppercase tracking-wider text-emerald-300">POP-UP STORE</span>
+            <p class="text-xs sm:text-sm font-bold">애니메이션 팝업스토어 탐방 🏮</p>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Gallery to Form CTA Bar -->
+      <div class="mt-6 pt-5 border-t border-slate-100 flex flex-col sm:flex-row items-center justify-between gap-3 bg-slate-50/70 p-4 rounded-2xl">
+        <div>
+          <p class="text-xs sm:text-sm font-bold text-slate-800">이런 활동에 함께하고 싶으신가요? 🍙</p>
+          <p class="text-[11px] text-slate-500">부담 없이 편하게 지원서를 작성해보세요!</p>
+        </div>
+        <button type="button" id="galleryToFormBtn" class="w-full sm:w-auto px-5 py-2.5 rounded-xl bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs shadow transition-all cursor-pointer">
+          지금 3기 지원하기 →
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== SECTION: 지원서 작성 ==================== -->
+  <section id="formSection" class="max-w-2xl mx-auto px-4 sm:px-6 space-y-6 scroll-mt-20">
+
+    <!-- Form Section Title -->
+    <div class="text-center pt-4 pb-2">
+      <span class="text-xs font-bold text-rose-600 uppercase tracking-widest font-display">APPLICATION FORM</span>
+      <h2 class="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight mt-1">
+        타베마쇼 3기 지원서
+      </h2>
+      <p class="text-xs text-slate-400 mt-1">소중한 답변은 정성껏 검토 후 개별 안내드립니다.</p>
+    </div>
+
+    <!-- Floating Mini Progress Bar -->
+    <div class="glass-hud rounded-full px-5 py-3 flex items-center justify-between gap-4 shadow-sm">
+      <div class="flex items-center gap-2">
+        <span class="text-sm">🍙</span>
+        <span class="text-xs font-bold text-slate-800">작성 진행도</span>
+        <span id="draftStatus" class="text-[10px] font-semibold text-emerald-600 opacity-0 transition-opacity">저장됨 ✓</span>
       </div>
 
       <div class="flex items-center gap-3">
-        <div class="flex items-center gap-1.5">
-          <span id="draftStatus" class="text-[10px] font-semibold text-emerald-600 opacity-0 transition-opacity duration-300">저장됨 ✓</span>
-          <span id="progressStepCount" class="text-[11px] font-bold text-slate-400 font-mono">0/12</span>
-          <span id="progressPercent" class="text-xs font-black text-rose-600 font-mono bg-rose-50 px-2 py-0.5 rounded-full">0%</span>
-        </div>
-        <div class="w-16 sm:w-24 bg-slate-100 rounded-full h-1.5 overflow-hidden">
+        <span id="progressStepCount" class="text-xs font-bold text-slate-400 font-mono">0/12</span>
+        <span id="progressPercent" class="text-xs font-black text-rose-600 font-mono bg-rose-50 px-2 py-0.5 rounded-full">0%</span>
+        <div class="w-20 bg-slate-100 rounded-full h-1.5 overflow-hidden">
           <div id="progressBar" class="h-full bg-slate-900 transition-all duration-300 rounded-full" style="width: 0%"></div>
         </div>
       </div>
     </div>
-  </header>
 
-  <!-- ==================== Main Bento Container ==================== -->
-  <main class="max-w-2xl mx-auto space-y-6 pb-20">
-
-    <!-- Hero Editorial Header Card -->
-    <div class="bento-card p-7 sm:p-10 relative overflow-hidden bg-white">
-      <!-- Subtle top line accent -->
-      <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-rose-500 via-slate-900 to-rose-500"></div>
-
-      <div class="flex items-center justify-between gap-2 mb-4">
-        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-100 text-slate-700 text-[11px] font-bold tracking-wider uppercase font-display">
-          <span>JAPANESE CULTURE CLUB</span>
-          <span class="w-1 h-1 rounded-full bg-rose-500"></span>
-          <span>3RD TERM</span>
-        </div>
-        <span class="text-[11px] font-medium text-slate-400">2026.09 — 2027.02</span>
-      </div>
-
-      <h1 class="text-3xl sm:text-4xl font-black text-slate-900 tracking-tight leading-snug mb-2 font-display">
-        타베마쇼 3기 지원폼
-      </h1>
-      <p class="text-sm sm:text-base font-bold text-rose-600 font-jp mb-4">
-        食べましょう。一緒に楽しもう！
-      </p>
-
-      <p class="text-xs sm:text-sm text-slate-500 leading-relaxed max-w-lg">
-        일본의 맛있는 음식, 여행, 애니, 음악을 함께 나눌 3기 크루를 모집합니다.<br class="hidden sm:inline">
-        편안한 마음으로 아래 질문에 답해주세요. 소중히 읽고 연락드리겠습니다.
-      </p>
-    </div>
-
-    <!-- Application Form Start -->
+    <!-- Form Element -->
     <form id="applicationForm" class="space-y-6" novalidate>
 
       <!-- -------------------------------------------------------------
            BENTO CARD 1: 기본 인적사항
            ------------------------------------------------------------- -->
-      <section class="bento-card p-6 sm:p-8">
+      <div class="bento-card p-6 sm:p-8">
         <div class="flex items-center justify-between mb-6 pb-4 border-b border-slate-100">
           <div class="flex items-center gap-2.5">
             <span class="w-6 h-6 rounded-full bg-slate-900 text-white flex items-center justify-center text-[11px] font-black font-mono">01</span>
-            <h2 class="text-base font-black text-slate-900 tracking-tight">기본 정보</h2>
+            <h3 class="text-base font-black text-slate-900 tracking-tight">기본 정보</h3>
           </div>
           <span class="text-[11px] text-rose-500 font-bold">* 필수 항목</span>
         </div>
 
         <div class="space-y-5">
-          <!-- 1. 이름 & 2. 출생연도 (2-col on desktop) -->
+          <!-- 1. 이름 & 3. 성별 -->
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <!-- 1. 이름 -->
             <div>
@@ -119,9 +253,7 @@
             <label class="block text-xs font-bold text-slate-700 mb-2">
               2. 출생연도 <span class="text-rose-500">*</span>
             </label>
-            <div id="birthYearContainer" class="flex flex-wrap gap-2">
-              <!-- Dynamically rendered pill chips -->
-            </div>
+            <div id="birthYearContainer" class="flex flex-wrap gap-2"></div>
           </div>
 
           <!-- 4. 학교명과 학과 -->
@@ -143,9 +275,7 @@
             <label class="block text-xs font-bold text-slate-700 mb-2">
               5. 현재 상태 <span class="text-rose-500">*</span>
             </label>
-            <div id="statusContainer" class="flex flex-wrap gap-2 mb-2">
-              <!-- Dynamically rendered pill chips -->
-            </div>
+            <div id="statusContainer" class="flex flex-wrap gap-2 mb-2"></div>
             <input 
               type="text" 
               id="statusOtherInput" 
@@ -154,7 +284,7 @@
             >
           </div>
 
-          <!-- 6. 인근 지하철역 & 7. 전화번호 (2-col on desktop) -->
+          <!-- 6. 인근 지하철역 & 7. 전화번호 -->
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <!-- 6. 지하철역 -->
             <div>
@@ -185,16 +315,16 @@
             </div>
           </div>
         </div>
-      </section>
+      </div>
 
       <!-- -------------------------------------------------------------
            BENTO CARD 2: 취향 & 관심사
            ------------------------------------------------------------- -->
-      <section class="bento-card p-6 sm:p-8">
+      <div class="bento-card p-6 sm:p-8">
         <div class="flex items-center justify-between mb-6 pb-4 border-b border-slate-100">
           <div class="flex items-center gap-2.5">
             <span class="w-6 h-6 rounded-full bg-slate-900 text-white flex items-center justify-center text-[11px] font-black font-mono">02</span>
-            <h2 class="text-base font-black text-slate-900 tracking-tight">취향 & 관심사</h2>
+            <h3 class="text-base font-black text-slate-900 tracking-tight">취향 & 관심사</h3>
           </div>
           <span class="text-[11px] text-slate-400 font-medium">Culture & Interests</span>
         </div>
@@ -208,9 +338,7 @@
               </label>
               <span class="text-[10px] font-bold text-slate-500 bg-slate-100 px-2 py-0.5 rounded-full">복수 선택 가능</span>
             </div>
-            <div id="reasonsContainer" class="flex flex-wrap gap-2">
-              <!-- Dynamically populated chips -->
-            </div>
+            <div id="reasonsContainer" class="flex flex-wrap gap-2"></div>
             <input 
               type="text" 
               id="reasonOtherInput" 
@@ -234,16 +362,16 @@
             >
           </div>
         </div>
-      </section>
+      </div>
 
       <!-- -------------------------------------------------------------
            BENTO CARD 3: 활동 & 스케줄
            ------------------------------------------------------------- -->
-      <section class="bento-card p-6 sm:p-8">
+      <div class="bento-card p-6 sm:p-8">
         <div class="flex items-center justify-between mb-6 pb-4 border-b border-slate-100">
           <div class="flex items-center gap-2.5">
             <span class="w-6 h-6 rounded-full bg-slate-900 text-white flex items-center justify-center text-[11px] font-black font-mono">03</span>
-            <h2 class="text-base font-black text-slate-900 tracking-tight">활동 및 스케줄</h2>
+            <h3 class="text-base font-black text-slate-900 tracking-tight">활동 및 스케줄</h3>
           </div>
           <span id="activityCounterBadge" class="text-xs font-bold px-2.5 py-0.5 rounded-full bg-slate-100 text-slate-500">
             0 / 3 선택
@@ -257,9 +385,7 @@
               10. 타베마쇼에서 가장 해보고 싶은 활동을 골라주세요. <span class="text-rose-500">*</span>
             </label>
             <p class="text-[11px] text-slate-400 mb-2.5">최대 3개까지 선택 가능합니다.</p>
-            <div id="activitiesContainer" class="flex flex-wrap gap-2">
-              <!-- Dynamically populated chips -->
-            </div>
+            <div id="activitiesContainer" class="flex flex-wrap gap-2"></div>
             <input 
               type="text" 
               id="activityOtherInput" 
@@ -308,16 +434,16 @@
             </div>
           </div>
         </div>
-      </section>
+      </div>
 
       <!-- -------------------------------------------------------------
            BENTO CARD 4: 기대감 & 본인 사진
            ------------------------------------------------------------- -->
-      <section class="bento-card p-6 sm:p-8">
+      <div class="bento-card p-6 sm:p-8">
         <div class="flex items-center justify-between mb-6 pb-4 border-b border-slate-100">
           <div class="flex items-center gap-2.5">
             <span class="w-6 h-6 rounded-full bg-slate-900 text-white flex items-center justify-center text-[11px] font-black font-mono">04</span>
-            <h2 class="text-base font-black text-slate-900 tracking-tight">메시지 & 사진</h2>
+            <h3 class="text-base font-black text-slate-900 tracking-tight">메시지 & 사진</h3>
           </div>
           <span class="text-[11px] text-slate-400 font-medium">Story & Portrait</span>
         </div>
@@ -346,7 +472,6 @@
             </label>
             <p class="text-[11px] text-slate-400 mb-3">과하게 꾸미지 않은 일상적인 사진이면 충분해요!</p>
 
-            <!-- Drop Zone -->
             <div id="photoDropZone" class="border-2 border-dashed border-slate-200 rounded-2xl p-6 text-center cursor-pointer hover:border-slate-800 hover:bg-slate-50/60 transition-all">
               <input type="file" id="photoInput" accept="image/*" class="hidden">
               <div class="w-10 h-10 mx-auto mb-2 rounded-full bg-slate-100 flex items-center justify-center text-lg text-slate-700">
@@ -356,7 +481,6 @@
               <p class="text-[11px] text-slate-400 mt-0.5">JPG, PNG 파일 (최대 10MB)</p>
             </div>
 
-            <!-- Preview Container -->
             <div id="photoPreviewContainer" class="hidden mt-4 flex flex-col items-center">
               <div class="w-48 h-56 rounded-2xl overflow-hidden border border-slate-200 shadow-md bg-slate-100 relative group">
                 <img id="photoImagePreview" src="" alt="첨부 사진" class="w-full h-full object-cover">
@@ -377,16 +501,16 @@
             </div>
           </div>
         </div>
-      </section>
+      </div>
 
       <!-- -------------------------------------------------------------
            BENTO CARD 5: 지원 전 확인사항
            ------------------------------------------------------------- -->
-      <section class="bento-card p-6 sm:p-8 bg-white border border-slate-200">
+      <div class="bento-card p-6 sm:p-8 bg-white border border-slate-200">
         <div class="flex items-center justify-between mb-5 pb-4 border-b border-slate-100">
           <div class="flex items-center gap-2">
             <span class="text-base">✓</span>
-            <h2 class="text-base font-black text-slate-900 tracking-tight">지원 전 확인해주세요</h2>
+            <h3 class="text-base font-black text-slate-900 tracking-tight">지원 전 확인해주세요</h3>
           </div>
           <button type="button" id="agreeAllBtn" class="text-xs font-bold px-3 py-1.5 rounded-full bg-slate-900 text-white hover:bg-slate-800 transition-colors">
             전체 동의하기
@@ -396,7 +520,6 @@
         <p class="text-xs text-slate-400 mb-4">원활한 동아리 활동을 위해 아래 5개 항목을 확인 후 모두 체크해주세요.</p>
 
         <div class="space-y-2.5">
-          <!-- 1 -->
           <div id="agreeCard_period" class="check-card p-3.5 flex items-center justify-between">
             <label class="flex items-center gap-3 text-xs sm:text-sm font-semibold text-slate-800 cursor-pointer flex-1 select-none">
               <input type="checkbox" id="agree_period" class="hidden">
@@ -405,7 +528,6 @@
             </label>
           </div>
 
-          <!-- 2 -->
           <div id="agreeCard_frequency" class="check-card p-3.5 flex items-center justify-between">
             <label class="flex items-center gap-3 text-xs sm:text-sm font-semibold text-slate-800 cursor-pointer flex-1 select-none">
               <input type="checkbox" id="agree_frequency" class="hidden">
@@ -414,7 +536,6 @@
             </label>
           </div>
 
-          <!-- 3 -->
           <div id="agreeCard_fee" class="check-card p-3.5 flex items-center justify-between">
             <label class="flex items-center gap-3 text-xs sm:text-sm font-semibold text-slate-800 cursor-pointer flex-1 select-none">
               <input type="checkbox" id="agree_fee" class="hidden">
@@ -423,7 +544,6 @@
             </label>
           </div>
 
-          <!-- 4 -->
           <div id="agreeCard_purpose" class="check-card p-3.5 flex items-center justify-between">
             <label class="flex items-center gap-3 text-xs sm:text-sm font-semibold text-slate-800 cursor-pointer flex-1 select-none">
               <input type="checkbox" id="agree_purpose" class="hidden">
@@ -432,7 +552,6 @@
             </label>
           </div>
 
-          <!-- 5 -->
           <div id="agreeCard_rules" class="check-card p-3.5 flex items-center justify-between">
             <label class="flex items-center gap-3 text-xs sm:text-sm font-semibold text-slate-800 cursor-pointer flex-1 select-none">
               <input type="checkbox" id="agree_rules" class="hidden">
@@ -441,9 +560,9 @@
             </label>
           </div>
         </div>
-      </section>
+      </div>
 
-      <!-- Submit CTA -->
+      <!-- Submit CTA Button -->
       <div class="pt-2 space-y-3 text-center">
         <button 
           type="submit" 
@@ -464,10 +583,20 @@
       </div>
 
     </form>
+  </section>
 
-  </main>
+  <!-- ==================== Lightbox Modal ==================== -->
+  <div id="lightboxModal" class="hidden fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/90 backdrop-blur-md">
+    <button type="button" id="lightboxClose" class="absolute top-4 right-4 sm:top-6 sm:right-6 w-10 h-10 rounded-full bg-white/20 hover:bg-white/30 text-white flex items-center justify-center text-lg transition-colors">
+      ✕
+    </button>
+    <div class="max-w-2xl w-full text-center">
+      <img id="lightboxImg" src="" alt="확대 사진" class="max-h-[75vh] w-auto mx-auto rounded-2xl shadow-2xl object-contain border border-white/10">
+      <p id="lightboxCaption" class="text-white text-xs sm:text-sm font-medium mt-4 tracking-wide"></p>
+    </div>
+  </div>
 
-  <!-- ==================== Modern Success Modal ==================== -->
+  <!-- ==================== Submission Success Modal ==================== -->
   <div id="successModal" class="hidden fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/50 backdrop-blur-md">
     <div class="bento-card max-w-sm w-full p-6 sm:p-8 text-center bg-white relative animate-in fade-in zoom-in duration-200">
       <div class="w-12 h-12 mx-auto mb-3 rounded-full bg-rose-50 text-rose-600 flex items-center justify-center text-2xl font-black">
@@ -510,7 +639,7 @@
   </div>
 
   <!-- Footer -->
-  <footer class="text-center text-xs text-slate-400 py-6">
+  <footer class="text-center text-xs text-slate-400 py-10">
     <p>© 2026 TABEMASHO • Japanese Culture Club</p>
   </footer>
 
