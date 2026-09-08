@@ -16,7 +16,7 @@
 
   <!-- ==================== Sticky Navigation Bar ==================== -->
   <nav class="sticky top-0 z-40 bg-white/85 backdrop-blur-md border-b border-slate-200/80 transition-all">
-    <div class="max-w-3xl mx-auto px-4 sm:px-6 h-14 flex items-center justify-between">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 h-14 flex items-center justify-between">
       <a href="#" class="flex items-center gap-2">
         <span class="text-xl">🍙</span>
         <span class="font-black text-slate-900 tracking-tight text-sm sm:text-base font-display">TABEMASHO</span>
@@ -26,7 +26,7 @@
       <!-- Quick Action Buttons -->
       <div class="flex items-center gap-2">
         <button type="button" id="navGalleryBtn" class="text-xs font-bold px-3 py-1.5 rounded-full text-slate-600 hover:text-slate-900 hover:bg-slate-100 transition-colors">
-          📷 사진보기
+          📷 사진보기 (10)
         </button>
         <button type="button" id="navApplyBtn" class="text-xs font-bold px-3.5 py-1.5 rounded-full bg-slate-900 text-white hover:bg-slate-800 transition-colors shadow-sm">
           🍙 지원하기
@@ -89,57 +89,112 @@
     </div>
   </header>
 
-  <!-- ==================== SECTION: 활동 사진 갤러리 ==================== -->
-  <section id="gallerySection" class="max-w-3xl mx-auto px-4 sm:px-6 mb-16 scroll-mt-20">
+  <!-- ==================== SECTION: 활동 사진 갤러리 (10 Photos Bento) ==================== -->
+  <section id="gallerySection" class="max-w-4xl mx-auto px-4 sm:px-6 mb-16 scroll-mt-20">
     <div class="bento-card p-6 sm:p-8 bg-white border border-slate-200/90">
-      <!-- Section Header -->
-      <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-2 mb-6 pb-4 border-b border-slate-100">
+      
+      <!-- Section Header & Filter Pills -->
+      <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-6 pb-4 border-b border-slate-100">
         <div>
           <div class="inline-flex items-center gap-1.5 text-xs font-bold text-rose-600 mb-1">
             <span>📷</span>
             <span>MEMORIES & ACTIVITIES</span>
           </div>
           <h2 class="text-xl sm:text-2xl font-black text-slate-900 tracking-tight">
-            우리가 함께한 시간들
+            우리가 함께한 시간들 (10)
           </h2>
         </div>
-        <p class="text-xs text-slate-400">사진을 클릭하면 크게 보실 수 있어요</p>
+
+        <!-- Filter Tags -->
+        <div class="flex flex-wrap items-center gap-1.5">
+          <button type="button" class="gallery-filter-btn px-3 py-1 rounded-full text-xs font-bold bg-slate-900 text-white transition-all cursor-pointer" data-filter="all">
+            전체 (10)
+          </button>
+          <button type="button" class="gallery-filter-btn px-3 py-1 rounded-full text-xs font-bold bg-slate-100 text-slate-600 hover:bg-slate-200 transition-all cursor-pointer" data-filter="food">
+            🍜 맛집&카페
+          </button>
+          <button type="button" class="gallery-filter-btn px-3 py-1 rounded-full text-xs font-bold bg-slate-100 text-slate-600 hover:bg-slate-200 transition-all cursor-pointer" data-filter="media">
+            🎬 영화&콘서트
+          </button>
+          <button type="button" class="gallery-filter-btn px-3 py-1 rounded-full text-xs font-bold bg-slate-100 text-slate-600 hover:bg-slate-200 transition-all cursor-pointer" data-filter="goods">
+            🛍️ 굿즈&팝업
+          </button>
+        </div>
       </div>
 
-      <!-- Bento Photo Grid (5 Photos) -->
-      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3.5">
+      <!-- Bento Photo Grid (10 Photos) -->
+      <div id="galleryGrid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3.5">
         
-        <!-- Photo 1: 극장판 영화관 엔딩 (Featured Wide) -->
-        <div class="sm:col-span-2 gallery-item h-64 gallery-trigger" data-fullsrc="assets/gallery/activity_1.jpg" data-caption="🎬 극장판 일본 애니메이션 영화 단체 관람의 추억">
+        <!-- Photo 6: 치이카와 랜드 신주쿠 (굿즈/팝업) - Wide Featured -->
+        <div class="gallery-item h-64 gallery-trigger" data-category="goods" data-fullsrc="assets/gallery/activity_6.jpg" data-caption="💖 CHIIKAWA LAND SHINJUKU 포토존 (치이카와·하치와레·우사기)">
+          <img src="assets/gallery/activity_6.jpg" alt="치이카와 랜드 신주쿠" class="w-full h-full object-cover">
+          <div class="overlay absolute inset-0 flex flex-col justify-end p-4 text-white">
+            <span class="text-[10px] font-bold uppercase tracking-wider text-pink-300">POP-UP & PHOTO</span>
+            <p class="text-sm font-bold">치이카와 랜드 신주쿠 포토존 💖</p>
+            <p class="text-xs text-slate-300 mt-0.5">귀여운 치이카와 삼총사와 함께한 힐링 나들이</p>
+          </div>
+        </div>
+
+        <!-- Photo 7: 마제소바 맛집 (음식) -->
+        <div class="gallery-item h-64 gallery-trigger" data-category="food" data-fullsrc="assets/gallery/activity_7.jpg" data-caption="🍜 노른자 톡 터뜨려 비벼먹는 정통 일식 마제소바 맛집">
+          <img src="assets/gallery/activity_7.jpg" alt="일식 마제소바" class="w-full h-full object-cover">
+          <div class="overlay absolute inset-0 flex flex-col justify-end p-4 text-white">
+            <span class="text-[10px] font-bold uppercase tracking-wider text-amber-300">GOURMET TRIP</span>
+            <p class="text-sm font-bold">일식 마제소바 맛집 탐방 🍜</p>
+            <p class="text-xs text-slate-300 mt-0.5">부추와 다진 고기, 계란 노른자의 환상적인 조화</p>
+          </div>
+        </div>
+
+        <!-- Photo 10: 튀김 우동 한상 (음식) -->
+        <div class="gallery-item h-64 gallery-trigger" data-category="food" data-fullsrc="assets/gallery/activity_10.jpg" data-caption="🍤 바삭한 왕새우튀김과 따끈한 일본식 우동 정식">
+          <img src="assets/gallery/activity_10.jpg" alt="튀김 우동 한상" class="w-full h-full object-cover">
+          <div class="overlay absolute inset-0 flex flex-col justify-end p-4 text-white">
+            <span class="text-[10px] font-bold uppercase tracking-wider text-orange-300">JAPANESE DINING</span>
+            <p class="text-sm font-bold">일본식 튀김 우동 정식 🍤</p>
+            <p class="text-xs text-slate-300 mt-0.5">바삭한 에비텐과 깊은 육수의 만남</p>
+          </div>
+        </div>
+
+        <!-- Photo 1: 극장판 영화관 엔딩 (영화) - 2-col on desktop -->
+        <div class="sm:col-span-2 gallery-item h-64 gallery-trigger" data-category="media" data-fullsrc="assets/gallery/activity_1.jpg" data-caption="🎬 극장판 일본 애니메이션 영화 단체 관람의 추억">
           <img src="assets/gallery/activity_1.jpg" alt="영화관 단체 관람" class="w-full h-full object-cover">
           <div class="overlay absolute inset-0 flex flex-col justify-end p-4 text-white">
-            <span class="text-[10px] font-bold uppercase tracking-wider text-rose-300">MOVIE DAY</span>
+            <span class="text-[10px] font-bold uppercase tracking-wider text-rose-300">CINEMA MEETUP</span>
             <p class="text-sm font-bold">극장판 애니메이션 영화 단체 관람 🎬</p>
             <p class="text-xs text-slate-300 mt-0.5">엔딩 크레딧과 여운을 함께 나눴던 소중한 순간</p>
           </div>
         </div>
 
-        <!-- Photo 3: 테마 카페 & 코스터 -->
-        <div class="gallery-item h-64 gallery-trigger" data-fullsrc="assets/gallery/activity_3.jpg" data-caption="☕ SPY x FAMILY 극장판 콜라보 음료 & 아냐 코스터">
+        <!-- Photo 9: 너의 이름은. 필름 콘서트 (영화/미디어) -->
+        <div class="gallery-item h-64 gallery-trigger" data-category="media" data-fullsrc="assets/gallery/activity_9.jpg" data-caption="🎼 <너의 이름은.> 오리지널 필름 콘서트 대형 포스터">
+          <img src="assets/gallery/activity_9.jpg" alt="너의 이름은 필름 콘서트" class="w-full h-full object-cover">
+          <div class="overlay absolute inset-0 flex flex-col justify-end p-4 text-white">
+            <span class="text-[10px] font-bold uppercase tracking-wider text-sky-300">FILM CONCERT</span>
+            <p class="text-sm font-bold">너의 이름은. 필름 콘서트 🎼</p>
+            <p class="text-xs text-slate-300 mt-0.5">신카이 마코토 명작의 감동을 오케스트라로!</p>
+          </div>
+        </div>
+
+        <!-- Photo 8: 치이카와 콜라보 카페 (카페/맛집) -->
+        <div class="gallery-item h-56 gallery-trigger" data-category="food" data-fullsrc="assets/gallery/activity_8.jpg" data-caption="☕ 영화 치이카와 콜라보레이션 카페 쇼윈도">
+          <img src="assets/gallery/activity_8.jpg" alt="치이카와 콜라보 카페" class="w-full h-full object-cover">
+          <div class="overlay absolute inset-0 flex flex-col justify-end p-4 text-white">
+            <span class="text-[10px] font-bold uppercase tracking-wider text-teal-300">COLLAB CAFE</span>
+            <p class="text-xs sm:text-sm font-bold">치이카와 콜라보 카페 ☕</p>
+          </div>
+        </div>
+
+        <!-- Photo 3: 테마 카페 & 코스터 (카페) -->
+        <div class="gallery-item h-56 gallery-trigger" data-category="food" data-fullsrc="assets/gallery/activity_3.jpg" data-caption="🥤 SPY x FAMILY 극장판 테마 음료 & 아냐 코스터">
           <img src="assets/gallery/activity_3.jpg" alt="테마 카페 음료" class="w-full h-full object-cover">
           <div class="overlay absolute inset-0 flex flex-col justify-end p-4 text-white">
             <span class="text-[10px] font-bold uppercase tracking-wider text-amber-300">CAFE & DRINK</span>
-            <p class="text-sm font-bold">감성 테마 카페 & 음료 ☕</p>
-            <p class="text-xs text-slate-300 mt-0.5">귀여운 아냐 굿즈와 함께한 디저트 타임</p>
+            <p class="text-xs sm:text-sm font-bold">아냐 굿즈 & 테마 음료 🥤</p>
           </div>
         </div>
 
-        <!-- Photo 5: 극장판 아치 게이트 -->
-        <div class="gallery-item h-56 gallery-trigger" data-fullsrc="assets/gallery/activity_5.jpg" data-caption="🍿 극장판 SPY x FAMILY CODE: White 상영관 입장">
-          <img src="assets/gallery/activity_5.jpg" alt="상영관 입구" class="w-full h-full object-cover">
-          <div class="overlay absolute inset-0 flex flex-col justify-end p-4 text-white">
-            <span class="text-[10px] font-bold uppercase tracking-wider text-sky-300">CINEMA TRIP</span>
-            <p class="text-xs sm:text-sm font-bold">CODE: White 상영관 입구 🍿</p>
-          </div>
-        </div>
-
-        <!-- Photo 2: 굿즈 진열대 -->
-        <div class="gallery-item h-56 gallery-trigger" data-fullsrc="assets/gallery/activity_2.jpg" data-caption="🛍️ 아냐 포저 아크릴 스탠드 & 코스터 굿즈 구경">
+        <!-- Photo 2: 아냐 굿즈 진열대 (굿즈) -->
+        <div class="gallery-item h-56 gallery-trigger" data-category="goods" data-fullsrc="assets/gallery/activity_2.jpg" data-caption="🛍️ 스파이 패밀리 아냐 포저 아크릴 스탠드 & 코스터">
           <img src="assets/gallery/activity_2.jpg" alt="굿즈 진열대" class="w-full h-full object-cover">
           <div class="overlay absolute inset-0 flex flex-col justify-end p-4 text-white">
             <span class="text-[10px] font-bold uppercase tracking-wider text-pink-300">GOODS SHOPPING</span>
@@ -147,12 +202,21 @@
           </div>
         </div>
 
-        <!-- Photo 4: 팝업스토어 전경 -->
-        <div class="gallery-item h-56 gallery-trigger" data-fullsrc="assets/gallery/activity_4.jpg" data-caption="🏮 일본 애니메이션 팝업스토어 굿즈 매대 탐방">
+        <!-- Photo 4: 팝업스토어 전경 (굿즈) -->
+        <div class="gallery-item h-56 gallery-trigger" data-category="goods" data-fullsrc="assets/gallery/activity_4.jpg" data-caption="🏮 일본 애니메이션 팝업스토어 매대 구경">
           <img src="assets/gallery/activity_4.jpg" alt="팝업스토어 매대" class="w-full h-full object-cover">
           <div class="overlay absolute inset-0 flex flex-col justify-end p-4 text-white">
             <span class="text-[10px] font-bold uppercase tracking-wider text-emerald-300">POP-UP STORE</span>
-            <p class="text-xs sm:text-sm font-bold">애니메이션 팝업스토어 탐방 🏮</p>
+            <p class="text-xs sm:text-sm font-bold">애니메이션 팝업스토어 🏮</p>
+          </div>
+        </div>
+
+        <!-- Photo 5: 상영관 입구 게이트 (영화) -->
+        <div class="gallery-item h-56 gallery-trigger" data-category="media" data-fullsrc="assets/gallery/activity_5.jpg" data-caption="🍿 극장판 SPY x FAMILY CODE: White 상영관 입장 게이트">
+          <img src="assets/gallery/activity_5.jpg" alt="상영관 입구" class="w-full h-full object-cover">
+          <div class="overlay absolute inset-0 flex flex-col justify-end p-4 text-white">
+            <span class="text-[10px] font-bold uppercase tracking-wider text-sky-300">CINEMA TRIP</span>
+            <p class="text-xs sm:text-sm font-bold">CODE: White 상영관 입구 🍿</p>
           </div>
         </div>
 
@@ -161,8 +225,8 @@
       <!-- Gallery to Form CTA Bar -->
       <div class="mt-6 pt-5 border-t border-slate-100 flex flex-col sm:flex-row items-center justify-between gap-3 bg-slate-50/70 p-4 rounded-2xl">
         <div>
-          <p class="text-xs sm:text-sm font-bold text-slate-800">이런 활동에 함께하고 싶으신가요? 🍙</p>
-          <p class="text-[11px] text-slate-500">부담 없이 편하게 지원서를 작성해보세요!</p>
+          <p class="text-xs sm:text-sm font-bold text-slate-800">이런 다채로운 활동에 함께하고 싶으신가요? 🍙</p>
+          <p class="text-[11px] text-slate-500">부담 없이 편하게 3기 지원서를 작성해보세요!</p>
         </div>
         <button type="button" id="galleryToFormBtn" class="w-full sm:w-auto px-5 py-2.5 rounded-xl bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs shadow transition-all cursor-pointer">
           지금 3기 지원하기 →
@@ -356,7 +420,7 @@
             <input 
               type="text" 
               id="interestInput" 
-              placeholder="예: 요아소비 음악, 교토 여행, 하이큐, 야키토리 맛집 등"
+              placeholder="예: 요아소비 음악, 교토 여행, 치이카와, 마제소바 등"
               required
               class="modern-input"
             >
@@ -585,14 +649,27 @@
     </form>
   </section>
 
-  <!-- ==================== Lightbox Modal ==================== -->
+  <!-- ==================== Lightbox Modal with Next/Prev Navigation ==================== -->
   <div id="lightboxModal" class="hidden fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/90 backdrop-blur-md">
-    <button type="button" id="lightboxClose" class="absolute top-4 right-4 sm:top-6 sm:right-6 w-10 h-10 rounded-full bg-white/20 hover:bg-white/30 text-white flex items-center justify-center text-lg transition-colors">
+    <!-- Close Button -->
+    <button type="button" id="lightboxClose" class="absolute top-4 right-4 sm:top-6 sm:right-6 w-10 h-10 rounded-full bg-white/20 hover:bg-white/30 text-white flex items-center justify-center text-lg transition-colors cursor-pointer z-10">
       ✕
     </button>
-    <div class="max-w-2xl w-full text-center">
+
+    <!-- Prev Button -->
+    <button type="button" id="lightboxPrev" class="absolute left-2 sm:left-6 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full bg-white/15 hover:bg-white/30 text-white flex items-center justify-center text-xl transition-all cursor-pointer z-10">
+      ‹
+    </button>
+
+    <!-- Next Button -->
+    <button type="button" id="lightboxNext" class="absolute right-2 sm:right-6 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full bg-white/15 hover:bg-white/30 text-white flex items-center justify-center text-xl transition-all cursor-pointer z-10">
+      ›
+    </button>
+
+    <!-- Image & Caption Display -->
+    <div class="max-w-2xl w-full text-center select-none">
       <img id="lightboxImg" src="" alt="확대 사진" class="max-h-[75vh] w-auto mx-auto rounded-2xl shadow-2xl object-contain border border-white/10">
-      <p id="lightboxCaption" class="text-white text-xs sm:text-sm font-medium mt-4 tracking-wide"></p>
+      <p id="lightboxCaption" class="text-white text-xs sm:text-sm font-medium mt-4 tracking-wide px-4"></p>
     </div>
   </div>
 

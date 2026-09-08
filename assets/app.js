@@ -1,4 +1,4 @@
-// Tabemasho 3rd Gen Application Form & Gallery Logic
+// Tabemasho 3rd Gen Application Form & 10-Photo Gallery Logic
 
 document.addEventListener('DOMContentLoaded', () => {
   // State
@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Initialize UI Bindings
   initHeroNav();
-  initGalleryLightbox();
+  initGalleryFilterAndLightbox();
   initBirthYearChips();
   initGenderButtons();
   initStatusRadios();
@@ -63,7 +63,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function scrollToSection(targetEl) {
       if (!targetEl) return;
-      const offset = 80;
+      const offset = 75;
       const bodyRect = document.body.getBoundingClientRect().top;
       const elementRect = targetEl.getBoundingClientRect().top;
       const elementPosition = elementRect - bodyRect;
@@ -86,28 +86,95 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   /* ========================================================
-     0-1. Photo Gallery Lightbox
+     0-1. Photo Gallery Filtering & Lightbox
      ======================================================== */
-  function initGalleryLightbox() {
+  function initGalleryFilterAndLightbox() {
+    const filterBtns = document.querySelectorAll('.gallery-filter-btn');
+    const galleryItems = document.querySelectorAll('.gallery-item');
     const lightboxModal = document.getElementById('lightboxModal');
     const lightboxImg = document.getElementById('lightboxImg');
     const lightboxCaption = document.getElementById('lightboxCaption');
     const lightboxClose = document.getElementById('lightboxClose');
-    const galleryItems = document.querySelectorAll('.gallery-trigger');
+    const lightboxPrev = document.getElementById('lightboxPrev');
+    const lightboxNext = document.getElementById('lightboxNext');
 
+    let currentPhotoList = [];
+    let currentPhotoIndex = 0;
+
+    function buildCurrentList() {
+      currentPhotoList = Array.from(galleryItems)
+        .filter(el => !el.classList.contains('hidden'))
+        .map(el => ({
+          src: el.dataset.fullsrc || el.querySelector('img').src,
+          caption: el.dataset.caption || ''
+        }));
+    }
+
+    // Filter Buttons
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        filterBtns.forEach(b => {
+          b.classList.remove('bg-slate-900', 'text-white');
+          b.classList.add('bg-slate-100', 'text-slate-600');
+        });
+        btn.classList.remove('bg-slate-100', 'text-slate-600');
+        btn.classList.add('bg-slate-900', 'text-white');
+
+        const category = btn.dataset.filter;
+        galleryItems.forEach(item => {
+          if (category === 'all' || item.dataset.category === category) {
+            item.classList.remove('hidden');
+          } else {
+            item.classList.add('hidden');
+          }
+        });
+        buildCurrentList();
+      });
+    });
+
+    buildCurrentList();
+
+    // Lightbox open
     galleryItems.forEach(item => {
       item.addEventListener('click', () => {
+        buildCurrentList();
         const src = item.dataset.fullsrc || item.querySelector('img').src;
-        const caption = item.dataset.caption || '';
-        
-        if (lightboxImg) lightboxImg.src = src;
-        if (lightboxCaption) lightboxCaption.innerText = caption;
+        currentPhotoIndex = currentPhotoList.findIndex(p => p.src.includes(src) || src.includes(p.src));
+        if (currentPhotoIndex === -1) currentPhotoIndex = 0;
+        updateLightbox();
         if (lightboxModal) {
           lightboxModal.classList.remove('hidden');
           document.body.style.overflow = 'hidden';
         }
       });
     });
+
+    function updateLightbox() {
+      if (currentPhotoList.length === 0) return;
+      const current = currentPhotoList[currentPhotoIndex];
+      if (lightboxImg) lightboxImg.src = current.src;
+      if (lightboxCaption) lightboxCaption.innerText = current.caption;
+    }
+
+    if (lightboxPrev) {
+      lightboxPrev.addEventListener('click', (e) => {
+        e.stopPropagation();
+        if (currentPhotoList.length > 0) {
+          currentPhotoIndex = (currentPhotoIndex - 1 + currentPhotoList.length) % currentPhotoList.length;
+          updateLightbox();
+        }
+      });
+    }
+
+    if (lightboxNext) {
+      lightboxNext.addEventListener('click', (e) => {
+        e.stopPropagation();
+        if (currentPhotoList.length > 0) {
+          currentPhotoIndex = (currentPhotoIndex + 1) % currentPhotoList.length;
+          updateLightbox();
+        }
+      });
+    }
 
     if (lightboxClose && lightboxModal) {
       lightboxClose.addEventListener('click', () => {
@@ -124,6 +191,19 @@ document.addEventListener('DOMContentLoaded', () => {
         }
       });
     }
+
+    // Keyboard support for Lightbox
+    window.addEventListener('keydown', (e) => {
+      if (!lightboxModal || lightboxModal.classList.contains('hidden')) return;
+      if (e.key === 'Escape') {
+        lightboxModal.classList.add('hidden');
+        document.body.style.overflow = 'auto';
+      } else if (e.key === 'ArrowLeft' && lightboxPrev) {
+        lightboxPrev.click();
+      } else if (e.key === 'ArrowRight' && lightboxNext) {
+        lightboxNext.click();
+      }
+    });
   }
 
   /* ========================================================
@@ -486,13 +566,11 @@ document.addEventListener('DOMContentLoaded', () => {
   function renderMatrix(container, days, times, prefix) {
     container.innerHTML = '';
     
-    // Header row
     const headerRow = document.createElement('div');
     headerRow.className = `grid grid-cols-${days.length + 1} gap-1.5 mb-1.5 text-center font-semibold text-xs text-slate-400`;
     headerRow.innerHTML = `<div></div>` + days.map(d => `<div class="bg-slate-100/80 rounded-md py-1 text-slate-700 font-bold">${d}</div>`).join('');
     container.appendChild(headerRow);
 
-    // Time rows
     times.forEach(t => {
       const row = document.createElement('div');
       row.className = `grid grid-cols-${days.length + 1} gap-1.5 mb-1.5 items-center`;
