@@ -2,6 +2,11 @@
 
 동아리 손그림 포스터 감성을 그대로 살려 제작한 **아날로그 스크랩북 & 다이어리 스타일의 인터랙티브 지원폼**입니다.
 
+## 🌐 배포 및 저장소 링크
+
+- **라이브 서비스 (Netlify)**: [https://tabemasho-form.netlify.app](https://tabemasho-form.netlify.app)
+- **GitHub 저장소**: [https://github.com/sojeong-im/5-5form-tabemasho](https://github.com/sojeong-im/5-5form-tabemasho)
+
 ## ✨ 주요 특징 & 차별화 포인트
 
 1. **접속 즉시 작성 가능한 폼 구조**
