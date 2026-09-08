@@ -19,6 +19,7 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 body {
@@ -31,6 +32,27 @@ body {
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Prevent iOS Safari auto-zoom on input focus */
+@media (max-width: 768px) {
+  .modern-input,
+  input[type="text"],
+  input[type="tel"],
+  input[type="email"],
+  textarea {
+    font-size: 16px !important;
+  }
+}
+
+/* Safe area insets for iPhone notched screens */
+@supports (padding: env(safe-area-inset-top)) {
+  nav {
+    padding-left: max(0.75rem, env(safe-area-inset-left));
+    padding-right: max(0.75rem, env(safe-area-inset-right));
+  }
 }
 
 .font-display {
@@ -56,9 +78,21 @@ body {
 .bento-card {
   background: var(--bg-card);
   border: 1px solid var(--border-subtle);
-  border-radius: 24px;
+  border-radius: 20px;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02), 0 10px 25px -5px rgba(15, 23, 42, 0.03);
   transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+@media (min-width: 640px) {
+  .bento-card {
+    border-radius: 24px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .bento-card {
+    border-radius: 26px;
+  }
 }
 
 .bento-card:hover {
@@ -71,12 +105,20 @@ body {
   width: 100%;
   border: 1.5px solid var(--border-subtle);
   background-color: #FAFAFA;
-  border-radius: 14px;
-  padding: 12px 16px;
-  font-size: 0.925rem;
+  border-radius: 12px;
+  padding: 11px 14px;
+  font-size: 0.9rem;
   color: #0F172A;
   transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
   outline: none;
+}
+
+@media (min-width: 640px) {
+  .modern-input {
+    border-radius: 14px;
+    padding: 12px 16px;
+    font-size: 0.925rem;
+  }
 }
 
 .modern-input:hover {
@@ -99,9 +141,10 @@ body {
 .pill-chip {
   display: inline-flex;
   align-items: center;
-  gap: 6px;
-  padding: 8px 16px;
-  font-size: 0.875rem;
+  justify-content: center;
+  gap: 5px;
+  padding: 7px 13px;
+  font-size: 0.8125rem;
   font-weight: 600;
   border-radius: 9999px;
   border: 1.5px solid var(--border-subtle);
@@ -110,6 +153,14 @@ body {
   cursor: pointer;
   user-select: none;
   transition: all 0.16s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@media (min-width: 640px) {
+  .pill-chip {
+    gap: 6px;
+    padding: 8px 16px;
+    font-size: 0.875rem;
+  }
 }
 
 .pill-chip:hover {
@@ -133,15 +184,28 @@ body {
 .time-slot-btn {
   border: 1.5px solid var(--border-subtle);
   background: #FFFFFF;
-  border-radius: 10px;
-  font-size: 0.82rem;
-  padding: 8px 4px;
+  border-radius: 7px;
+  font-size: 0.72rem;
+  padding: 6px 1px;
   text-align: center;
   cursor: pointer;
   transition: all 0.15s ease;
   user-select: none;
   font-weight: 600;
   color: #64748B;
+  min-height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media (min-width: 640px) {
+  .time-slot-btn {
+    border-radius: 10px;
+    font-size: 0.82rem;
+    padding: 8px 4px;
+    min-height: 38px;
+  }
 }
 
 .time-slot-btn:hover {

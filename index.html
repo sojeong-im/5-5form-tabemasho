@@ -16,19 +16,19 @@
 
   <!-- ==================== Sticky Navigation Bar ==================== -->
   <nav class="sticky top-0 z-40 bg-white/85 backdrop-blur-md border-b border-slate-200/80 transition-all">
-    <div class="max-w-4xl mx-auto px-4 sm:px-6 h-14 flex items-center justify-between">
+    <div class="max-w-4xl mx-auto px-3.5 sm:px-6 h-14 sm:h-16 flex items-center justify-between">
       <a href="#" id="navLogo" class="flex items-center gap-2 cursor-pointer group">
-        <span class="text-xl group-hover:rotate-12 transition-transform">🍙</span>
+        <span class="text-xl sm:text-2xl group-hover:rotate-12 transition-transform">🍙</span>
         <span class="font-black text-slate-900 tracking-tight text-sm sm:text-base font-display">TABEMASHO</span>
         <span class="text-[10px] font-bold text-rose-600 bg-rose-50 border border-rose-100 px-1.5 py-0.5 rounded font-mono">03</span>
       </a>
 
       <!-- Quick Action Buttons -->
-      <div class="flex items-center gap-2">
-        <button type="button" id="navGalleryBtn" class="btn-go-gallery text-xs font-bold px-3 py-1.5 rounded-full text-slate-600 hover:text-slate-900 hover:bg-slate-100 transition-colors cursor-pointer">
-          📷 사진보기 (25)
+      <div class="flex items-center gap-1.5 sm:gap-2">
+        <button type="button" id="navGalleryBtn" class="btn-go-gallery text-xs font-bold px-2.5 sm:px-3.5 py-1.5 rounded-full text-slate-600 hover:text-slate-900 hover:bg-slate-100 transition-colors cursor-pointer">
+          📷 <span class="hidden sm:inline">사진보기</span><span class="sm:hidden">사진</span> (25)
         </button>
-        <button type="button" id="navApplyBtn" class="btn-go-form text-xs font-bold px-3.5 py-1.5 rounded-full bg-slate-900 text-white hover:bg-slate-800 transition-colors shadow-sm cursor-pointer">
+        <button type="button" id="navApplyBtn" class="btn-go-form text-xs font-bold px-3 sm:px-4 py-1.5 rounded-full bg-slate-900 text-white hover:bg-slate-800 transition-colors shadow-sm cursor-pointer">
           🍙 지원하기
         </button>
       </div>
@@ -36,105 +36,105 @@
   </nav>
 
   <!-- ==================== VIEW 1: JAPANESE AESTHETIC PORTAL (홈 화면) ==================== -->
-  <section id="homeView" class="view-container max-w-3xl mx-auto px-4 sm:px-6 pt-10 sm:pt-16 pb-16 text-center">
+  <section id="homeView" class="view-container max-w-3xl mx-auto px-4 sm:px-6 pt-8 sm:pt-14 md:pt-20 pb-16 md:pb-24 text-center">
     
     <!-- Top Japanese Seal & Badge -->
-    <div class="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-white border border-slate-200/90 shadow-xs mb-6">
+    <div class="inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 rounded-full bg-white border border-slate-200/90 shadow-xs mb-5 sm:mb-6">
       <span class="text-rose-600 text-sm">⛩️</span>
-      <span class="text-xs font-bold text-slate-700 tracking-wider">日本文化交流サークル</span>
+      <span class="text-[11px] sm:text-xs font-bold text-slate-700 tracking-wider">日本文化交流サークル</span>
       <span class="w-1 h-1 rounded-full bg-rose-400"></span>
-      <span class="text-xs font-bold text-rose-600">3기 부원 모집</span>
-      <span class="hanko-seal text-[10px] ml-1">歓迎</span>
+      <span class="text-[11px] sm:text-xs font-bold text-rose-600">3기 부원 모집</span>
+      <span class="hanko-seal text-[9px] sm:text-[10px] ml-1">歓迎</span>
     </div>
 
     <!-- Main Japanese Title & Logo Header -->
-    <div class="relative py-2 mb-4">
+    <div class="relative py-2 mb-3 sm:mb-4">
       <!-- Watermark kanji -->
       <div class="absolute inset-0 flex items-center justify-center opacity-5 select-none pointer-events-none -z-10">
-        <span class="text-8xl sm:text-9xl font-serif text-slate-900 font-black">和</span>
+        <span class="text-7xl sm:text-9xl font-serif text-slate-900 font-black">和</span>
       </div>
 
       <h1 class="font-black tracking-tight leading-none">
-        <ruby class="text-4xl sm:text-6xl text-rose-600 font-jp font-black tracking-wide block mb-1">
-          食べましょう<rt class="text-[11px] sm:text-xs text-rose-400 font-sans tracking-widest uppercase">Tabemasho</rt>
+        <ruby class="text-4xl sm:text-6xl md:text-7xl text-rose-600 font-jp font-black tracking-wide block mb-1.5">
+          食べましょう<rt class="text-[10px] sm:text-xs text-rose-400 font-sans tracking-widest uppercase">Tabemasho</rt>
         </ruby>
-        <span class="text-2xl sm:text-3xl text-slate-900 font-extrabold tracking-tight font-display">
-          타베마쇼 3기 모집
+        <span class="text-xl sm:text-3xl md:text-4xl text-slate-900 font-extrabold tracking-tight font-display">
+          타베마쇼 3기 신입 모집
         </span>
       </h1>
     </div>
 
     <!-- Japanese Tagline -->
-    <p class="font-jp text-slate-500 text-xs sm:text-sm font-semibold tracking-wide mb-2">
+    <p class="font-jp text-slate-500 text-xs sm:text-sm md:text-base font-semibold tracking-wide mb-2">
       「おいしい瞬間、一緒につくる日本の旅。」
     </p>
 
     <!-- Subtitle Description -->
-    <p class="text-xs sm:text-sm text-slate-600 font-normal leading-relaxed max-w-md mx-auto mb-10">
+    <p class="text-xs sm:text-sm text-slate-600 font-normal leading-relaxed max-w-md md:max-w-lg mx-auto mb-8 sm:mb-11 px-2">
       도쿄 스카이트리 & 교토 산책, 스시·규카츠 맛집 탐방부터<br class="hidden sm:inline">
       극장판 애니메이션 관람까지 함께할 3기 멤버를 찾고 있어요!
     </p>
 
     <!-- ==================== THE TWO CORE BUTTONS (FOCAL POINT) ==================== -->
-    <div class="flex flex-col sm:flex-row items-stretch justify-center gap-3.5 max-w-md mx-auto mb-12">
+    <div class="flex flex-col sm:flex-row items-stretch justify-center gap-3 sm:gap-4 max-w-md md:max-w-xl mx-auto mb-10 sm:mb-14">
       
       <!-- Button 1: Apply Now (3기 지원하기) -->
       <button 
         type="button" 
         id="heroApplyBtn" 
-        class="portal-btn-apply group py-4 px-6 rounded-2xl flex items-center justify-between sm:justify-center gap-3 cursor-pointer text-left sm:text-center flex-1"
+        class="portal-btn-apply group py-4 px-5 sm:px-6 rounded-2xl flex items-center justify-between sm:justify-center gap-3 cursor-pointer text-left sm:text-center flex-1"
       >
         <div class="flex items-center gap-3">
-          <span class="text-2xl group-hover:scale-110 transition-transform">🍙</span>
+          <span class="text-2xl sm:text-3xl group-hover:scale-110 transition-transform">🍙</span>
           <div>
-            <span class="block text-[10px] font-bold text-rose-400 tracking-wider font-mono">STEP 01</span>
+            <span class="block text-[10px] sm:text-xs font-bold text-rose-400 tracking-wider font-mono">STEP 01</span>
             <span class="text-base sm:text-lg font-black tracking-tight text-white">3기 지원하기</span>
           </div>
         </div>
-        <span class="text-slate-400 group-hover:translate-x-1 transition-transform text-lg">→</span>
+        <span class="text-slate-400 group-hover:translate-x-1 transition-transform text-lg sm:text-xl">→</span>
       </button>
 
       <!-- Button 2: View Photos (활동 사진 보기) -->
       <button 
         type="button" 
         id="heroGalleryBtn" 
-        class="portal-btn-gallery group py-4 px-6 rounded-2xl flex items-center justify-between sm:justify-center gap-3 cursor-pointer text-left sm:text-center flex-1"
+        class="portal-btn-gallery group py-4 px-5 sm:px-6 rounded-2xl flex items-center justify-between sm:justify-center gap-3 cursor-pointer text-left sm:text-center flex-1"
       >
         <div class="flex items-center gap-3">
-          <span class="text-2xl group-hover:scale-110 transition-transform">📷</span>
+          <span class="text-2xl sm:text-3xl group-hover:scale-110 transition-transform">📷</span>
           <div>
-            <span class="block text-[10px] font-bold text-slate-400 tracking-wider font-mono">ARCHIVE (25)</span>
+            <span class="block text-[10px] sm:text-xs font-bold text-slate-400 tracking-wider font-mono">ARCHIVE (25)</span>
             <span class="text-base sm:text-lg font-black tracking-tight text-slate-900">활동 사진 보기</span>
           </div>
         </div>
-        <span class="text-slate-400 group-hover:translate-x-1 transition-transform text-lg">→</span>
+        <span class="text-slate-400 group-hover:translate-x-1 transition-transform text-lg sm:text-xl">→</span>
       </button>
 
     </div>
 
     <!-- Japanese Aesthetic Highlights (3 Pillars Bento) -->
-    <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 max-w-lg mx-auto text-left mb-8">
-      <div class="bento-card p-4 bg-white/90">
-        <div class="text-xl mb-1.5">🍣</div>
-        <h4 class="text-xs font-bold text-slate-900 mb-0.5">정기 미식 탐방</h4>
-        <p class="text-[11px] text-slate-500 leading-snug">스시, 규카츠, 라멘, 일본식 디저트 맛집 도장깨기</p>
+    <div class="grid grid-cols-1 sm:grid-cols-3 gap-2.5 sm:gap-3.5 max-w-lg md:max-w-2xl mx-auto text-left mb-7 sm:mb-9">
+      <div class="bento-card p-4 sm:p-5 bg-white/90">
+        <div class="text-xl sm:text-2xl mb-1.5">🍣</div>
+        <h4 class="text-xs sm:text-sm font-bold text-slate-900 mb-0.5">정기 미식 탐방</h4>
+        <p class="text-[11px] sm:text-xs text-slate-500 leading-snug">스시, 규카츠, 라멘, 일본식 디저트 맛집 도장깨기</p>
       </div>
 
-      <div class="bento-card p-4 bg-white/90">
-        <div class="text-xl mb-1.5">⛩️</div>
-        <h4 class="text-xs font-bold text-slate-900 mb-0.5">여행 & 문화 감성</h4>
-        <p class="text-[11px] text-slate-500 leading-snug">도쿄·교토 랜선&실전 여행 꿀팁과 일본 문화 교류</p>
+      <div class="bento-card p-4 sm:p-5 bg-white/90">
+        <div class="text-xl sm:text-2xl mb-1.5">⛩️</div>
+        <h4 class="text-xs sm:text-sm font-bold text-slate-900 mb-0.5">여행 & 문화 감성</h4>
+        <p class="text-[11px] sm:text-xs text-slate-500 leading-snug">도쿄·교토 랜선&실전 여행 꿀팁과 일본 문화 교류</p>
       </div>
 
-      <div class="bento-card p-4 bg-white/90">
-        <div class="text-xl mb-1.5">🎬</div>
-        <h4 class="text-xs font-bold text-slate-900 mb-0.5">영화 & 팝업스토어</h4>
-        <p class="text-[11px] text-slate-500 leading-snug">애니 극장판 단체 관람, 치이카와·지브리 굿즈 탐방</p>
+      <div class="bento-card p-4 sm:p-5 bg-white/90">
+        <div class="text-xl sm:text-2xl mb-1.5">🎬</div>
+        <h4 class="text-xs sm:text-sm font-bold text-slate-900 mb-0.5">영화 & 팝업스토어</h4>
+        <p class="text-[11px] sm:text-xs text-slate-500 leading-snug">애니 극장판 단체 관람, 치이카와·지브리 굿즈 탐방</p>
       </div>
     </div>
 
     <!-- Meta Info Strip -->
-    <div class="inline-flex flex-wrap items-center justify-center gap-2 text-[11px] font-medium text-slate-500 bg-white/70 px-4 py-2 rounded-full border border-slate-200 shadow-xs">
+    <div class="inline-flex flex-wrap items-center justify-center gap-2 text-[11px] sm:text-xs font-medium text-slate-500 bg-white/70 px-4 py-2 rounded-full border border-slate-200 shadow-xs">
       <span>🗓️ 2026.09 — 2027.02</span>
       <span class="text-slate-300">•</span>
       <span>📍 서울 & 수도권 모임</span>
@@ -146,25 +146,25 @@
 
 
   <!-- ==================== VIEW 2: 활동 사진 갤러리 (25 Photos View) ==================== -->
-  <section id="galleryView" class="view-container view-hidden max-w-4xl mx-auto px-4 sm:px-6 mb-16 scroll-mt-20">
+  <section id="galleryView" class="view-container view-hidden max-w-5xl mx-auto px-3.5 sm:px-6 mb-16 scroll-mt-20">
     
     <!-- Top Back / Action Bar -->
-    <div class="flex items-center justify-between gap-3 mb-6">
-      <button type="button" class="btn-back-home inline-flex items-center gap-2 text-xs font-bold text-slate-700 hover:text-slate-950 px-4 py-2 rounded-full bg-white border border-slate-200/90 shadow-xs hover:border-slate-400 transition-all cursor-pointer">
+    <div class="flex items-center justify-between gap-2 mb-4 sm:mb-6">
+      <button type="button" class="btn-back-home inline-flex items-center gap-1.5 sm:gap-2 text-xs font-bold text-slate-700 hover:text-slate-950 px-3.5 sm:px-4 py-2 rounded-full bg-white border border-slate-200/90 shadow-xs hover:border-slate-400 transition-all cursor-pointer">
         <span class="text-sm">←</span>
-        <span>메인으로 돌아가기</span>
+        <span>메인으로<span class="hidden sm:inline"> 돌아가기</span></span>
       </button>
 
-      <button type="button" class="btn-go-form inline-flex items-center gap-2 text-xs font-bold text-white bg-slate-900 hover:bg-slate-800 px-4 py-2 rounded-full shadow-xs hover:shadow-md transition-all cursor-pointer">
+      <button type="button" class="btn-go-form inline-flex items-center gap-1.5 sm:gap-2 text-xs font-bold text-white bg-slate-900 hover:bg-slate-800 px-3.5 sm:px-4 py-2 rounded-full shadow-xs hover:shadow-md transition-all cursor-pointer">
         <span>🍙</span>
-        <span>3기 지원서 작성하기</span>
+        <span>3기 지원<span class="hidden sm:inline">서 작성하기</span></span>
       </button>
     </div>
 
-    <div class="bento-card p-6 sm:p-8 bg-white border border-slate-200/90">
+    <div class="bento-card p-4 sm:p-6 md:p-8 bg-white border border-slate-200/90">
       
       <!-- Section Header & Filter Pills -->
-      <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-6 pb-4 border-b border-slate-100">
+      <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-3 sm:gap-4 mb-5 pb-4 border-b border-slate-100">
         <div>
           <div class="inline-flex items-center gap-1.5 text-xs font-bold text-rose-600 mb-1">
             <span>📷</span>
@@ -176,33 +176,33 @@
         </div>
 
         <!-- Filter Tags -->
-        <div class="flex flex-wrap items-center gap-1.5">
-          <button type="button" class="gallery-filter-btn px-3 py-1 rounded-full text-xs font-bold bg-slate-900 text-white transition-all cursor-pointer" data-filter="all">
+        <div class="flex flex-wrap items-center gap-1.5 sm:gap-2">
+          <button type="button" class="gallery-filter-btn px-2.5 sm:px-3 py-1 rounded-full text-xs font-bold bg-slate-900 text-white transition-all cursor-pointer" data-filter="all">
             전체 (25)
           </button>
-          <button type="button" class="gallery-filter-btn px-3 py-1 rounded-full text-xs font-bold bg-slate-100 text-slate-600 hover:bg-slate-200 transition-all cursor-pointer" data-filter="food">
+          <button type="button" class="gallery-filter-btn px-2.5 sm:px-3 py-1 rounded-full text-xs font-bold bg-slate-100 text-slate-600 hover:bg-slate-200 transition-all cursor-pointer" data-filter="food">
             🍱 일식미식 (11)
           </button>
-          <button type="button" class="gallery-filter-btn px-3 py-1 rounded-full text-xs font-bold bg-slate-100 text-slate-600 hover:bg-slate-200 transition-all cursor-pointer" data-filter="travel">
+          <button type="button" class="gallery-filter-btn px-2.5 sm:px-3 py-1 rounded-full text-xs font-bold bg-slate-100 text-slate-600 hover:bg-slate-200 transition-all cursor-pointer" data-filter="travel">
             ⛩️ 일본여행&풍경 (4)
           </button>
-          <button type="button" class="gallery-filter-btn px-3 py-1 rounded-full text-xs font-bold bg-slate-100 text-slate-600 hover:bg-slate-200 transition-all cursor-pointer" data-filter="cafe">
+          <button type="button" class="gallery-filter-btn px-2.5 sm:px-3 py-1 rounded-full text-xs font-bold bg-slate-100 text-slate-600 hover:bg-slate-200 transition-all cursor-pointer" data-filter="cafe">
             🍡 디저트&카페 (3)
           </button>
-          <button type="button" class="gallery-filter-btn px-3 py-1 rounded-full text-xs font-bold bg-slate-100 text-slate-600 hover:bg-slate-200 transition-all cursor-pointer" data-filter="media">
+          <button type="button" class="gallery-filter-btn px-2.5 sm:px-3 py-1 rounded-full text-xs font-bold bg-slate-100 text-slate-600 hover:bg-slate-200 transition-all cursor-pointer" data-filter="media">
             🎬 영화&콘서트 (3)
           </button>
-          <button type="button" class="gallery-filter-btn px-3 py-1 rounded-full text-xs font-bold bg-slate-100 text-slate-600 hover:bg-slate-200 transition-all cursor-pointer" data-filter="goods">
+          <button type="button" class="gallery-filter-btn px-2.5 sm:px-3 py-1 rounded-full text-xs font-bold bg-slate-100 text-slate-600 hover:bg-slate-200 transition-all cursor-pointer" data-filter="goods">
             🏮 레트로&굿즈 (4)
           </button>
         </div>
       </div>
 
-      <!-- Bento Photo Grid (25 Photos) -->
-      <div id="galleryGrid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3.5">
+      <!-- Bento Photo Grid (25 Photos) - Responsive 2-col on phone, 3-col on iPad, 4-col on desktop -->
+      <div id="galleryGrid" class="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2.5 sm:gap-3.5 md:gap-4">
         
         <!-- Photo 25: 도쿄 스카이트리 레인보우 야경 (여행) - Featured Wide -->
-        <div class="sm:col-span-2 gallery-item h-64 gallery-trigger" data-category="travel" data-fullsrc="assets/gallery/activity_25.jpg" data-caption="🗼 무지개빛으로 빛나는 밤의 도쿄 스카이트리 (Tokyo Skytree)">
+        <div class="col-span-2 sm:col-span-2 md:col-span-2 lg:col-span-2 gallery-item h-48 sm:h-60 md:h-64 gallery-trigger" data-category="travel" data-fullsrc="assets/gallery/activity_25.jpg" data-caption="🗼 무지개빛으로 빛나는 밤의 도쿄 스카이트리 (Tokyo Skytree)">
           <img src="assets/gallery/activity_25.jpg" alt="도쿄 스카이트리 야경" class="w-full h-full object-cover">
           <div class="overlay absolute inset-0 flex flex-col justify-end p-4 text-white">
             <span class="text-[10px] font-bold uppercase tracking-wider text-sky-300">TOKYO NIGHT</span>
@@ -212,222 +212,222 @@
         </div>
 
         <!-- Photo 24: 미타라시 당고 (디저트/카페) -->
-        <div class="gallery-item h-64 gallery-trigger" data-category="cafe" data-fullsrc="assets/gallery/activity_24.jpg" data-caption="🍡 윤기 좔좔 흐르는 달콤짭조름한 일본 정통 미타라시 당고">
+        <div class="gallery-item h-38 sm:h-48 md:h-56 gallery-trigger" data-category="cafe" data-fullsrc="assets/gallery/activity_24.jpg" data-caption="🍡 윤기 좔좔 흐르는 달콤짭조름한 일본 정통 미타라시 당고">
           <img src="assets/gallery/activity_24.jpg" alt="미타라시 당고" class="w-full h-full object-cover">
-          <div class="overlay absolute inset-0 flex flex-col justify-end p-4 text-white">
+          <div class="overlay absolute inset-0 flex flex-col justify-end p-3 sm:p-4 text-white">
             <span class="text-[10px] font-bold uppercase tracking-wider text-amber-300">TRADITIONAL SWEETS</span>
-            <p class="text-sm font-bold">달콤짭조름 미타라시 당고 🍡</p>
-            <p class="text-xs text-slate-300 mt-0.5">쫀득쫀득 갓 구워낸 일본 대표 길거리 디저트</p>
+            <p class="text-xs sm:text-sm font-bold">달콤짭조름 미타라시 당고 🍡</p>
+            <p class="text-[11px] text-slate-300 mt-0.5 hidden sm:block">쫀득쫀득 갓 구워낸 일본 대표 길거리 디저트</p>
           </div>
         </div>
 
         <!-- Photo 21: 교토 산넨자카 거리 (여행) -->
-        <div class="gallery-item h-60 gallery-trigger" data-category="travel" data-fullsrc="assets/gallery/activity_21.jpg" data-caption="⛩️ 맑은 하늘 아래 고즈넉한 교토 청수사 산넨자카 전통 상점가 거리">
+        <div class="gallery-item h-38 sm:h-48 md:h-56 gallery-trigger" data-category="travel" data-fullsrc="assets/gallery/activity_21.jpg" data-caption="⛩️ 맑은 하늘 아래 고즈넉한 교토 청수사 산넨자카 전통 상점가 거리">
           <img src="assets/gallery/activity_21.jpg" alt="교토 산넨자카" class="w-full h-full object-cover">
-          <div class="overlay absolute inset-0 flex flex-col justify-end p-4 text-white">
+          <div class="overlay absolute inset-0 flex flex-col justify-end p-3 sm:p-4 text-white">
             <span class="text-[10px] font-bold uppercase tracking-wider text-teal-300">KYOTO WALK</span>
             <p class="text-xs sm:text-sm font-bold">교토 산넨자카 전통 거리 ⛩️</p>
           </div>
         </div>
 
         <!-- Photo 22: 교토 후시미 이나리 센본 토리이 (여행) -->
-        <div class="gallery-item h-60 gallery-trigger" data-category="travel" data-fullsrc="assets/gallery/activity_22.jpg" data-caption="🦊 교토 후시미 이나리 신사의 상징 여우상과 붉은 센본 토리이">
+        <div class="gallery-item h-38 sm:h-48 md:h-56 gallery-trigger" data-category="travel" data-fullsrc="assets/gallery/activity_22.jpg" data-caption="🦊 교토 후시미 이나리 신사의 상징 여우상과 붉은 센본 토리이">
           <img src="assets/gallery/activity_22.jpg" alt="후시미 이나리 토리이" class="w-full h-full object-cover">
-          <div class="overlay absolute inset-0 flex flex-col justify-end p-4 text-white">
+          <div class="overlay absolute inset-0 flex flex-col justify-end p-3 sm:p-4 text-white">
             <span class="text-[10px] font-bold uppercase tracking-wider text-rose-300">FUSHIMI INARI</span>
             <p class="text-xs sm:text-sm font-bold">이나리 신사 붉은 토리이 🦊</p>
           </div>
         </div>
 
         <!-- Photo 23: 지장보살 돌상 (여행) -->
-        <div class="gallery-item h-60 gallery-trigger" data-category="travel" data-fullsrc="assets/gallery/activity_23.jpg" data-caption="🌿 돌담 위에 옹기종기 미소 짓는 오지조상(지장보살 돌조각상)">
+        <div class="gallery-item h-38 sm:h-48 md:h-56 gallery-trigger" data-category="travel" data-fullsrc="assets/gallery/activity_23.jpg" data-caption="🌿 돌담 위에 옹기종기 미소 짓는 오지조상(지장보살 돌조각상)">
           <img src="assets/gallery/activity_23.jpg" alt="지장보살 돌상" class="w-full h-full object-cover">
-          <div class="overlay absolute inset-0 flex flex-col justify-end p-4 text-white">
+          <div class="overlay absolute inset-0 flex flex-col justify-end p-3 sm:p-4 text-white">
             <span class="text-[10px] font-bold uppercase tracking-wider text-emerald-300">HEALING JIZO</span>
             <p class="text-xs sm:text-sm font-bold">미소 짓는 오지조상 🌿</p>
           </div>
         </div>
 
         <!-- Photo 16: 규카츠 (미식) - Wide -->
-        <div class="sm:col-span-2 gallery-item h-64 gallery-trigger" data-category="food" data-fullsrc="assets/gallery/activity_16.jpg" data-caption="🥩 겉은 바삭하고 속은 부드러운 선홍빛 레어 정통 규카츠 정식">
+        <div class="col-span-2 sm:col-span-2 md:col-span-2 lg:col-span-2 gallery-item h-48 sm:h-60 md:h-64 gallery-trigger" data-category="food" data-fullsrc="assets/gallery/activity_16.jpg" data-caption="🥩 겉은 바삭하고 속은 부드러운 선홍빛 레어 정통 규카츠 정식">
           <img src="assets/gallery/activity_16.jpg" alt="정통 규카츠 정식" class="w-full h-full object-cover">
-          <div class="overlay absolute inset-0 flex flex-col justify-end p-4 text-white">
+          <div class="overlay absolute inset-0 flex flex-col justify-end p-3 sm:p-4 text-white">
             <span class="text-[10px] font-bold uppercase tracking-wider text-rose-300">SIGNATURE GOURMET</span>
-            <p class="text-sm font-bold">겉바속촉 소고기 규카츠 정식 🥩</p>
-            <p class="text-xs text-slate-300 mt-0.5">화로에 직접 구워 생와사비와 함께 즐기는 궁극의 맛</p>
+            <p class="text-xs sm:text-sm font-bold">겉바속촉 소고기 규카츠 정식 🥩</p>
+            <p class="text-[11px] text-slate-300 mt-0.5 hidden sm:block">화로에 직접 구워 생와사비와 함께 즐기는 궁극의 맛</p>
           </div>
         </div>
 
         <!-- Photo 18: 오코노미야키 (미식) -->
-        <div class="gallery-item h-64 gallery-trigger" data-category="food" data-fullsrc="assets/gallery/activity_18.jpg" data-caption="🥢 가쓰오부시가 춤추는 두툼한 철판 정통 오코노미야키">
+        <div class="gallery-item h-38 sm:h-48 md:h-56 gallery-trigger" data-category="food" data-fullsrc="assets/gallery/activity_18.jpg" data-caption="🥢 가쓰오부시가 춤추는 두툼한 철판 정통 오코노미야키">
           <img src="assets/gallery/activity_18.jpg" alt="오코노미야키" class="w-full h-full object-cover">
-          <div class="overlay absolute inset-0 flex flex-col justify-end p-4 text-white">
+          <div class="overlay absolute inset-0 flex flex-col justify-end p-3 sm:p-4 text-white">
             <span class="text-[10px] font-bold uppercase tracking-wider text-amber-300">TEPPANYAKI</span>
-            <p class="text-sm font-bold">철판 정통 오코노미야키 🥢</p>
-            <p class="text-xs text-slate-300 mt-0.5">달콤짭조름 특제 소스와 춤추는 가쓰오부시</p>
+            <p class="text-xs sm:text-sm font-bold">철판 정통 오코노미야키 🥢</p>
+            <p class="text-[11px] text-slate-300 mt-0.5 hidden sm:block">달콤짭조름 특제 소스와 춤추는 가쓰오부시</p>
           </div>
         </div>
 
         <!-- Photo 17: 타코야키 (미식) -->
-        <div class="gallery-item h-56 gallery-trigger" data-category="food" data-fullsrc="assets/gallery/activity_17.jpg" data-caption="🐙 지글지글 철판에서 노릇하게 구워지는 타코야키">
+        <div class="gallery-item h-38 sm:h-48 md:h-56 gallery-trigger" data-category="food" data-fullsrc="assets/gallery/activity_17.jpg" data-caption="🐙 지글지글 철판에서 노릇하게 구워지는 타코야키">
           <img src="assets/gallery/activity_17.jpg" alt="타코야키 철판" class="w-full h-full object-cover">
-          <div class="overlay absolute inset-0 flex flex-col justify-end p-4 text-white">
+          <div class="overlay absolute inset-0 flex flex-col justify-end p-3 sm:p-4 text-white">
             <span class="text-[10px] font-bold uppercase tracking-wider text-orange-300">STREET FOOD</span>
             <p class="text-xs sm:text-sm font-bold">지글지글 타코야키 철판 🐙</p>
           </div>
         </div>
 
         <!-- Photo 19: 진한 라멘 (미식) -->
-        <div class="gallery-item h-56 gallery-trigger" data-category="food" data-fullsrc="assets/gallery/activity_19.jpg" data-caption="🍜 두툼한 깍둑 차슈와 숙주, 마늘 듬뿍 진한 일식 라멘">
+        <div class="gallery-item h-38 sm:h-48 md:h-56 gallery-trigger" data-category="food" data-fullsrc="assets/gallery/activity_19.jpg" data-caption="🍜 두툼한 깍둑 차슈와 숙주, 마늘 듬뿍 진한 일식 라멘">
           <img src="assets/gallery/activity_19.jpg" alt="진한 일식 라멘" class="w-full h-full object-cover">
-          <div class="overlay absolute inset-0 flex flex-col justify-end p-4 text-white">
+          <div class="overlay absolute inset-0 flex flex-col justify-end p-3 sm:p-4 text-white">
             <span class="text-[10px] font-bold uppercase tracking-wider text-amber-300">HEAVY RAMEN</span>
             <p class="text-xs sm:text-sm font-bold">차슈 듬뿍 진한 라멘 🍜</p>
           </div>
         </div>
 
         <!-- Photo 20: 레트로 다가시야 (레트로) -->
-        <div class="gallery-item h-56 gallery-trigger" data-category="goods" data-fullsrc="assets/gallery/activity_20.jpg" data-caption="🏮 일본 골목 감성 그대로, 레트로 막과자 가게 (다가시야 駄菓子屋)">
+        <div class="col-span-2 sm:col-span-1 md:col-span-2 lg:col-span-2 gallery-item h-44 sm:h-48 md:h-56 gallery-trigger" data-category="goods" data-fullsrc="assets/gallery/activity_20.jpg" data-caption="🏮 일본 골목 감성 그대로, 레트로 막과자 가게 (다가시야 駄菓子屋)">
           <img src="assets/gallery/activity_20.jpg" alt="레트로 막과자 가게" class="w-full h-full object-cover">
-          <div class="overlay absolute inset-0 flex flex-col justify-end p-4 text-white">
+          <div class="overlay absolute inset-0 flex flex-col justify-end p-3 sm:p-4 text-white">
             <span class="text-[10px] font-bold uppercase tracking-wider text-emerald-300">RETRO JAPAN</span>
             <p class="text-xs sm:text-sm font-bold">추억의 레트로 막과자 가게 🏮</p>
           </div>
         </div>
 
         <!-- Photo 11: 장어덮밥 (미식) - Wide -->
-        <div class="sm:col-span-2 gallery-item h-64 gallery-trigger" data-category="food" data-fullsrc="assets/gallery/activity_11.jpg" data-caption="🍱 숯불 향 가득한 일본 정통 장어덮밥 (우나기동/히츠마부시)">
+        <div class="col-span-2 sm:col-span-2 md:col-span-2 lg:col-span-2 gallery-item h-48 sm:h-60 md:h-64 gallery-trigger" data-category="food" data-fullsrc="assets/gallery/activity_11.jpg" data-caption="🍱 숯불 향 가득한 일본 정통 장어덮밥 (우나기동/히츠마부시)">
           <img src="assets/gallery/activity_11.jpg" alt="정통 장어덮밥" class="w-full h-full object-cover">
-          <div class="overlay absolute inset-0 flex flex-col justify-end p-4 text-white">
+          <div class="overlay absolute inset-0 flex flex-col justify-end p-3 sm:p-4 text-white">
             <span class="text-[10px] font-bold uppercase tracking-wider text-amber-300">FEATURED GOURMET</span>
-            <p class="text-sm font-bold">숯불 정통 장어덮밥 (히츠마부시) 🍱</p>
-            <p class="text-xs text-slate-300 mt-0.5">윤기 흐르는 특제 타레소스와 부드러운 장어의 풍미</p>
+            <p class="text-xs sm:text-sm font-bold">숯불 정통 장어덮밥 (히츠마부시) 🍱</p>
+            <p class="text-[11px] text-slate-300 mt-0.5 hidden sm:block">윤기 흐르는 특제 타레소스와 부드러운 장어의 풍미</p>
           </div>
         </div>
 
         <!-- Photo 12: 연어&참치 스시 (미식) -->
-        <div class="gallery-item h-64 gallery-trigger" data-category="food" data-fullsrc="assets/gallery/activity_12.jpg" data-caption="🍣 입안 가득 퍼지는 신선한 참치와 연어 스시 플레이트">
+        <div class="gallery-item h-38 sm:h-48 md:h-56 gallery-trigger" data-category="food" data-fullsrc="assets/gallery/activity_12.jpg" data-caption="🍣 입안 가득 퍼지는 신선한 참치와 연어 스시 플레이트">
           <img src="assets/gallery/activity_12.jpg" alt="연어 참치 초밥" class="w-full h-full object-cover">
-          <div class="overlay absolute inset-0 flex flex-col justify-end p-4 text-white">
+          <div class="overlay absolute inset-0 flex flex-col justify-end p-3 sm:p-4 text-white">
             <span class="text-[10px] font-bold uppercase tracking-wider text-rose-300">FRESH SUSHI</span>
-            <p class="text-sm font-bold">참치 & 연어 초밥 🍣</p>
-            <p class="text-xs text-slate-300 mt-0.5">두툼하고 신선한 제철 네타의 깊은 감칠맛</p>
+            <p class="text-xs sm:text-sm font-bold">참치 & 연어 초밥 🍣</p>
+            <p class="text-[11px] text-slate-300 mt-0.5 hidden sm:block">두툼하고 신선한 제철 네타의 깊은 감칠맛</p>
           </div>
         </div>
 
         <!-- Photo 15: 대방어 & 참치 초밥 (미식) -->
-        <div class="gallery-item h-60 gallery-trigger" data-category="food" data-fullsrc="assets/gallery/activity_15.jpg" data-caption="🍣 기름기 오른 대방어와 부드러운 참치 스시">
+        <div class="gallery-item h-38 sm:h-48 md:h-56 gallery-trigger" data-category="food" data-fullsrc="assets/gallery/activity_15.jpg" data-caption="🍣 기름기 오른 대방어와 부드러운 참치 스시">
           <img src="assets/gallery/activity_15.jpg" alt="대방어 참치 초밥" class="w-full h-full object-cover">
-          <div class="overlay absolute inset-0 flex flex-col justify-end p-4 text-white">
+          <div class="overlay absolute inset-0 flex flex-col justify-end p-3 sm:p-4 text-white">
             <span class="text-[10px] font-bold uppercase tracking-wider text-rose-300">SEASONAL SPECIAL</span>
             <p class="text-xs sm:text-sm font-bold">제철 대방어 & 참치 스시 🍣</p>
           </div>
         </div>
 
         <!-- Photo 13: 고등어/전어 초밥 (미식) -->
-        <div class="gallery-item h-60 gallery-trigger" data-category="food" data-fullsrc="assets/gallery/activity_13.jpg" data-caption="🐟 은빛 껍질의 예술, 정통 시메사바/히카리모노 초밥">
+        <div class="gallery-item h-38 sm:h-48 md:h-56 gallery-trigger" data-category="food" data-fullsrc="assets/gallery/activity_13.jpg" data-caption="🐟 은빛 껍질의 예술, 정통 시메사바/히카리모노 초밥">
           <img src="assets/gallery/activity_13.jpg" alt="시메사바 초밥" class="w-full h-full object-cover">
-          <div class="overlay absolute inset-0 flex flex-col justify-end p-4 text-white">
+          <div class="overlay absolute inset-0 flex flex-col justify-end p-3 sm:p-4 text-white">
             <span class="text-[10px] font-bold uppercase tracking-wider text-sky-300">HIKARIMONO</span>
             <p class="text-xs sm:text-sm font-bold">정통 시메사바(초절임 고등어) 🐟</p>
           </div>
         </div>
 
         <!-- Photo 14: 타레소스 장어초밥 (미식) -->
-        <div class="gallery-item h-60 gallery-trigger" data-category="food" data-fullsrc="assets/gallery/activity_14.jpg" data-caption="🥢 입에서 사르르 녹는 특제 타레소스 장어(우나기) 초밥">
+        <div class="gallery-item h-38 sm:h-48 md:h-56 gallery-trigger" data-category="food" data-fullsrc="assets/gallery/activity_14.jpg" data-caption="🥢 입에서 사르르 녹는 특제 타레소스 장어(우나기) 초밥">
           <img src="assets/gallery/activity_14.jpg" alt="장어 초밥" class="w-full h-full object-cover">
-          <div class="overlay absolute inset-0 flex flex-col justify-end p-4 text-white">
+          <div class="overlay absolute inset-0 flex flex-col justify-end p-3 sm:p-4 text-white">
             <span class="text-[10px] font-bold uppercase tracking-wider text-amber-300">UNAGI SUSHI</span>
             <p class="text-xs sm:text-sm font-bold">달콤짭조름 장어 초밥 🥢</p>
           </div>
         </div>
 
         <!-- Photo 7: 마제소바 (미식) -->
-        <div class="gallery-item h-56 gallery-trigger" data-category="food" data-fullsrc="assets/gallery/activity_7.jpg" data-caption="🍜 노른자 톡 터뜨려 비벼먹는 정통 일식 마제소바 맛집">
+        <div class="gallery-item h-38 sm:h-48 md:h-56 gallery-trigger" data-category="food" data-fullsrc="assets/gallery/activity_7.jpg" data-caption="🍜 노른자 톡 터뜨려 비벼먹는 정통 일식 마제소바 맛집">
           <img src="assets/gallery/activity_7.jpg" alt="일식 마제소바" class="w-full h-full object-cover">
-          <div class="overlay absolute inset-0 flex flex-col justify-end p-4 text-white">
+          <div class="overlay absolute inset-0 flex flex-col justify-end p-3 sm:p-4 text-white">
             <span class="text-[10px] font-bold uppercase tracking-wider text-amber-300">RAMEN & NOODLES</span>
             <p class="text-xs sm:text-sm font-bold">일식 마제소바 맛집 🍜</p>
           </div>
         </div>
 
         <!-- Photo 10: 튀김 우동 한상 (미식) -->
-        <div class="gallery-item h-56 gallery-trigger" data-category="food" data-fullsrc="assets/gallery/activity_10.jpg" data-caption="🍤 바삭한 왕새우튀김과 따끈한 일본식 우동 정식">
+        <div class="gallery-item h-38 sm:h-48 md:h-56 gallery-trigger" data-category="food" data-fullsrc="assets/gallery/activity_10.jpg" data-caption="🍤 바삭한 왕새우튀김과 따끈한 일본식 우동 정식">
           <img src="assets/gallery/activity_10.jpg" alt="튀김 우동 한상" class="w-full h-full object-cover">
-          <div class="overlay absolute inset-0 flex flex-col justify-end p-4 text-white">
+          <div class="overlay absolute inset-0 flex flex-col justify-end p-3 sm:p-4 text-white">
             <span class="text-[10px] font-bold uppercase tracking-wider text-orange-300">UDON SET</span>
             <p class="text-xs sm:text-sm font-bold">바삭한 튀김 우동 정식 🍤</p>
           </div>
         </div>
 
         <!-- Photo 6: 치이카와 랜드 신주쿠 (굿즈) -->
-        <div class="gallery-item h-56 gallery-trigger" data-category="goods" data-fullsrc="assets/gallery/activity_6.jpg" data-caption="💖 CHIIKAWA LAND SHINJUKU 포토존 (치이카와·하치와레·우사기)">
+        <div class="gallery-item h-38 sm:h-48 md:h-56 gallery-trigger" data-category="goods" data-fullsrc="assets/gallery/activity_6.jpg" data-caption="💖 CHIIKAWA LAND SHINJUKU 포토존 (치이카와·하치와레·우사기)">
           <img src="assets/gallery/activity_6.jpg" alt="치이카와 랜드 신주쿠" class="w-full h-full object-cover">
-          <div class="overlay absolute inset-0 flex flex-col justify-end p-4 text-white">
+          <div class="overlay absolute inset-0 flex flex-col justify-end p-3 sm:p-4 text-white">
             <span class="text-[10px] font-bold uppercase tracking-wider text-pink-300">CHIIKAWA LAND</span>
             <p class="text-xs sm:text-sm font-bold">치이카와 랜드 신주쿠 💖</p>
           </div>
         </div>
 
-        <!-- Photo 1: 극장판 영화관 엔딩 (영화) - 2-col on desktop -->
-        <div class="sm:col-span-2 gallery-item h-60 gallery-trigger" data-category="media" data-fullsrc="assets/gallery/activity_1.jpg" data-caption="🎬 극장판 일본 애니메이션 영화 단체 관람의 추억">
+        <!-- Photo 1: 극장판 영화관 엔딩 (영화) - Wide -->
+        <div class="col-span-2 sm:col-span-2 md:col-span-2 lg:col-span-2 gallery-item h-48 sm:h-60 md:h-64 gallery-trigger" data-category="media" data-fullsrc="assets/gallery/activity_1.jpg" data-caption="🎬 극장판 일본 애니메이션 영화 단체 관람의 추억">
           <img src="assets/gallery/activity_1.jpg" alt="영화관 단체 관람" class="w-full h-full object-cover">
-          <div class="overlay absolute inset-0 flex flex-col justify-end p-4 text-white">
+          <div class="overlay absolute inset-0 flex flex-col justify-end p-3 sm:p-4 text-white">
             <span class="text-[10px] font-bold uppercase tracking-wider text-rose-300">CINEMA MEETUP</span>
-            <p class="text-sm font-bold">극장판 애니메이션 영화 단체 관람 🎬</p>
-            <p class="text-xs text-slate-300 mt-0.5">엔딩 크레딧과 여운을 함께 나눴던 소중한 순간</p>
+            <p class="text-xs sm:text-sm font-bold">극장판 애니메이션 영화 단체 관람 🎬</p>
+            <p class="text-[11px] text-slate-300 mt-0.5 hidden sm:block">엔딩 크레딧과 여운을 함께 나눴던 소중한 순간</p>
           </div>
         </div>
 
         <!-- Photo 9: 너의 이름은. 필름 콘서트 (영화) -->
-        <div class="gallery-item h-60 gallery-trigger" data-category="media" data-fullsrc="assets/gallery/activity_9.jpg" data-caption="🎼 <너의 이름은.> 오리지널 필름 콘서트 대형 포스터">
+        <div class="gallery-item h-38 sm:h-48 md:h-56 gallery-trigger" data-category="media" data-fullsrc="assets/gallery/activity_9.jpg" data-caption="🎼 <너의 이름은.> 오리지널 필름 콘서트 대형 포스터">
           <img src="assets/gallery/activity_9.jpg" alt="너의 이름은 필름 콘서트" class="w-full h-full object-cover">
-          <div class="overlay absolute inset-0 flex flex-col justify-end p-4 text-white">
+          <div class="overlay absolute inset-0 flex flex-col justify-end p-3 sm:p-4 text-white">
             <span class="text-[10px] font-bold uppercase tracking-wider text-sky-300">FILM CONCERT</span>
             <p class="text-xs sm:text-sm font-bold">너의 이름은. 필름 콘서트 🎼</p>
           </div>
         </div>
 
         <!-- Photo 8: 치이카와 콜라보 카페 (카페) -->
-        <div class="gallery-item h-56 gallery-trigger" data-category="cafe" data-fullsrc="assets/gallery/activity_8.jpg" data-caption="☕ 영화 치이카와 콜라보레이션 카페 쇼윈도">
+        <div class="gallery-item h-38 sm:h-48 md:h-56 gallery-trigger" data-category="cafe" data-fullsrc="assets/gallery/activity_8.jpg" data-caption="☕ 영화 치이카와 콜라보레이션 카페 쇼윈도">
           <img src="assets/gallery/activity_8.jpg" alt="치이카와 콜라보 카페" class="w-full h-full object-cover">
-          <div class="overlay absolute inset-0 flex flex-col justify-end p-4 text-white">
+          <div class="overlay absolute inset-0 flex flex-col justify-end p-3 sm:p-4 text-white">
             <span class="text-[10px] font-bold uppercase tracking-wider text-teal-300">COLLAB CAFE</span>
             <p class="text-xs sm:text-sm font-bold">치이카와 콜라보 카페 ☕</p>
           </div>
         </div>
 
         <!-- Photo 3: 테마 카페 & 코스터 (카페) -->
-        <div class="gallery-item h-56 gallery-trigger" data-category="cafe" data-fullsrc="assets/gallery/activity_3.jpg" data-caption="🥤 SPY x FAMILY 극장판 테마 음료 & 아냐 코스터">
+        <div class="gallery-item h-38 sm:h-48 md:h-56 gallery-trigger" data-category="cafe" data-fullsrc="assets/gallery/activity_3.jpg" data-caption="🥤 SPY x FAMILY 극장판 테마 음료 & 아냐 코스터">
           <img src="assets/gallery/activity_3.jpg" alt="테마 카페 음료" class="w-full h-full object-cover">
-          <div class="overlay absolute inset-0 flex flex-col justify-end p-4 text-white">
+          <div class="overlay absolute inset-0 flex flex-col justify-end p-3 sm:p-4 text-white">
             <span class="text-[10px] font-bold uppercase tracking-wider text-amber-300">CAFE & DRINK</span>
             <p class="text-xs sm:text-sm font-bold">아냐 굿즈 & 테마 음료 🥤</p>
           </div>
         </div>
 
         <!-- Photo 2: 아냐 굿즈 진열대 (굿즈) -->
-        <div class="gallery-item h-56 gallery-trigger" data-category="goods" data-fullsrc="assets/gallery/activity_2.jpg" data-caption="🛍️ 스파이 패밀리 아냐 포저 아크릴 스탠드 & 코스터">
+        <div class="gallery-item h-38 sm:h-48 md:h-56 gallery-trigger" data-category="goods" data-fullsrc="assets/gallery/activity_2.jpg" data-caption="🛍️ 스파이 패밀리 아냐 포저 아크릴 스탠드 & 코스터">
           <img src="assets/gallery/activity_2.jpg" alt="굿즈 진열대" class="w-full h-full object-cover">
-          <div class="overlay absolute inset-0 flex flex-col justify-end p-4 text-white">
+          <div class="overlay absolute inset-0 flex flex-col justify-end p-3 sm:p-4 text-white">
             <span class="text-[10px] font-bold uppercase tracking-wider text-pink-300">GOODS SHOPPING</span>
             <p class="text-xs sm:text-sm font-bold">아냐 굿즈 & 코스터 구경 🛍️</p>
           </div>
         </div>
 
         <!-- Photo 4: 팝업스토어 전경 (굿즈) -->
-        <div class="gallery-item h-56 gallery-trigger" data-category="goods" data-fullsrc="assets/gallery/activity_4.jpg" data-caption="🏮 일본 애니메이션 팝업스토어 매대 구경">
+        <div class="gallery-item h-38 sm:h-48 md:h-56 gallery-trigger" data-category="goods" data-fullsrc="assets/gallery/activity_4.jpg" data-caption="🏮 일본 애니메이션 팝업스토어 매대 구경">
           <img src="assets/gallery/activity_4.jpg" alt="팝업스토어 매대" class="w-full h-full object-cover">
-          <div class="overlay absolute inset-0 flex flex-col justify-end p-4 text-white">
+          <div class="overlay absolute inset-0 flex flex-col justify-end p-3 sm:p-4 text-white">
             <span class="text-[10px] font-bold uppercase tracking-wider text-emerald-300">POP-UP STORE</span>
             <p class="text-xs sm:text-sm font-bold">애니메이션 팝업스토어 🏮</p>
           </div>
         </div>
 
         <!-- Photo 5: 상영관 입구 게이트 (영화) -->
-        <div class="gallery-item h-56 gallery-trigger" data-category="media" data-fullsrc="assets/gallery/activity_5.jpg" data-caption="🍿 극장판 SPY x FAMILY CODE: White 상영관 입장 게이트">
+        <div class="gallery-item h-38 sm:h-48 md:h-56 gallery-trigger" data-category="media" data-fullsrc="assets/gallery/activity_5.jpg" data-caption="🍿 극장판 SPY x FAMILY CODE: White 상영관 입장 게이트">
           <img src="assets/gallery/activity_5.jpg" alt="상영관 입구" class="w-full h-full object-cover">
-          <div class="overlay absolute inset-0 flex flex-col justify-end p-4 text-white">
+          <div class="overlay absolute inset-0 flex flex-col justify-end p-3 sm:p-4 text-white">
             <span class="text-[10px] font-bold uppercase tracking-wider text-sky-300">CINEMA TRIP</span>
             <p class="text-xs sm:text-sm font-bold">CODE: White 상영관 입구 🍿</p>
           </div>
@@ -436,7 +436,7 @@
       </div>
 
       <!-- Gallery to Form CTA Bar -->
-      <div class="mt-8 pt-5 border-t border-slate-100 flex flex-col sm:flex-row items-center justify-between gap-3 bg-slate-50/80 p-5 rounded-2xl">
+      <div class="mt-8 pt-5 border-t border-slate-100 flex flex-col sm:flex-row items-center justify-between gap-3 bg-slate-50/80 p-4 sm:p-5 rounded-2xl">
         <div>
           <p class="text-xs sm:text-sm font-bold text-slate-800">이런 미식과 일본 여행, 다채로운 활동에 함께하고 싶으신가요? 🍙</p>
           <p class="text-[11px] text-slate-500">부담 없이 편하게 3기 지원서를 작성해보세요!</p>
@@ -449,18 +449,18 @@
   </section>
 
   <!-- ==================== VIEW 3: 지원서 작성 (Application Form View) ==================== -->
-  <section id="formView" class="view-container view-hidden max-w-2xl mx-auto px-4 sm:px-6 space-y-6 scroll-mt-20">
+  <section id="formView" class="view-container view-hidden max-w-2xl mx-auto px-3.5 sm:px-6 space-y-4 sm:space-y-6 scroll-mt-20">
 
     <!-- Top Back / Action Bar -->
-    <div class="flex items-center justify-between gap-3 pt-2">
-      <button type="button" class="btn-back-home inline-flex items-center gap-2 text-xs font-bold text-slate-700 hover:text-slate-950 px-4 py-2 rounded-full bg-white border border-slate-200/90 shadow-xs hover:border-slate-400 transition-all cursor-pointer">
+    <div class="flex items-center justify-between gap-2 pt-2">
+      <button type="button" class="btn-back-home inline-flex items-center gap-1.5 sm:gap-2 text-xs font-bold text-slate-700 hover:text-slate-950 px-3.5 sm:px-4 py-2 rounded-full bg-white border border-slate-200/90 shadow-xs hover:border-slate-400 transition-all cursor-pointer">
         <span class="text-sm">←</span>
-        <span>메인으로 돌아가기</span>
+        <span>메인으로<span class="hidden sm:inline"> 돌아가기</span></span>
       </button>
 
-      <button type="button" class="btn-go-gallery inline-flex items-center gap-2 text-xs font-bold text-slate-700 hover:text-slate-950 px-4 py-2 rounded-full bg-white border border-slate-200/90 shadow-xs hover:border-slate-400 transition-all cursor-pointer">
+      <button type="button" class="btn-go-gallery inline-flex items-center gap-1.5 sm:gap-2 text-xs font-bold text-slate-700 hover:text-slate-950 px-3.5 sm:px-4 py-2 rounded-full bg-white border border-slate-200/90 shadow-xs hover:border-slate-400 transition-all cursor-pointer">
         <span>📷</span>
-        <span>활동 사진 보기 (25)</span>
+        <span>활동 사진<span class="hidden sm:inline"> 보기</span> (25)</span>
       </button>
     </div>
 
@@ -474,30 +474,30 @@
     </div>
 
     <!-- Floating Mini Progress Bar -->
-    <div class="glass-hud rounded-full px-5 py-3 flex items-center justify-between gap-4 shadow-sm">
-      <div class="flex items-center gap-2">
+    <div class="glass-hud rounded-full px-3.5 sm:px-5 py-2.5 sm:py-3 flex items-center justify-between gap-2 sm:gap-4 shadow-sm">
+      <div class="flex items-center gap-1.5 sm:gap-2">
         <span class="text-sm">🍙</span>
         <span class="text-xs font-bold text-slate-800">작성 진행도</span>
         <span id="draftStatus" class="text-[10px] font-semibold text-emerald-600 opacity-0 transition-opacity">저장됨 ✓</span>
       </div>
 
-      <div class="flex items-center gap-3">
-        <span id="progressStepCount" class="text-xs font-bold text-slate-400 font-mono">0/12</span>
-        <span id="progressPercent" class="text-xs font-black text-rose-600 font-mono bg-rose-50 px-2 py-0.5 rounded-full">0%</span>
-        <div class="w-20 bg-slate-100 rounded-full h-1.5 overflow-hidden">
+      <div class="flex items-center gap-2 sm:gap-3">
+        <span id="progressStepCount" class="text-[11px] sm:text-xs font-bold text-slate-400 font-mono">0/12</span>
+        <span id="progressPercent" class="text-[11px] sm:text-xs font-black text-rose-600 font-mono bg-rose-50 px-2 py-0.5 rounded-full">0%</span>
+        <div class="w-16 sm:w-20 bg-slate-100 rounded-full h-1.5 overflow-hidden">
           <div id="progressBar" class="h-full bg-slate-900 transition-all duration-300 rounded-full" style="width: 0%"></div>
         </div>
       </div>
     </div>
 
     <!-- Form Element -->
-    <form id="applicationForm" class="space-y-6" novalidate>
+    <form id="applicationForm" class="space-y-4 sm:space-y-6" novalidate>
 
       <!-- -------------------------------------------------------------
            BENTO CARD 1: 기본 인적사항
            ------------------------------------------------------------- -->
-      <div class="bento-card p-6 sm:p-8">
-        <div class="flex items-center justify-between mb-6 pb-4 border-b border-slate-100">
+      <div class="bento-card p-4 sm:p-6 md:p-8">
+        <div class="flex items-center justify-between mb-5 pb-3.5 border-b border-slate-100">
           <div class="flex items-center gap-2.5">
             <span class="w-6 h-6 rounded-full bg-slate-900 text-white flex items-center justify-center text-[11px] font-black font-mono">01</span>
             <h3 class="text-base font-black text-slate-900 tracking-tight">기본 정보</h3>
@@ -505,12 +505,12 @@
           <span class="text-[11px] text-rose-500 font-bold">* 필수 항목</span>
         </div>
 
-        <div class="space-y-5">
+        <div class="space-y-4 sm:space-y-5">
           <!-- 1. 이름 & 3. 성별 -->
-          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
             <!-- 1. 이름 -->
             <div>
-              <label class="block text-xs font-bold text-slate-700 mb-2" for="nameInput">
+              <label class="block text-xs font-bold text-slate-700 mb-1.5" for="nameInput">
                 1. 이름 <span class="text-rose-500">*</span>
               </label>
               <input 
@@ -524,7 +524,7 @@
 
             <!-- 3. 성별 -->
             <div>
-              <label class="block text-xs font-bold text-slate-700 mb-2">
+              <label class="block text-xs font-bold text-slate-700 mb-1.5">
                 3. 성별 <span class="text-rose-500">*</span>
               </label>
               <div class="grid grid-cols-2 gap-2">
@@ -538,17 +538,17 @@
             </div>
           </div>
 
-          <!-- 2. 출생연도 -->
+          <!-- 2. 출생연도 (Phone: 4-col x 2-row, Desktop: 8-col) -->
           <div>
-            <label class="block text-xs font-bold text-slate-700 mb-2">
+            <label class="block text-xs font-bold text-slate-700 mb-1.5">
               2. 출생연도 <span class="text-rose-500">*</span>
             </label>
-            <div id="birthYearContainer" class="flex flex-wrap gap-2"></div>
+            <div id="birthYearContainer" class="grid grid-cols-4 sm:grid-cols-8 gap-1.5 sm:gap-2"></div>
           </div>
 
           <!-- 4. 학교명과 학과 -->
           <div>
-            <label class="block text-xs font-bold text-slate-700 mb-2" for="schoolDeptInput">
+            <label class="block text-xs font-bold text-slate-700 mb-1.5" for="schoolDeptInput">
               4. 학교명과 학과 <span class="text-rose-500">*</span>
             </label>
             <input 
@@ -560,12 +560,12 @@
             >
           </div>
 
-          <!-- 5. 현재 상태 -->
+          <!-- 5. 현재 상태 (3-col balanced grid) -->
           <div>
-            <label class="block text-xs font-bold text-slate-700 mb-2">
+            <label class="block text-xs font-bold text-slate-700 mb-1.5">
               5. 현재 상태 <span class="text-rose-500">*</span>
             </label>
-            <div id="statusContainer" class="flex flex-wrap gap-2 mb-2"></div>
+            <div id="statusContainer" class="grid grid-cols-3 gap-1.5 sm:gap-2 mb-2"></div>
             <input 
               type="text" 
               id="statusOtherInput" 
@@ -575,10 +575,10 @@
           </div>
 
           <!-- 6. 인근 지하철역 & 7. 전화번호 -->
-          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
             <!-- 6. 지하철역 -->
             <div>
-              <label class="block text-xs font-bold text-slate-700 mb-2" for="subwayInput">
+              <label class="block text-xs font-bold text-slate-700 mb-1.5" for="subwayInput">
                 6. 가장 가까운 지하철역 <span class="text-rose-500">*</span>
               </label>
               <input 
@@ -592,7 +592,7 @@
 
             <!-- 7. 전화번호 -->
             <div>
-              <label class="block text-xs font-bold text-slate-700 mb-2" for="phoneInput">
+              <label class="block text-xs font-bold text-slate-700 mb-1.5" for="phoneInput">
                 7. 연락처 <span class="text-rose-500">*</span>
               </label>
               <input 
@@ -610,8 +610,8 @@
       <!-- -------------------------------------------------------------
            BENTO CARD 2: 취향 & 관심사
            ------------------------------------------------------------- -->
-      <div class="bento-card p-6 sm:p-8">
-        <div class="flex items-center justify-between mb-6 pb-4 border-b border-slate-100">
+      <div class="bento-card p-4 sm:p-6 md:p-8">
+        <div class="flex items-center justify-between mb-5 pb-3.5 border-b border-slate-100">
           <div class="flex items-center gap-2.5">
             <span class="w-6 h-6 rounded-full bg-slate-900 text-white flex items-center justify-center text-[11px] font-black font-mono">02</span>
             <h3 class="text-base font-black text-slate-900 tracking-tight">취향 & 관심사</h3>
@@ -619,7 +619,7 @@
           <span class="text-[11px] text-slate-400 font-medium">Culture & Interests</span>
         </div>
 
-        <div class="space-y-6">
+        <div class="space-y-5 sm:space-y-6">
           <!-- 8. 지원 이유 (복수 선택) -->
           <div>
             <div class="flex items-center justify-between mb-2">
@@ -628,7 +628,7 @@
               </label>
               <span class="text-[10px] font-bold text-slate-500 bg-slate-100 px-2 py-0.5 rounded-full">복수 선택 가능</span>
             </div>
-            <div id="reasonsContainer" class="flex flex-wrap gap-2"></div>
+            <div id="reasonsContainer" class="flex flex-wrap gap-1.5 sm:gap-2"></div>
             <input 
               type="text" 
               id="reasonOtherInput" 
@@ -657,8 +657,8 @@
       <!-- -------------------------------------------------------------
            BENTO CARD 3: 활동 & 스케줄
            ------------------------------------------------------------- -->
-      <div class="bento-card p-6 sm:p-8">
-        <div class="flex items-center justify-between mb-6 pb-4 border-b border-slate-100">
+      <div class="bento-card p-4 sm:p-6 md:p-8">
+        <div class="flex items-center justify-between mb-5 pb-3.5 border-b border-slate-100">
           <div class="flex items-center gap-2.5">
             <span class="w-6 h-6 rounded-full bg-slate-900 text-white flex items-center justify-center text-[11px] font-black font-mono">03</span>
             <h3 class="text-base font-black text-slate-900 tracking-tight">활동 및 스케줄</h3>
@@ -668,14 +668,14 @@
           </span>
         </div>
 
-        <div class="space-y-6">
+        <div class="space-y-5 sm:space-y-6">
           <!-- 10. 희망 활동 (최대 3개) -->
           <div>
             <label class="block text-xs font-bold text-slate-700 mb-1">
               10. 타베마쇼에서 가장 해보고 싶은 활동을 골라주세요. <span class="text-rose-500">*</span>
             </label>
-            <p class="text-[11px] text-slate-400 mb-2.5">최대 3개까지 선택 가능합니다.</p>
-            <div id="activitiesContainer" class="flex flex-wrap gap-2"></div>
+            <p class="text-[11px] text-slate-400 mb-2">최대 3개까지 선택 가능합니다.</p>
+            <div id="activitiesContainer" class="flex flex-wrap gap-1.5 sm:gap-2"></div>
             <input 
               type="text" 
               id="activityOtherInput" 
@@ -686,41 +686,49 @@
 
           <!-- 11. 정기 활동 가능 시간대 -->
           <div>
-            <div class="flex items-center justify-between mb-1.5">
+            <div class="flex items-center justify-between mb-1">
               <label class="block text-xs font-bold text-slate-700">
                 11. 정기 활동이 가능한 요일과 시간대를 모두 선택해주세요. 🗓️ <span class="text-rose-500">*</span>
               </label>
               <span class="text-[10px] font-bold text-slate-500 bg-slate-100 px-2 py-0.5 rounded-full">중복 가능</span>
             </div>
-            <p class="text-[11px] text-slate-400 mb-3">가능한 시간 슬롯을 자유롭게 터치하여 선택해주세요.</p>
+            <p class="text-[11px] text-slate-400 mb-2.5">가능한 시간 슬롯을 자유롭게 터치하여 선택해주세요.</p>
 
             <!-- Quick Action Buttons -->
             <div class="flex flex-wrap items-center gap-1.5 mb-3">
-              <button type="button" id="selectWeekdayEvenings" class="text-[11px] font-semibold px-2.5 py-1 rounded-lg bg-slate-100 text-slate-700 hover:bg-slate-200 transition-colors">
+              <button type="button" id="selectWeekdayEvenings" class="text-[10px] sm:text-[11px] font-semibold px-2 sm:px-2.5 py-1 rounded-lg bg-slate-100 text-slate-700 hover:bg-slate-200 transition-colors cursor-pointer">
                 ⚡ 평일 저녁 전체
               </button>
-              <button type="button" id="selectWeekendAfternoons" class="text-[11px] font-semibold px-2.5 py-1 rounded-lg bg-slate-100 text-slate-700 hover:bg-slate-200 transition-colors">
+              <button type="button" id="selectWeekendAfternoons" class="text-[10px] sm:text-[11px] font-semibold px-2 sm:px-2.5 py-1 rounded-lg bg-slate-100 text-slate-700 hover:bg-slate-200 transition-colors cursor-pointer">
                 ⚡ 주말 오후 전체
               </button>
-              <button type="button" id="clearSchedule" class="text-[11px] font-semibold px-2 py-1 rounded-lg text-rose-500 hover:bg-rose-50 ml-auto transition-colors">
+              <button type="button" id="clearSchedule" class="text-[10px] sm:text-[11px] font-semibold px-2 py-1 rounded-lg text-rose-500 hover:bg-rose-50 ml-auto transition-colors cursor-pointer">
                 선택 초기화
               </button>
             </div>
 
             <!-- Weekday Timetable -->
-            <div class="border border-slate-200/90 rounded-2xl p-3.5 bg-slate-50/50 mb-3">
-              <div class="text-[11px] font-bold text-slate-700 mb-2 flex items-center gap-1">
+            <div class="border border-slate-200/90 rounded-2xl p-2.5 sm:p-3.5 bg-slate-50/50 mb-3">
+              <div class="text-[11px] font-bold text-slate-700 mb-1.5 flex items-center gap-1">
                 <span>🗓️ 평일 (월 ~ 금)</span>
               </div>
-              <div id="weekdayMatrix"></div>
+              <div class="overflow-x-auto -mx-1 px-1">
+                <div class="min-w-[260px]">
+                  <div id="weekdayMatrix"></div>
+                </div>
+              </div>
             </div>
 
             <!-- Weekend Timetable -->
-            <div class="border border-slate-200/90 rounded-2xl p-3.5 bg-slate-50/50">
-              <div class="text-[11px] font-bold text-slate-700 mb-2 flex items-center gap-1">
+            <div class="border border-slate-200/90 rounded-2xl p-2.5 sm:p-3.5 bg-slate-50/50">
+              <div class="text-[11px] font-bold text-slate-700 mb-1.5 flex items-center gap-1">
                 <span>🏮 주말 (토 / 일)</span>
               </div>
-              <div id="weekendMatrix"></div>
+              <div class="overflow-x-auto -mx-1 px-1">
+                <div class="min-w-[260px]">
+                  <div id="weekendMatrix"></div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -729,8 +737,8 @@
       <!-- -------------------------------------------------------------
            BENTO CARD 4: 기대감 & 본인 사진
            ------------------------------------------------------------- -->
-      <div class="bento-card p-6 sm:p-8">
-        <div class="flex items-center justify-between mb-6 pb-4 border-b border-slate-100">
+      <div class="bento-card p-4 sm:p-6 md:p-8">
+        <div class="flex items-center justify-between mb-5 pb-3.5 border-b border-slate-100">
           <div class="flex items-center gap-2.5">
             <span class="w-6 h-6 rounded-full bg-slate-900 text-white flex items-center justify-center text-[11px] font-black font-mono">04</span>
             <h3 class="text-base font-black text-slate-900 tracking-tight">메시지 & 사진</h3>
@@ -738,7 +746,7 @@
           <span class="text-[11px] text-slate-400 font-medium">Story & Portrait</span>
         </div>
 
-        <div class="space-y-6">
+        <div class="space-y-5 sm:space-y-6">
           <!-- 12. 기대하는 점 -->
           <div>
             <div class="flex items-center justify-between mb-1.5">
@@ -762,7 +770,7 @@
             </label>
             <p class="text-[11px] text-slate-400 mb-3">과하게 꾸미지 않은 일상적인 사진이면 충분해요!</p>
 
-            <div id="photoDropZone" class="border-2 border-dashed border-slate-200 rounded-2xl p-6 text-center cursor-pointer hover:border-slate-800 hover:bg-slate-50/60 transition-all">
+            <div id="photoDropZone" class="border-2 border-dashed border-slate-200 rounded-2xl p-4 sm:p-6 text-center cursor-pointer hover:border-slate-800 hover:bg-slate-50/60 transition-all">
               <input type="file" id="photoInput" accept="image/*" class="hidden">
               <div class="w-10 h-10 mx-auto mb-2 rounded-full bg-slate-100 flex items-center justify-center text-lg text-slate-700">
                 📷
@@ -772,7 +780,7 @@
             </div>
 
             <div id="photoPreviewContainer" class="hidden mt-4 flex flex-col items-center">
-              <div class="w-48 h-56 rounded-2xl overflow-hidden border border-slate-200 shadow-md bg-slate-100 relative group">
+              <div class="w-44 sm:w-48 h-52 sm:h-56 rounded-2xl overflow-hidden border border-slate-200 shadow-md bg-slate-100 relative group">
                 <img id="photoImagePreview" src="" alt="첨부 사진" class="w-full h-full object-cover">
                 <div class="absolute bottom-2 left-2 right-2 bg-slate-900/80 backdrop-blur-sm text-white text-[10px] font-bold text-center py-1 rounded-lg">
                   Tabemasho Crew ✨
@@ -780,11 +788,11 @@
               </div>
 
               <div class="mt-2.5 flex items-center gap-3">
-                <button type="button" onclick="document.getElementById('photoInput').click()" class="text-xs font-bold text-slate-700 hover:text-black">
+                <button type="button" onclick="document.getElementById('photoInput').click()" class="text-xs font-bold text-slate-700 hover:text-black cursor-pointer">
                   사진 교체
                 </button>
                 <span class="text-slate-200">|</span>
-                <button type="button" id="removePhotoBtn" class="text-xs font-bold text-rose-500 hover:underline">
+                <button type="button" id="removePhotoBtn" class="text-xs font-bold text-rose-500 hover:underline cursor-pointer">
                   삭제
                 </button>
               </div>
@@ -796,56 +804,56 @@
       <!-- -------------------------------------------------------------
            BENTO CARD 5: 지원 전 확인사항
            ------------------------------------------------------------- -->
-      <div class="bento-card p-6 sm:p-8 bg-white border border-slate-200">
-        <div class="flex items-center justify-between mb-5 pb-4 border-b border-slate-100">
+      <div class="bento-card p-4 sm:p-6 md:p-8 bg-white border border-slate-200">
+        <div class="flex items-center justify-between mb-4 sm:mb-5 pb-3.5 border-b border-slate-100">
           <div class="flex items-center gap-2">
-            <span class="text-base">✓</span>
+            <span class="text-base text-rose-600 font-bold">✓</span>
             <h3 class="text-base font-black text-slate-900 tracking-tight">지원 전 확인해주세요</h3>
           </div>
-          <button type="button" id="agreeAllBtn" class="text-xs font-bold px-3 py-1.5 rounded-full bg-slate-900 text-white hover:bg-slate-800 transition-colors">
+          <button type="button" id="agreeAllBtn" class="text-[11px] sm:text-xs font-bold px-2.5 sm:px-3 py-1.5 rounded-full bg-slate-900 text-white hover:bg-slate-800 transition-colors cursor-pointer">
             전체 동의하기
           </button>
         </div>
 
-        <p class="text-xs text-slate-400 mb-4">원활한 동아리 활동을 위해 아래 5개 항목을 확인 후 모두 체크해주세요.</p>
+        <p class="text-xs text-slate-400 mb-3.5">원활한 동아리 활동을 위해 아래 5개 항목을 확인 후 모두 체크해주세요.</p>
 
-        <div class="space-y-2.5">
-          <div id="agreeCard_period" class="check-card p-3.5 flex items-center justify-between">
-            <label class="flex items-center gap-3 text-xs sm:text-sm font-semibold text-slate-800 cursor-pointer flex-1 select-none">
+        <div class="space-y-2">
+          <div id="agreeCard_period" class="check-card p-3 sm:p-3.5 flex items-center justify-between">
+            <label class="flex items-center gap-2.5 sm:gap-3 text-xs sm:text-sm font-semibold text-slate-800 cursor-pointer flex-1 select-none">
               <input type="checkbox" id="agree_period" class="hidden">
-              <span id="checkBadge_period" class="w-5 h-5 rounded-md border border-slate-300 bg-slate-100 flex items-center justify-center text-xs font-black transition-colors">✓</span>
+              <span id="checkBadge_period" class="w-5 h-5 rounded-md border border-slate-300 bg-slate-100 flex items-center justify-center text-xs font-black transition-colors shrink-0">✓</span>
               <span>2026년 9월~2027년 2월 활동 가능</span>
             </label>
           </div>
 
-          <div id="agreeCard_frequency" class="check-card p-3.5 flex items-center justify-between">
-            <label class="flex items-center gap-3 text-xs sm:text-sm font-semibold text-slate-800 cursor-pointer flex-1 select-none">
+          <div id="agreeCard_frequency" class="check-card p-3 sm:p-3.5 flex items-center justify-between">
+            <label class="flex items-center gap-2.5 sm:gap-3 text-xs sm:text-sm font-semibold text-slate-800 cursor-pointer flex-1 select-none">
               <input type="checkbox" id="agree_frequency" class="hidden">
-              <span id="checkBadge_frequency" class="w-5 h-5 rounded-md border border-slate-300 bg-slate-100 flex items-center justify-center text-xs font-black transition-colors">✓</span>
+              <span id="checkBadge_frequency" class="w-5 h-5 rounded-md border border-slate-300 bg-slate-100 flex items-center justify-center text-xs font-black transition-colors shrink-0">✓</span>
               <span>월 1~2회 정기 모임 참여 가능</span>
             </label>
           </div>
 
-          <div id="agreeCard_fee" class="check-card p-3.5 flex items-center justify-between">
-            <label class="flex items-center gap-3 text-xs sm:text-sm font-semibold text-slate-800 cursor-pointer flex-1 select-none">
+          <div id="agreeCard_fee" class="check-card p-3 sm:p-3.5 flex items-center justify-between">
+            <label class="flex items-center gap-2.5 sm:gap-3 text-xs sm:text-sm font-semibold text-slate-800 cursor-pointer flex-1 select-none">
               <input type="checkbox" id="agree_fee" class="hidden">
-              <span id="checkBadge_fee" class="w-5 h-5 rounded-md border border-slate-300 bg-slate-100 flex items-center justify-center text-xs font-black transition-colors">✓</span>
+              <span id="checkBadge_fee" class="w-5 h-5 rounded-md border border-slate-300 bg-slate-100 flex items-center justify-center text-xs font-black transition-colors shrink-0">✓</span>
               <span>활동비는 활동별 1/N</span>
             </label>
           </div>
 
-          <div id="agreeCard_purpose" class="check-card p-3.5 flex items-center justify-between">
-            <label class="flex items-center gap-3 text-xs sm:text-sm font-semibold text-slate-800 cursor-pointer flex-1 select-none">
+          <div id="agreeCard_purpose" class="check-card p-3 sm:p-3.5 flex items-center justify-between">
+            <label class="flex items-center gap-2.5 sm:gap-3 text-xs sm:text-sm font-semibold text-slate-800 cursor-pointer flex-1 select-none">
               <input type="checkbox" id="agree_purpose" class="hidden">
-              <span id="checkBadge_purpose" class="w-5 h-5 rounded-md border border-slate-300 bg-slate-100 flex items-center justify-center text-xs font-black transition-colors">✓</span>
+              <span id="checkBadge_purpose" class="w-5 h-5 rounded-md border border-slate-300 bg-slate-100 flex items-center justify-center text-xs font-black transition-colors shrink-0">✓</span>
               <span>특정 정치·종교·상업·포교 목적의 참여가 아님</span>
             </label>
           </div>
 
-          <div id="agreeCard_rules" class="check-card p-3.5 flex items-center justify-between">
-            <label class="flex items-center gap-3 text-xs sm:text-sm font-semibold text-slate-800 cursor-pointer flex-1 select-none">
+          <div id="agreeCard_rules" class="check-card p-3 sm:p-3.5 flex items-center justify-between">
+            <label class="flex items-center gap-2.5 sm:gap-3 text-xs sm:text-sm font-semibold text-slate-800 cursor-pointer flex-1 select-none">
               <input type="checkbox" id="agree_rules" class="hidden">
-              <span id="checkBadge_rules" class="w-5 h-5 rounded-md border border-slate-300 bg-slate-100 flex items-center justify-center text-xs font-black transition-colors">✓</span>
+              <span id="checkBadge_rules" class="w-5 h-5 rounded-md border border-slate-300 bg-slate-100 flex items-center justify-center text-xs font-black transition-colors shrink-0">✓</span>
               <span>운영 안내 및 유의사항을 확인함</span>
             </label>
           </div>
@@ -857,7 +865,7 @@
         <button 
           type="submit" 
           id="submitFormBtn"
-          class="cta-button w-full py-4 px-6 rounded-2xl text-white font-black text-base tracking-tight flex items-center justify-center gap-2 cursor-pointer"
+          class="cta-button w-full py-3.5 sm:py-4 px-6 rounded-2xl text-white font-black text-sm sm:text-base tracking-tight flex items-center justify-center gap-2 cursor-pointer"
         >
           <span>🍙</span>
           <span>타베마쇼 3기 지원서 제출하기</span>
@@ -876,32 +884,32 @@
   </section>
 
   <!-- ==================== Lightbox Modal with Next/Prev Navigation ==================== -->
-  <div id="lightboxModal" class="hidden fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/90 backdrop-blur-md">
+  <div id="lightboxModal" class="hidden fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 bg-black/92 backdrop-blur-md">
     <!-- Close Button -->
-    <button type="button" id="lightboxClose" class="absolute top-4 right-4 sm:top-6 sm:right-6 w-10 h-10 rounded-full bg-white/20 hover:bg-white/30 text-white flex items-center justify-center text-lg transition-colors cursor-pointer z-10">
+    <button type="button" id="lightboxClose" class="absolute top-3 right-3 sm:top-6 sm:right-6 w-10 h-10 rounded-full bg-white/20 hover:bg-white/30 text-white flex items-center justify-center text-lg transition-colors cursor-pointer z-20">
       ✕
     </button>
 
     <!-- Prev Button -->
-    <button type="button" id="lightboxPrev" class="absolute left-2 sm:left-6 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full bg-white/15 hover:bg-white/30 text-white flex items-center justify-center text-xl transition-all cursor-pointer z-10">
+    <button type="button" id="lightboxPrev" class="absolute left-2 sm:left-6 top-1/2 -translate-y-1/2 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-white/20 hover:bg-white/35 text-white flex items-center justify-center text-xl transition-all cursor-pointer z-20">
       ‹
     </button>
 
     <!-- Next Button -->
-    <button type="button" id="lightboxNext" class="absolute right-2 sm:right-6 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full bg-white/15 hover:bg-white/30 text-white flex items-center justify-center text-xl transition-all cursor-pointer z-10">
+    <button type="button" id="lightboxNext" class="absolute right-2 sm:right-6 top-1/2 -translate-y-1/2 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-white/20 hover:bg-white/35 text-white flex items-center justify-center text-xl transition-all cursor-pointer z-20">
       ›
     </button>
 
     <!-- Image & Caption Display -->
-    <div class="max-w-2xl w-full text-center select-none">
-      <img id="lightboxImg" src="" alt="확대 사진" class="max-h-[75vh] w-auto mx-auto rounded-2xl shadow-2xl object-contain border border-white/10">
-      <p id="lightboxCaption" class="text-white text-xs sm:text-sm font-medium mt-4 tracking-wide px-4"></p>
+    <div class="max-w-2xl w-full text-center select-none px-2">
+      <img id="lightboxImg" src="" alt="확대 사진" class="max-h-[65vh] sm:max-h-[75vh] w-auto mx-auto rounded-2xl shadow-2xl object-contain border border-white/10">
+      <p id="lightboxCaption" class="text-white text-xs sm:text-sm font-medium mt-3 sm:mt-4 tracking-wide px-2 sm:px-4 leading-relaxed"></p>
     </div>
   </div>
 
   <!-- ==================== Submission Success Modal ==================== -->
   <div id="successModal" class="hidden fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/50 backdrop-blur-md">
-    <div class="bento-card max-w-sm w-full p-6 sm:p-8 text-center bg-white relative animate-in fade-in zoom-in duration-200">
+    <div class="bento-card max-w-sm w-full p-5 sm:p-8 text-center bg-white relative animate-in fade-in zoom-in duration-200">
       <div class="w-12 h-12 mx-auto mb-3 rounded-full bg-rose-50 text-rose-600 flex items-center justify-center text-2xl font-black">
         🎉
       </div>
@@ -909,7 +917,7 @@
       <h3 class="text-xl font-black text-slate-900 mb-0.5 tracking-tight font-display">지원 완료</h3>
       <p class="text-xs font-bold text-rose-600 font-jp mb-4">ご応募ありがとうございます！</p>
 
-      <div class="bg-slate-50 rounded-2xl p-4 border border-slate-100 text-left text-xs text-slate-600 space-y-2 mb-5">
+      <div class="bg-slate-50 rounded-2xl p-3.5 sm:p-4 border border-slate-100 text-left text-xs text-slate-600 space-y-2 mb-5">
         <div class="flex justify-between items-center pb-2 border-b border-slate-200/60">
           <span class="text-slate-400">지원자</span>
           <span id="modalSummaryName" class="font-bold text-slate-900">-</span>
@@ -934,7 +942,7 @@
       <button 
         type="button" 
         id="modalCloseBtn" 
-        class="w-full py-3 px-4 rounded-xl bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs shadow transition-colors"
+        class="w-full py-3 px-4 rounded-xl bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs shadow transition-colors cursor-pointer"
       >
         확인
       </button>

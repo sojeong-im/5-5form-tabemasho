@@ -597,17 +597,19 @@ document.addEventListener('DOMContentLoaded', () => {
   function renderMatrix(container, days, times, prefix) {
     container.innerHTML = '';
     
+    const colClass = days.length === 5 ? 'grid-cols-6' : 'grid-cols-3';
+
     const headerRow = document.createElement('div');
-    headerRow.className = `grid grid-cols-${days.length + 1} gap-1.5 mb-1.5 text-center font-semibold text-xs text-slate-400`;
+    headerRow.className = `grid ${colClass} gap-1 sm:gap-1.5 mb-1.5 text-center font-semibold text-[10px] sm:text-xs text-slate-400`;
     headerRow.innerHTML = `<div></div>` + days.map(d => `<div class="bg-slate-100/80 rounded-md py-1 text-slate-700 font-bold">${d}</div>`).join('');
     container.appendChild(headerRow);
 
     times.forEach(t => {
       const row = document.createElement('div');
-      row.className = `grid grid-cols-${days.length + 1} gap-1.5 mb-1.5 items-center`;
+      row.className = `grid ${colClass} gap-1 sm:gap-1.5 mb-1.5 items-center`;
       
       const timeLabel = document.createElement('div');
-      timeLabel.className = 'text-[11px] font-medium text-slate-500 text-center py-1';
+      timeLabel.className = 'text-[9px] sm:text-[11px] font-medium text-slate-500 text-center py-1 leading-tight';
       timeLabel.innerText = t;
       row.appendChild(timeLabel);
 
