@@ -261,7 +261,7 @@ document.addEventListener('DOMContentLoaded', () => {
      ======================================================== */
   function updateProgress() {
     let completedSteps = 0;
-    const totalSteps = 12;
+    const totalSteps = 11;
 
     if (formData.name.trim()) completedSteps++;
     if (formData.birthYear) completedSteps++;
@@ -274,9 +274,6 @@ document.addEventListener('DOMContentLoaded', () => {
     if (formData.interest.trim()) completedSteps++;
     if (formData.activities.length > 0) completedSteps++;
     if (formData.timeSlots.length > 0) completedSteps++;
-    
-    const allAgreed = Object.values(formData.agreements).every(v => v === true);
-    if (allAgreed) completedSteps++;
 
     const percent = Math.round((completedSteps / totalSteps) * 100);
     
@@ -302,8 +299,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const ticketSchool = document.getElementById('ticketSchool');
     const ticketMeta = document.getElementById('ticketMeta');
     const ticketSubway = document.getElementById('ticketSubway');
-    const ticketPhoto = document.getElementById('ticketPhoto');
-    const ticketPhotoPlaceholder = document.getElementById('ticketPhotoPlaceholder');
     const ticketActivities = document.getElementById('ticketActivities');
 
     if (ticketName) {
@@ -331,18 +326,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (ticketSubway) {
       ticketSubway.innerText = formData.subway.trim() ? `🚇 ${formData.subway.trim()}` : '🚇 가까운 역';
-    }
-
-    if (ticketPhoto && ticketPhotoPlaceholder) {
-      if (formData.photoDataUrl) {
-        ticketPhoto.src = formData.photoDataUrl;
-        ticketPhoto.classList.remove('hidden');
-        ticketPhotoPlaceholder.classList.add('hidden');
-      } else {
-        ticketPhoto.src = '';
-        ticketPhoto.classList.add('hidden');
-        ticketPhotoPlaceholder.classList.remove('hidden');
-      }
     }
 
     if (ticketActivities) {
@@ -1019,14 +1002,9 @@ document.addEventListener('DOMContentLoaded', () => {
         // Populate Success Modal
         const summaryName = document.getElementById('modalSummaryName');
         const summaryDept = document.getElementById('modalSummaryDept');
-        const summaryPhoto = document.getElementById('modalSummaryPhoto');
 
         if (summaryName) summaryName.innerText = formData.name;
         if (summaryDept) summaryDept.innerText = `${formData.schoolDept} (${formData.birthYear}년생)`;
-        if (summaryPhoto && formData.photoDataUrl) {
-          summaryPhoto.src = formData.photoDataUrl;
-          summaryPhoto.parentElement.classList.remove('hidden');
-        }
 
         if (modal) {
           modal.classList.remove('hidden');

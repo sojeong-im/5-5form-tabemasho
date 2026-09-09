@@ -107,7 +107,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const tableBody = document.getElementById('tableBody');
     tableBody.innerHTML = `
       <tr>
-        <td colspan="8" class="text-center py-12 text-slate-400">
+        <td colspan="7" class="text-center py-12 text-slate-400">
           <div class="inline-block animate-spin mr-2">⏳</div> 파이어베이스에서 지원서를 불러오는 중입니다...
         </td>
       </tr>
@@ -141,7 +141,7 @@ document.addEventListener('DOMContentLoaded', () => {
       console.error("지원서 로드 오류:", err);
       tableBody.innerHTML = `
         <tr>
-          <td colspan="8" class="text-center py-12 text-rose-500 font-bold">
+          <td colspan="7" class="text-center py-12 text-rose-500 font-bold">
             데이터를 불러오는 중 오류가 발생했습니다: ${err.message}
           </td>
         </tr>
@@ -153,17 +153,14 @@ document.addEventListener('DOMContentLoaded', () => {
     const statTotal = document.getElementById('statTotal');
     const statMale = document.getElementById('statMale');
     const statFemale = document.getElementById('statFemale');
-    const statPhoto = document.getElementById('statPhoto');
 
     const total = applicants.length;
     const male = applicants.filter(a => a.gender === '남성').length;
     const female = applicants.filter(a => a.gender === '여성').length;
-    const photo = applicants.filter(a => !!a.photoDataUrl).length;
 
     if (statTotal) statTotal.innerText = total;
     if (statMale) statMale.innerText = male;
     if (statFemale) statFemale.innerText = female;
-    if (statPhoto) statPhoto.innerText = photo;
   }
 
   function filterAndRender() {
@@ -192,7 +189,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (list.length === 0) {
       tableBody.innerHTML = `
         <tr>
-          <td colspan="8" class="text-center py-12 text-slate-400">
+          <td colspan="7" class="text-center py-12 text-slate-400">
             ${applicants.length === 0 ? '접수된 지원서가 아직 없습니다. 🍙' : '검색 조건과 일치하는 지원자가 없습니다.'}
           </td>
         </tr>
@@ -205,10 +202,6 @@ document.addEventListener('DOMContentLoaded', () => {
         ? new Date(item.createdAt).toLocaleString('ko-KR', { month: 'numeric', day: 'numeric', hour: '2-digit', minute: '2-digit' })
         : '-';
 
-      const photoThumb = item.photoDataUrl
-        ? `<img src="${item.photoDataUrl}" alt="사진" class="w-8 h-8 rounded-lg object-cover border border-slate-200">`
-        : `<div class="w-8 h-8 rounded-lg bg-slate-100 flex items-center justify-center text-slate-400 font-bold text-[10px]">없음</div>`;
-
       const genderBadge = item.gender === '남성' 
         ? `<span class="text-sky-600 bg-sky-50 px-1.5 py-0.5 rounded text-[10px] font-bold">남</span>`
         : `<span class="text-rose-600 bg-rose-50 px-1.5 py-0.5 rounded text-[10px] font-bold">여</span>`;
@@ -220,7 +213,6 @@ document.addEventListener('DOMContentLoaded', () => {
       return `
         <tr class="hover:bg-slate-50/80 transition-colors">
           <td class="py-3 px-4 font-mono text-[11px] text-slate-500 whitespace-nowrap">${formattedDate}</td>
-          <td class="py-3 px-4">${photoThumb}</td>
           <td class="py-3 px-4">
             <div class="flex items-center gap-1.5 font-bold text-slate-900 text-sm">
               <span>${escapeHtml(item.name || '-')}</span>
@@ -268,8 +260,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function openDetailModal(item) {
     const detailModal = document.getElementById('detailModal');
-    const detailPhoto = document.getElementById('detailPhoto');
-    const detailPhotoPlaceholder = document.getElementById('detailPhotoPlaceholder');
     const detailName = document.getElementById('detailName');
     const detailGenderAge = document.getElementById('detailGenderAge');
     const detailSub = document.getElementById('detailSub');
@@ -280,16 +270,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const detailTimeSlots = document.getElementById('detailTimeSlots');
     const detailExpectations = document.getElementById('detailExpectations');
     const detailSubmittedAt = document.getElementById('detailSubmittedAt');
-
-    if (item.photoDataUrl) {
-      detailPhoto.src = item.photoDataUrl;
-      detailPhoto.classList.remove('hidden');
-      detailPhotoPlaceholder.classList.add('hidden');
-    } else {
-      detailPhoto.src = '';
-      detailPhoto.classList.add('hidden');
-      detailPhotoPlaceholder.classList.remove('hidden');
-    }
 
     detailName.innerText = item.name || '-';
     detailGenderAge.innerText = `${item.gender || '-'} · ${item.birthYear || '-'}년생`;
