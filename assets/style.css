@@ -509,4 +509,39 @@ body {
   box-shadow: 0 2px 8px rgba(15, 23, 42, 0.18);
 }
 
+/* ========================================================
+   Polaroid Photo Showcase & Washi Tape
+   ======================================================== */
+.polaroid-item {
+  background: #FFFFFF;
+  padding: 6px 6px 14px 6px;
+  border-radius: 12px;
+  border: 1px solid rgba(0, 0, 0, 0.07);
+  box-shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.08), 0 2px 6px rgba(0, 0, 0, 0.03);
+  transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+  position: relative;
+  cursor: pointer;
+  user-select: none;
+}
+
+.polaroid-item:hover {
+  transform: translateY(-8px) scale(1.06) rotate(0deg) !important;
+  box-shadow: 0 20px 35px -8px rgba(15, 23, 42, 0.16);
+  z-index: 20;
+}
+
+.washi-tape-strip {
+  position: absolute;
+  top: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 46px;
+  height: 16px;
+  background: rgba(244, 63, 94, 0.22);
+  border: 1px dashed rgba(244, 63, 94, 0.4);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+  z-index: 5;
+}
+
+
 
