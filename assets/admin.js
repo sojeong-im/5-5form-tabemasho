@@ -3,12 +3,13 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/10.13.0/fireba
 import { getFirestore, collection, getDocs, query, orderBy } from "https://www.gstatic.com/firebasejs/10.13.0/firebase-firestore.js";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyCEQLT23zRDt5t5-44nI4lGqLy55eNN2JY",
-  authDomain: "tabemasho-form.firebaseapp.com",
-  projectId: "tabemasho-form",
-  storageBucket: "tabemasho-form.firebasestorage.app",
-  messagingSenderId: "876938488409",
-  appId: "1:876938488409:web:d45c3c7f78c0667ae39f48"
+  apiKey: "AIzaSyAV6QSIzNvD4SQYamlHNTa66jXsxTzfjSM",
+  authDomain: "tabemasho-cbe9d.firebaseapp.com",
+  projectId: "tabemasho-cbe9d",
+  storageBucket: "tabemasho-cbe9d.firebasestorage.app",
+  messagingSenderId: "298551855831",
+  appId: "1:298551855831:web:80ad21924c2347704ffe92",
+  measurementId: "G-C65FP1PGL1"
 };
 
 const app = initializeApp(firebaseConfig);

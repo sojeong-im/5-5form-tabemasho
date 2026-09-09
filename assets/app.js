@@ -1,19 +1,22 @@
 // Tabemasho 3rd Gen Application Form - Portal View & Gallery Logic
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.13.0/firebase-app.js";
+import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.13.0/firebase-analytics.js";
 import { getFirestore, collection, addDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.13.0/firebase-firestore.js";
 
-// Firebase Configuration (tabemasho-form)
+// Firebase Configuration (tabemasho-cbe9d)
 const firebaseConfig = {
-  apiKey: "AIzaSyCEQLT23zRDt5t5-44nI4lGqLy55eNN2JY",
-  authDomain: "tabemasho-form.firebaseapp.com",
-  projectId: "tabemasho-form",
-  storageBucket: "tabemasho-form.firebasestorage.app",
-  messagingSenderId: "876938488409",
-  appId: "1:876938488409:web:d45c3c7f78c0667ae39f48"
+  apiKey: "AIzaSyAV6QSIzNvD4SQYamlHNTa66jXsxTzfjSM",
+  authDomain: "tabemasho-cbe9d.firebaseapp.com",
+  projectId: "tabemasho-cbe9d",
+  storageBucket: "tabemasho-cbe9d.firebasestorage.app",
+  messagingSenderId: "298551855831",
+  appId: "1:298551855831:web:80ad21924c2347704ffe92",
+  measurementId: "G-C65FP1PGL1"
 };
 
-// Initialize Firebase App and Cloud Firestore
+// Initialize Firebase App, Analytics & Cloud Firestore
 const app = initializeApp(firebaseConfig);
+try { getAnalytics(app); } catch (e) {}
 const db = getFirestore(app);
 
 document.addEventListener('DOMContentLoaded', () => {
