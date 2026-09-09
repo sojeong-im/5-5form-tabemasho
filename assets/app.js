@@ -288,7 +288,72 @@ document.addEventListener('DOMContentLoaded', () => {
     if (progressPercentText) progressPercentText.innerText = `${percent}%`;
     if (progressStepCount) progressStepCount.innerText = `${completedSteps}/${totalSteps}`;
 
+    // Update the Live Interactive Membership Ticket
+    updateLiveTicket();
+
     saveDraft();
+  }
+
+  /* ========================================================
+     1-1. Live Interactive Membership Ticket Logic
+     ======================================================== */
+  function updateLiveTicket() {
+    const ticketName = document.getElementById('ticketName');
+    const ticketSchool = document.getElementById('ticketSchool');
+    const ticketMeta = document.getElementById('ticketMeta');
+    const ticketSubway = document.getElementById('ticketSubway');
+    const ticketPhoto = document.getElementById('ticketPhoto');
+    const ticketPhotoPlaceholder = document.getElementById('ticketPhotoPlaceholder');
+    const ticketActivities = document.getElementById('ticketActivities');
+
+    if (ticketName) {
+      if (formData.name.trim()) {
+        ticketName.innerText = formData.name.trim();
+        ticketName.classList.remove('text-slate-300');
+        ticketName.classList.add('text-slate-900');
+      } else {
+        ticketName.innerText = '지원자 이름';
+        ticketName.classList.add('text-slate-300');
+        ticketName.classList.remove('text-slate-900');
+      }
+    }
+
+    if (ticketSchool) {
+      ticketSchool.innerText = formData.schoolDept.trim() || '학교 및 학과를 입력하세요';
+    }
+
+    if (ticketMeta) {
+      const g = formData.gender || '성별';
+      const y = formData.birthYear ? `${formData.birthYear}년생` : '연도';
+      const s = formData.status || '상태';
+      ticketMeta.innerText = `${g} • ${y} • ${s}`;
+    }
+
+    if (ticketSubway) {
+      ticketSubway.innerText = formData.subway.trim() ? `🚇 ${formData.subway.trim()}` : '🚇 가까운 역';
+    }
+
+    if (ticketPhoto && ticketPhotoPlaceholder) {
+      if (formData.photoDataUrl) {
+        ticketPhoto.src = formData.photoDataUrl;
+        ticketPhoto.classList.remove('hidden');
+        ticketPhotoPlaceholder.classList.add('hidden');
+      } else {
+        ticketPhoto.src = '';
+        ticketPhoto.classList.add('hidden');
+        ticketPhotoPlaceholder.classList.remove('hidden');
+      }
+    }
+
+    if (ticketActivities) {
+      if (formData.activities && formData.activities.length > 0) {
+        ticketActivities.innerHTML = formData.activities.map(act => 
+          `<span class="text-[10px] font-bold px-2 py-0.5 rounded-full bg-slate-900 text-white font-mono">#${act}</span>`
+        ).join('');
+      } else {
+        ticketActivities.innerHTML = `<span class="text-[11px] text-slate-400 italic">원서에서 희망 활동을 선택해주세요</span>`;
+      }
+    }
   }
 
   /* ========================================================
@@ -938,6 +1003,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Firestore 컬렉션 'tabemasho_applicants'에 문서 저장
         await addDoc(collection(db, "tabemasho_applicants"), applicantData);
+
+        // Stamp the Live Membership Pass with red Hanko ink!
+        const ticketStamp = document.getElementById('ticketStamp');
+        if (ticketStamp) {
+          ticketStamp.classList.add('stamped');
+          ticketStamp.innerHTML = `
+            <span class="text-[9px] tracking-widest font-black text-rose-700">受付完了</span>
+            <span class="text-[7px] font-jp font-bold text-rose-600">合格祈願</span>
+          `;
+        }
 
         triggerConfetti();
 
